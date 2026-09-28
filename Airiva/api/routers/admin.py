@@ -17,6 +17,7 @@ from supabase import Client
 from apix.api.auth import get_supabase_service_client, require_admin
 from apix.api.limiter import limiter
 from apix.api.schemas import (
+    CreateUserRequest,
     InviteUserRequest,
     ScrapeLogItem,
     ScrapeLogPage,
@@ -143,6 +144,70 @@ async def invite_user(
     return {
         "status": "ok",
         "message": f"Invitation sent to {body.email}",
+        "role": body.role,
+    }
+
+
+@router.post("/create-user", status_code=status.HTTP_201_CREATED)
+@limiter.limit("10/minute")
+async def create_user(
+    request: Request,
+    body: CreateUserRequest,
+    admin: Dict[str, Any] = Depends(require_admin),
+    client: Client = Depends(get_supabase_service_client),
+) -> Dict[str, Any]:
+    """
+    Directly create a user with email and password and assign role.
+    Only callable by an Administrator.
+    Sets email_confirm=True so the user can immediately log in without email confirmation.
+    """
+    try:
+        user_res = client.auth.admin.create_user({
+            "email": body.email,
+            "password": body.password,
+            "email_confirm": True,
+            "user_metadata": {"role": body.role},
+        })
+    except Exception as exc:
+        logger.error("Supabase user creation failed for %s: %s", body.email, exc)
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=f"Failed to create user: {str(exc)}",
+        ) from None
+
+    user_id = getattr(getattr(user_res, "user", None), "id", None)
+    if not user_id and isinstance(user_res, dict):
+        user_id = user_res.get("user", {}).get("id")
+
+    if user_id:
+        try:
+            client.table("profiles").upsert({
+                "id": str(user_id),
+                "email": body.email,
+                "role": body.role,
+            }).execute()
+        except Exception as exc:
+            logger.warning("Failed to initialize profile for created user %s: %s", body.email, exc)
+
+    # Write audit log entry
+    try:
+        audit_entry = {
+            "actor_id": admin["id"],
+            "action": "create_user",
+            "detail": {
+                "created_email": body.email,
+                "role": body.role,
+                "created_by": admin.get("email"),
+            },
+        }
+        client.table("audit_log").insert(audit_entry).execute()
+    except Exception as exc:
+        logger.error("Failed to write to audit_log for create-user: %s", exc)
+
+    return {
+        "status": "ok",
+        "message": f"User {body.email} created with role '{body.role}'",
+        "user_id": str(user_id) if user_id else None,
         "role": body.role,
     }
 

@@ -6,8 +6,9 @@
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%20%7C%203.12%20%7C%203.14-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115-green.svg)](https://fastapi.tiangolo.com/)
-[![SQLite / TimescaleDB](https://img.shields.io/badge/Database-SQLite%20%7C%20TimescaleDB-orange.svg)](https://www.sqlite.org/)
-[![Tests Passing](https://img.shields.io/badge/pytest-59%20passed%20%7C%20100%25-brightgreen.svg)](tests/)
+[![Database: Supabase](https://img.shields.io/badge/Database-Supabase%20PostgreSQL%20%7C%20RLS-3ECF8E.svg)](https://supabase.com/)
+[![Tests Passing](https://img.shields.io/badge/pytest-91%20passed%20%7C%20100%25-brightgreen.svg)](tests/)
+[![Docker Ready](https://img.shields.io/badge/Docker-Ready%20%7C%20Non--Root-blue.svg)](Dockerfile)
 [![DGCA Validated](https://img.shields.io/badge/DGCA%20Backtest-r%20%3D%200.941-teal.svg)](Airiva/backtest/)
 [![MoSPI CPI Validated](https://img.shields.io/badge/MoSPI%20CPI%20Benchmark-r%20%3D%200.929-blue.svg)](Airiva/backtest/)
 [![License: ODbL](https://img.shields.io/badge/Data%20License-ODbL-lightgrey.svg)](https://opendatacommons.org/licenses/odbl/)
@@ -22,13 +23,15 @@
 4. [End-to-End System Architecture](#end-to-end-system-architecture)
 5. [System Modules & Package Layout](#system-modules--package-layout)
 6. [Complete Data Inventory](#complete-data-inventory)
-7. [Dashboard Features & Page-by-Page Overview](#dashboard-features--page-by-page-overview)
-8. [Step-by-Step Running & Setup Guide](#step-by-step-running--setup-guide)
-9. [Running the Scraper Engine](#running-the-scraper-engine)
-10. [Automated Testing & Quality Verification](#automated-testing--quality-verification)
-11. [Running the Backtest & MoSPI CPI Benchmark Engine](#running-the-backtest--mospi-cpi-benchmark-engine)
-12. [REST API Documentation](#rest-api-documentation)
-13. [Troubleshooting & FAQs](#troubleshooting--faqs)
+7. [Supabase Database, Auth & Row Level Security (RLS)](#supabase-database-auth--row-level-security-rls)
+8. [Dashboard Features & Institutional Access Control](#dashboard-features--institutional-access-control)
+9. [Step-by-Step Running & Setup Guide](#step-by-step-running--setup-guide)
+10. [Running the Scraper Engine & Raw Storage Retention](#running-the-scraper-engine--raw-storage-retention)
+11. [Automated Testing & Quality Verification](#automated-testing--quality-verification)
+12. [Running the Backtest & MoSPI CPI Benchmark Engine](#running-the-backtest--mospi-cpi-benchmark-engine)
+13. [Hardened REST API Documentation](#hardened-rest-api-documentation)
+14. [Production Docker Deployment](#production-docker-deployment)
+15. [Troubleshooting & FAQs](#troubleshooting--faqs)
 
 ---
 
@@ -138,22 +141,24 @@ The pilot index monitors India's top 3 high-density domestic trunk corridors:
                           │   IndiGo │ Air India │ Akasa │ SpiceJet │ MakeMyTrip    │
                           │  • Network XHR / Fetch Response Interception            │
                           │  • robots.txt compliance & 2–8s polite jitter delays    │
-                          └────────────────────────────┬────────────────────────────┘
-                                                       │ Immutable Raw JSON
-                                                       ▼
+                          └───────────┬─────────────────────────────────┬───────────┘
+                                      │ Sanitized Raw JSON              │ Immutable Scrape JSON
+                                      ▼                                 ▼
+         ┌──────────────────────────────────────────────┐  ┌────────────────────────────────────────┐
+         │     PRIVATE SUPABASE STORAGE BUCKET          │  │       CLEANING & PIPELINE LAYER        │
+         │  • Bucket: "raw-scrapes"                     │  │  • Schema Normalization → FareRecord   │
+         │  • Stripped cookies, auth tokens, headers    │  │  • Right-Censoring: Retains sold-out   │
+         │  • Retention: scripts/purge_raw.py (>90d)    │  │  • IQR Outlier Filter per route-window │
+         └──────────────────────────────────────────────┘  │  • Deduplication: Direct over OTAs     │
+                                                           └────────────────────┬───────────────────┘
+                                                                                │ Cleaned Microdata
+                                                                                ▼
                           ┌─────────────────────────────────────────────────────────┐
-                          │               CLEANING & PIPELINE LAYER                 │
-                          │  • Schema Normalization → FareRecord                    │
-                          │  • Right-Censoring: Preserves sold-out flights          │
-                          │  • IQR Outlier Filter: Bounds check per route-window    │
-                          │  • Deduplication: Direct carrier priority over OTAs     │
-                          └────────────────────────────┬────────────────────────────┘
-                                                       │ Cleaned Microdata
-                                                       ▼
-                          ┌─────────────────────────────────────────────────────────┐
-                          │                   DATABASE STORAGE                      │
-                          │    SQLite (apix.db)  OR  TimescaleDB (PostgreSQL 16)    │
-                          │    Tables: fare_quotes, apix_daily, weekly, monthly     │
+                          │               SUPABASE POSTGRESQL + RLS                 │
+                          │  • Cloud: https://kaljpvfcqsmanximfldz.supabase.co      │
+                          │  • Tables: fare_quotes, index_values, cpi_official,     │
+                          │    profiles, scrape_log, audit_log                      │
+                          │  • Row Level Security: Guest / Analyst / Admin isolation│
                           └────────────────────────────┬────────────────────────────┘
                                                        │
                            ┌───────────────────────────┴───────────────────────────┐
@@ -168,16 +173,19 @@ The pilot index monitors India's top 3 high-density domestic trunk corridors:
                            └───────────────────────────┬───────────────────────────┘
                                                        ▼
                           ┌─────────────────────────────────────────────────────────┐
-                          │                  API & DISSEMINATION                    │
-                          │  • FastAPI REST Endpoints (/index/daily, /raw-quotes)   │
-                          │  • Standalone Node.js Development Server (scripts/serve)│
+                          │              HARDENED FASTAPI SERVICE (/v1)             │
+                          │  • Public: /v1/index/daily, /v1/index/weekly, /health   │
+                          │  • Analyst: /v1/quotes (Microdata, Stats, Corridors)    │
+                          │  • Admin: /v1/admin/trigger-scrape, create-user, logs   │
+                          │  • Security: Bearer JWT validation & Rate Limiting      │
+                          │  • Docker: Non-root containerized execution ($PORT)     │
                           └────────────────────────────┬────────────────────────────┘
                                                        ▼
                           ┌─────────────────────────────────────────────────────────┐
                           │               INSTITUTIONAL WEB DASHBOARD               │
-                          │  • 7 Dedicated Statistical Pages                        │
-                          │  • Role Switcher (Guest, Analyst, Admin/NSO)            │
-                          │  • Dark / Light Theme & Status Ticker Bar               │
+                          │  • Supabase JS Client with SUPABASE_ANON_KEY only       │
+                          │  • Server-Side RBAC (public.profiles verification)      │
+                          │  • Admin User Provisioning & Invite Console             │
                           │  • Interactive Chart.js & Printable MoSPI/RBI Bulletins │
                           └─────────────────────────────────────────────────────────┘
 ```
@@ -188,15 +196,16 @@ The pilot index monitors India's top 3 high-density domestic trunk corridors:
 
 | Module | Workspace Location | Purpose & Core Responsibility | Primary Files |
 |---|---|---|---|
-| **Core Package** | `Airiva/` *(aliased via `apix/`)* | Root application settings and Pydantic configuration | [config.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/config.py) |
-| **Scraper** | `Airiva/scraper/` | Headless Playwright XHR response interception & scheduler | [runner.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/scraper/runner.py), [base.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/scraper/base.py), [scheduler.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/scraper/scheduler.py) |
-| **Pipeline** | `Airiva/pipeline/` | Schema normalization, IQR outlier filter, deduplication & DB loader | [normalizer.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/pipeline/normalizer.py), [outlier_filter.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/pipeline/outlier_filter.py), [deduplicator.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/pipeline/deduplicator.py), [loader.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/pipeline/loader.py) |
+| **Core Package** | `Airiva/` *(aliased via `apix/`)* | Root application settings, Pydantic env config, and security rules | [config.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/config.py) |
+| **Scraper & Storage** | `Airiva/scraper/` | Playwright XHR scraper runner, robots.txt validator, and Supabase Storage manager | [runner.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/scraper/runner.py), [storage.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/scraper/storage.py), [base.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/scraper/base.py) |
+| **Pipeline** | `Airiva/pipeline/` | Schema normalization, IQR outlier filter, deduplication & Supabase UPSERT loader | [normalizer.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/pipeline/normalizer.py), [outlier_filter.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/pipeline/outlier_filter.py), [deduplicator.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/pipeline/deduplicator.py), [loader.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/pipeline/loader.py) |
 | **Index Engine** | `Airiva/index_engine/` | Superlative Törnqvist index calculations & geometric mean rollups | [tornqvist.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/index_engine/tornqvist.py), [weights.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/index_engine/weights.py), [aggregator.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/index_engine/aggregator.py), [runner.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/index_engine/runner.py) |
-| **Backtest** | `Airiva/backtest/` | Validates computed index against official DGCA monthly statistics | [dgca_parser.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/backtest/dgca_parser.py), [correlator.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/backtest/correlator.py), [report.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/backtest/report.py) |
-| **API** | `Airiva/api/` | FastAPI REST services, schemas, CORS, and routers | [main.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/api/main.py), [schemas.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/api/schemas.py), [routers/](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/api/routers) |
-| **Dashboard** | `Airiva/dashboard/` | 7-page institutional web interface, styles, and Chart.js logic | [index.html](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/dashboard/index.html), [style.css](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/dashboard/style.css), [app.js](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/dashboard/app.js) |
-| **Scripts** | `scripts/` | Standalone server, data file organizer, and DB schema init | [serve.js](file:///c:/Akriti%20IMP/Airline%20imp/scripts/serve.js), [organize_data.js](file:///c:/Akriti%20IMP/Airline%20imp/scripts/organize_data.js), [init_db.sql](file:///c:/Akriti%20IMP/Airline%20imp/scripts/init_db.sql) |
-| **Tests** | `tests/` | 59 automated unit and pipeline verification tests (100% pass) | [test_pipeline/](file:///c:/Akriti%20IMP/Airline%20imp/tests/test_pipeline), [test_index_engine/](file:///c:/Akriti%20IMP/Airline%20imp/tests/test_index_engine) |
+| **Backtest** | `Airiva/backtest/` | Validates computed index against official DGCA monthly statistics & MoSPI CPI | [dgca_parser.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/backtest/dgca_parser.py), [correlator.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/backtest/correlator.py), [cpi_benchmark.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/backtest/cpi_benchmark.py) |
+| **API** | `Airiva/api/` | Hardened FastAPI REST services (/v1), JWT Bearer auth, admin endpoints & limiter | [main.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/api/main.py), [auth.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/api/auth.py), [schemas.py](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/api/schemas.py), [routers/](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/api/routers) |
+| **Dashboard** | `Airiva/dashboard/` | Institutional web portal with real Supabase Auth, RBAC, Chart.js & Admin Console | [index.html](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/dashboard/index.html), [style.css](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/dashboard/style.css), [app.js](file:///c:/Akriti%20IMP/Airline%20imp/Airiva/dashboard/app.js) |
+| **Deployment** | Root | Production non-root Dockerfile, .dockerignore, pinned requirements | [Dockerfile](file:///c:/Akriti%20IMP/Airline%20imp/Dockerfile), [.dockerignore](file:///c:/Akriti%20IMP/Airline%20imp/.dockerignore), [requirements.txt](file:///c:/Akriti%20IMP/Airline%20imp/requirements.txt) |
+| **Scripts** | `scripts/` | RLS verification suite, raw scrape purge tool, standalone server, and CPI loader | [test_rls.py](file:///c:/Akriti%20IMP/Airline%20imp/scripts/test_rls.py), [purge_raw.py](file:///c:/Akriti%20IMP/Airline%20imp/scripts/purge_raw.py), [serve.js](file:///c:/Akriti%20IMP/Airline%20imp/scripts/serve.js) |
+| **Tests** | `tests/` | 91 automated unit, pipeline, security, storage, and deployment tests (100% pass) | [test_pipeline/](file:///c:/Akriti%20IMP/Airline%20imp/tests/test_pipeline), [test_api_security.py](file:///c:/Akriti%20IMP/Airline%20imp/tests/test_api_security.py), [test_raw_storage.py](file:///c:/Akriti%20IMP/Airline%20imp/tests/test_raw_storage.py) |
 
 > [!NOTE]
 > The source folder is `Airiva/`. A Windows directory junction `apix` links directly to `Airiva`, allowing both `import Airiva` and `from apix...` references to work interchangeably across all tools.
@@ -228,72 +237,61 @@ data/
 └── raw/                        # Raw immutable JSON scrape dumps (gitignored)
 ```
 
-- **Active SQLite Database**: `apix.db` in workspace root.
+- **Supabase Cloud PostgreSQL**: Production database (`https://kaljpvfcqsmanximfldz.supabase.co`).
+- **Active Local SQLite Fallback**: `apix.db` in workspace root for offline development.
 - **DGCA City-Pair Files**: Contain official passenger volume, freight, and flight departures.
 - **Form A Files**: Contain official capacity, revenue-passenger-kilometres (RPK), and airline operations.
 - **MoSPI CPI Airfare Series**: Official national statistical benchmark (item 07.3.3.1.2.01, base 2024=100, MoSPI eSankhyiki).
+- **Private Raw Scrape Storage**: Supabase Storage bucket `"raw-scrapes"` with automated sanitization.
 
 ---
 
-## Dashboard Features & Page-by-Page Overview
+## Supabase Database, Auth & Row Level Security (RLS)
+
+Airiva utilizes **Supabase PostgreSQL** with full **Row Level Security (RLS)** to enforce zero-trust data protection at the database engine level.
+
+### Database Tables & Roles
+- **`public.fare_quotes`**: Flight microdata quotes. Restricted by RLS: readable by authenticated Analysts and Admins; public/guest access is denied. Direct client inserts/updates/deletes are strictly revoked.
+- **`public.index_values`**: Daily, weekly, and monthly Törnqvist index calculations. Publicly readable by all users (including guests).
+- **`public.cpi_official`**: Official MoSPI benchmark series. Publicly readable.
+- **`public.profiles`**: Accredited user roles (`guest`, `analyst`, `admin`). Analysts can read only their own profile; Admins can read all profiles.
+- **`public.scrape_log`**: Detailed crawler telemetry, timings, record counts, and error dumps. Admin-only read.
+- **`public.audit_log`**: Administrative action logs (triggers, user invitations, provisioning). Admin-only read.
+
+### Zero Client-Side Secret Leakage
+- The browser dashboard uses `SUPABASE_ANON_KEY` only.
+- The `SUPABASE_SERVICE_ROLE_KEY` is never bundled, logged, or sent to client-side assets. It is strictly confined to Python backend services and pipeline loaders.
+- Real JWT Bearer tokens are validated server-side by FastAPI via `supabase.auth.get_user(jwt)`.
+
+---
+
+## Dashboard Features & Institutional Access Control
 
 The Airiva interface is structured as an institutional statistical portal modeled on central banks and national statistical bureaus (MoSPI, RBI, US BLS):
 
 ### Global Navigation Shell & Controls
 - **Brand Identity**: Monogram emblem "A", "Airiva" brand title, and "Airfare Price Index" subtitle.
-- **Role Switcher**:
-  - `Public / Guest`: Read-only index visualization and summary trends.
-  - `Analyst (Default)`: Full access to microdata tables, outlier flags, and CSV downloads.
-  - `Admin / NSO`: Simulation controls, live data streaming, and scraper management.
-- **Theme Toggle**: Switch between **Light Mode** (warm paper & ink), **Dark Mode** (deep slate & navy), or **Auto**.
-- **Status Ticker Bar**: Rotating live pulse feed showing last scrape timestamp, current Composite Index reading (`104.22`), MoM change (`+1.4%`), and active quotes count.
+- **Cryptographic Authentication & RBAC**:
+  - `Public / Guest`: Unauthenticated visitors can view Home, About, Real-Time Index visualizations, and summary aggregates. Microdata, heatmaps, and administration are hidden and protected by RLS.
+  - `Statistical Analyst`: Accredited economists and auditors (MoSPI / RBI) gain access to Flight Search microdata, city-pair fare intensity heatmaps, analytical reports, and raw quotes.
+  - `System Administrator`: Full console access to Scraper Trigger controls, live collection cycle dispatching, scrape execution telemetry, and User Provisioning.
+- **Admin User Provisioning**:
+  - Administrators can directly create and provision verified users with email, password, and assigned role (`analyst` or `admin`) via the System Console (`POST /v1/admin/create-user`).
+  - Self-registration is strictly restricted to prevent unvetted access to microdata.
+- **Theme Toggle**: Switch between **Light Mode** (warm paper & ink) and **Dark Mode** (deep slate & navy).
+- **Status Ticker Bar**: Live pulse feed showing last scrape timestamp, current Composite Index reading (`104.22`), MoM change (`+1.4%`), and active quotes count.
 
-### Page 1: Home (Institutional Overview)
-- Ambient visual hero section with Source Serif 4 typography.
-- Eyebrow tag: `● Official Statistical Prototype · MoSPI & RBI Methodology`.
-- Prominent CTA button: `View Live Index →`.
-- Overview cards summarizing the live index reading, pilot corridor shares, daily collection frequency, and econometric de-biasing.
-
-### Page 2: About Airfare CPI (Methodology & Rationale)
-- Economic rationale contrasting static consumer goods with dynamic yield algorithms.
-- Mathematical derivation of the superlative Törnqvist formula over Laspeyres/Paasche.
-- DGCA Table 4.3 corridor weighting matrix table (DEL-BOM 37.0%, DEL-BLR 35.5%, BOM-BLR 27.5%).
-- Explanation of right-censoring retention (preventing survivor bias) and dual T+7 / T+30 sampling.
-
-### Page 3: Real-Time Price Index (Core Cockpit)
-- **Onboarding Banner**: 3-step walkthrough introducing the cockpit features.
-- **Interactive Filter Sidebar**:
-  - Corridor selection buttons (ALL, DEL-BOM, DEL-BLR, BOM-BLR).
-  - Interactive clickable India route map.
-  - Airline carrier checkboxes (IndiGo, Air India, Akasa Air, SpiceJet, MakeMyTrip).
-  - Advance purchase horizon toggle (ALL, T+7, T+30).
-  - Live data feed stream toggle.
-- **KPI Summary Cards**: Composite Index value, Month-over-Month trend, Median Fare (INR), and Active Quotes count.
-- **Primary Time-Series Chart**: Multi-line Chart.js visualization with interval zoom toggles (30D, 60D, 90D, All).
-- **Secondary Visualizations**: Sector lead-time price spread bar chart and route volatility metrics.
-- **Microdata Table**: Shows flight quotes with sold-out rows right-censored at 45% opacity, gold outlier badges, and direct-vs-OTA indicators.
-
-### Page 4: Flight Search & Raw Microdata (Audit View)
-- Multi-parameter filter grid: Corridor, Carrier, Advance Horizon, and text query (flight number / fare class).
-- Microdata results table displaying base fares, statutory GST/taxes, total fares, seat status, and econometric tags.
-- Direct CSV export for filtered records.
-
-### Page 5: City-Pair Advance-Window Heatmaps
-- Interactive fare intensity matrix from 60 days out down to 1 day before departure.
-- Color ramp showing fare escalation from baseline ₹3,380 to peak close-in ₹6,950.
-- Macroeconomic callout highlighting that close-in T+1 to T+3 tickets carry an average +48.2% surge premium over baseline.
-
-### Page 6: Reports & Data Export
-- 4 primary download actions:
-  1. **Daily Price Index (CSV)**: 60-day historical time-series.
-  2. **Raw Quotes Microdata (CSV)**: 90 calibrated fare quotes with complete audit tags.
-  3. **Print Official MoSPI / RBI Bulletin (PDF)**: High-resolution printer-friendly layout with Government of India statistical headers.
-  4. **JSON API Time-Series**: Full JSON dump matching `/index/daily`.
-- **DGCA Historical Backtest Summary Box**: Demonstrates 20-month validation with Pearson $r = 0.941$ and Spearman $\rho = 0.918$.
-
-### Page 7: REST API Documentation & Interactive Console
-- Interactive endpoint test console with "Test Endpoint" buttons and live formatted JSON viewers.
-- Full parameter tables for `/index/daily`, `/index/weekly`, `/index/monthly`, `/raw-quotes`, and `/health`.
+### Page Breakdown
+- **Page 1: Home (Institutional Overview)**: Hero statistics, national pilot corridor shares, and live index readings.
+- **Page 2: About Airfare CPI (Methodology & Rationale)**: Mathematical derivation of the superlative Törnqvist formula, right-censoring retention, and DGCA Table 4.3 corridor weights.
+- **Page 3: Real-Time Price Index (Cockpit)**: Multi-line Chart.js time-series, corridor zoom toggles, interactive route map, and MoSPI CPI overlay.
+- **Page 4: Flight Search & Raw Microdata (Analyst & Admin)**: Multi-parameter query filter, right-censored sold-out indicators, and CSV exports.
+- **Page 5: City-Pair Advance-Window Heatmaps (Analyst & Admin)**: Fare intensity matrix tracking lead times from T+60 to T+1.
+- **Page 6: Reports & Data Export (Analyst & Admin)**: High-resolution printable MoSPI / RBI statistical bulletins and CSV downloads.
+- **Page 7: REST API Documentation**: Interactive endpoint console and schemas.
+- **Page 8: Data Sources & Compliance (Admin Only)**: System status, robots.txt compliance rules, and corridor weights.
+- **Page 9: Scraper Control & User Management (Admin Only)**: Live scraper dispatch triggers, collection logs, and user provisioning console.
+- **Page 10: Institutional Sign In**: Secure Supabase email + password authentication with MFA verification support.
 
 ---
 
@@ -362,8 +360,20 @@ python -m apix.scraper.runner --single-run --source indigo --route DEL-BOM --win
 python -m apix.scraper.runner
 ```
 
+python -m apix.scraper.runner
+```
+
+### Raw Scrape Storage & Data Sanitization
+- **Supabase Private Storage Bucket**: All raw JSON payloads from carrier and OTA scrapers are uploaded to the private `"raw-scrapes"` bucket (`{source}/{YYYY-MM-DD}/{route}_{window}d.json`) using the service-role client.
+- **Privacy & Token Sanitization**: Personal data, cookies, authentication headers, and session tokens are stripped prior to storage.
+- **Local Dev Copy**: Local files in `data/raw/` are preserved only when `APP_ENV=development`.
+- **Automated Retention Purge**: Delete files older than 90 days across local directories and Supabase Storage:
+  ```powershell
+  python scripts/purge_raw.py --days 90
+  ```
+
 > [!TIP]
-> All scrapers obey a 2–8 second polite jitter delay, randomize User-Agent headers, log immutable JSON payloads to `data/raw/`, and adhere to the guidelines documented in [docs/ethical_scraping_policy.md](file:///c:/Akriti%20IMP/Airline%20imp/docs/ethical_scraping_policy.md).
+> All scrapers obey a 2–8 second polite jitter delay, randomize User-Agent headers, check robots.txt prior to scraping, and adhere to [docs/ethical_scraping_policy.md](file:///c:/Akriti%20IMP/Airline%20imp/docs/ethical_scraping_policy.md).
 
 ---
 
@@ -374,19 +384,33 @@ Run the test suite using `pytest`:
 ```powershell
 cd "c:\Akriti IMP\Airline imp"
 
-# Run all 59 tests
+# Run all 91 automated tests
 python -m pytest
 
-# Run with verbose output and HTML coverage report
-python -m pytest -v --cov=Airiva --cov-report=term-missing --cov-report=html:htmlcov
+# Run with verbose output and coverage report
+python -m pytest -v --cov=Airiva --cov-report=term-missing
 ```
 
 **Verification Results:**
-- **59 passed in ~3.0s (100% pass rate)**.
+- **91 passed (100% pass rate)**.
 - **Pipeline Normalizer**: Tests XHR normalization for IndiGo, Air India, MakeMyTrip, and sold-out edge cases.
 - **IQR Outlier Filter**: Validates upper/lower bound clipping and guarantees quotes are flagged rather than dropped.
 - **Deduplication**: Validates flight-number matching, ensuring cheapest direct quote is preserved over OTA markups.
 - **Törnqvist Engine**: Validates base period normalization (=100), log-change additivity, sample weighting, and rollups.
+- **API Security & RBAC**: Validates token authentication, role extraction from `profiles`, endpoint permission barriers, rate limiting, and CORS headers.
+- **Raw Storage**: Validates sensitive header/cookie stripping, privacy redaction, and 90-day retention purging.
+- **Production Deployment Config**: Validates environment loading from `.env`, fail-fast on missing keys, and no secret leakage.
+
+### Row Level Security (RLS) Verification
+Prove database security rules using the browser-facing `SUPABASE_ANON_KEY`:
+```powershell
+python scripts/test_rls.py
+```
+Checks and verifies 22 distinct permission assertions:
+- `GUEST`: Can read `index_values`, `routes`, `cpi_official`; cannot read `fare_quotes`, `scrape_log`, `audit_log`, `profiles`.
+- `ANALYST`: Can read `fare_quotes` and `dgca_monthly_avg`; cannot read `scrape_log` or `audit_log`; reads only their own profile row.
+- `ADMIN`: Can read `scrape_log`, `audit_log`, and all `profiles`.
+- `WRITES`: Direct table inserts/updates/deletes from client roles fail unconditionally.
 
 ---
 
@@ -408,43 +432,72 @@ python -m apix.backtest.report
 Benchmarks the APIx monthly index against the official National Statistical Office CPI Airfare index:
 
 ```powershell
-# Step A: Ingest and clean the official MoSPI workbook (outputs clean CSV & upserts SQLite/Supabase):
+# Step A: Ingest and clean the official MoSPI workbook:
 python scripts/load_cpi_official.py --xlsx data/cpi/cpi_1413.xlsx
 
-# Step B: Run the benchmark comparison module (Demo test mode):
+# Step B: Run the benchmark comparison module:
 python -m apix.backtest.cpi_benchmark --cpi-csv data/cpi/cpi_airfare_clean.csv --demo
-
-# Or run against active SQLite database / custom monthly series:
-python -m apix.backtest.cpi_benchmark --cpi-csv data/cpi/cpi_airfare_clean.csv --db
 ```
-Writes validation report to: `data/benchmark/cpi_benchmark.json`.
-
-**Methodological Guidelines & Honest Statistical Limits:**
-- **Bases Differ**: MoSPI CPI base 2024=100; APIx base launch=100.00. Compare Month-over-Month (MoM) % changes and rebased levels, **never raw index levels**.
-- **Overlap Thresholds**: Minimum 3 overlapping months required to report direction agreement; minimum 7 overlapping months required for Pearson/Spearman MoM correlation.
-- **Imputed Data**: 68 imputed rows flagged by MoSPI are excluded to prevent synthetic distortion.
-- **Regional Context**: State-level series provide qualitative context (DEL → NCT of Delhi, BOM → Maharashtra, BLR → Karnataka).
-- **Dashboard Overlay**: View the official monthly stepped curve overlaid onto the daily APIx trend on Page 3 by clicking `📊 MoSPI CPI Overlay`, or inspect the comprehensive validation card on Page 6.
-- **Official Citation**: *Ministry of Statistics & Programme Implementation (MoSPI), eSankhyiki*.
+Validation report: `data/benchmark/cpi_benchmark.json`.
 
 ---
 
-## REST API Documentation
+## Hardened REST API Documentation
 
-When running FastAPI (`uvicorn apix.api.main:app`), the following endpoints are available:
+FastAPI runs with prefix `/v1`, server-side JWT verification, and strict rate limits:
 
-| Method | Endpoint | Query Parameters | Description |
-|:---:|:---|:---|:---|
-| `GET` | `/index/daily` | `days` *(int, default=30)* | Time-series daily composite index and corridor sub-indices |
-| `GET` | `/index/weekly` | None | Weekly geometric rollup records |
-| `GET` | `/index/monthly` | None | Monthly geometric rollup records |
-| `GET` | `/index/route/{pair}` | `pair` *(e.g. `DEL-BOM`, `DEL-BLR`)* | Route-specific index history |
-| `GET` | `/raw-quotes` | `origin`, `destination`, `carrier`, `limit`, `offset` | Filterable, paginated microdata quotes table |
-| `GET` | `/raw-quotes/stats` | None | Aggregated count, median fare, and outlier stats |
-| `GET` | `/benchmark/cpi` | None | Official MoSPI CPI airfare benchmark comparison data and MoM correlation metrics |
-| `GET` | `/health` | None | System health check and database connectivity diagnostic |
-| `GET` | `/docs` | None | Interactive Swagger UI API documentation |
-| `GET` | `/redoc` | None | Interactive ReDoc API documentation |
+| Method | Endpoint | Authorization | Description |
+|:---:|:---|:---:|:---|
+| `GET` | `/health` | Public | Platform health check (`{"status": "ok"}`) |
+| `GET` | `/v1/index/daily` | Public | Time-series daily composite index and corridor sub-indices |
+| `GET` | `/v1/index/weekly` | Public | Weekly geometric rollup records |
+| `GET` | `/v1/index/monthly` | Public | Monthly geometric rollup records |
+| `GET` | `/v1/index/route/{pair}` | Public | Route-specific index history |
+| `GET` | `/v1/quotes` | Analyst / Admin | Filterable, paginated microdata quotes table |
+| `GET` | `/v1/quotes/stats` | Analyst / Admin | Aggregated count, median fare, and outlier stats |
+| `GET` | `/v1/quotes/corridor/{pair}` | Analyst / Admin | Corridor-specific flight quotes |
+| `POST` | `/v1/admin/trigger-scrape` | Admin Only | Dispatch scrape cycle for configured sources |
+| `POST` | `/v1/admin/create-user` | Admin Only | Directly provision user with email, password & role |
+| `POST` | `/v1/admin/invite-user` | Admin Only | Invite user via Supabase Auth Admin |
+| `GET` | `/v1/admin/scrape-log` | Admin Only | Paginated crawler telemetry and execution logs |
+| `GET` | `/docs` | Public | Interactive Swagger UI API documentation |
+| `GET` | `/redoc` | Public | Interactive ReDoc API documentation |
+
+---
+
+## Production Docker Deployment
+
+Airiva includes a hardened container build using `python:3.12-slim` configured for non-root execution:
+
+### 1. Build the Docker Image
+```bash
+docker build -t airiva-api:latest .
+```
+
+### 2. Run Container with Environment Variables
+```bash
+docker run -d \
+  -p 8000:8000 \
+  -e PORT=8000 \
+  -e APP_ENV=production \
+  -e SUPABASE_URL=https://kaljpvfcqsmanximfldz.supabase.co \
+  -e SUPABASE_SERVICE_ROLE_KEY=your_service_role_key \
+  -e ALLOWED_ORIGINS="http://localhost:3000,http://127.0.0.1:3000" \
+  --name airiva-service \
+  airiva-api:latest
+```
+
+### 3. Check Platform Health
+```bash
+curl http://localhost:8000/health
+# Response: {"status":"ok"}
+```
+
+**Security Features in Container:**
+- Runs as non-root user `appuser` (UID 10001).
+- Does not bundle Playwright/Chromium in the API deployment container.
+- Excludes sensitive files via [.dockerignore](file:///c:/Akriti%20IMP/Airline%20imp/.dockerignore) (`.env`, `.git`, `tests/`, `htmlcov/`, `data/raw/`).
+- Dynamically respects the cloud provider `$PORT` variable.
 
 ---
 
@@ -459,21 +512,14 @@ cmd /c "mklink /J apix Airiva"
 ### Q: Port 8000 is already in use
 **A**: Launch the server on an alternate port:
 ```powershell
-# For Node server:
-$env:PORT="8080"; node scripts/serve.js
-
-# For FastAPI:
 uvicorn apix.api.main:app --port 8080 --reload
 ```
 
-### Q: Do I need Docker or PostgreSQL to run the project?
-**A**: No. Docker is completely optional. Airiva includes full support for SQLite (`apix.db`), which runs out of the box on Windows without installing any external database software.
+### Q: Supabase login returns 400 Bad Request
+**A**: An HTTP 400 (`invalid_grant`) occurs when entering credentials that do not match Supabase Auth records. Ensure the account exists in Supabase or has been provisioned by an Administrator in the Admin Console.
 
-### Q: How do I organize new DGCA Excel downloads?
-**A**: Run the automated sorting tool:
-```powershell
-node scripts/organize_data.js
-```
+### Q: How do I provision a new team member?
+**A**: Log in with Administrator credentials, navigate to **System Console -> User Management**, and enter the new user's email, password, and assigned role (`analyst` or `admin`).
 
 ---
 

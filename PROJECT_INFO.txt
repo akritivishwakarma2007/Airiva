@@ -21,11 +21,12 @@ TABLE OF CONTENTS
  7. Macroeconomic, Regulatory & Consumer Impact
  8. Resources & Infrastructure Requirements
  9. Complete Datasets & Data Inventory
-10. Page-by-Page Project Breakdown (All 7 Views & Components)
-11. Structure & Flow of the Project (Data & Control Flow)
-12. Comprehensive Running Setup Guide (All Modes & CLI)
-13. Quality Verification, Testing & Validation
-14. Troubleshooting & Operational FAQs
+10. Page-by-Page Project Breakdown (All 10 Views & Components)
+11. Comprehensive Authentication, Authorization & Security Architecture
+12. Structure & Flow of the Project (Data & Control Flow)
+13. Comprehensive Running Setup Guide (All Modes & CLI)
+14. Quality Verification, Testing & Validation
+15. Troubleshooting & Operational FAQs
 
 
 ================================================================================
@@ -184,7 +185,11 @@ of six discrete functional modules:
   - Compliance: Strictly checks robots.txt before execution, applies randomized 
     polite delays (2 to 8 seconds jitter), rotates browser User-Agents, and halts 
     immediately if CAPTCHA or blocking is detected.
-  - Persistence: Dumps immutable raw JSON payloads to data/raw/{source}/{date}/.
+  - Storage & Sanitization: Uploads raw sanitized JSON payloads to the private Supabase 
+    Storage bucket "raw-scrapes" ({source}/{date}/{route}_{window}d.json) using the 
+    service-role client. Strips sensitive request headers, auth tokens, and cookies 
+    prior to persistence. Local data/raw/ copies are kept only when APP_ENV=development.
+  - Automated Retention: Automated purging of files older than 90 days via `scripts/purge_raw.py`.
 
 [Module 2: Cleaning & Ingestion Pipeline] (Directory: Airiva/pipeline/)
   - Normalization: Maps divergent airline XHR schemas into a unified, strongly-typed 
@@ -192,15 +197,16 @@ of six discrete functional modules:
   - Censoring Engine: Identifies zero-seat availability flags and applies right-censoring.
   - Statistical Filter: Evaluates IQR boundaries within route-window cells.
   - Deduplicator: Resolves duplicate direct vs. OTA listings.
-  - Database Loader: Asynchronously upserts cleaned records into SQLite (`apix.db`) 
-    or PostgreSQL / TimescaleDB via SQLAlchemy and AsyncSession.
+  - Supabase Loader: Upserts cleaned records into Supabase `public.fare_quotes` 
+    (with fallback to local SQLite) using batch chunks of 500 rows with conflict 
+    resolution on (source, flight_number, travel_date, fare_class, advance_days, scrape_date).
+  - Telemetry: Records attempt status, records collected, and errors in `public.scrape_log`.
 
 [Module 3: Index Engine] (Directory: Airiva/index_engine/)
-  - Weights Loader: Reads official DGCA Table 4.3 corridor weights from CSV.
+  - Weights Loader: Reads official DGCA Table 4.3 corridor weights from Supabase/CSV.
   - Törnqvist Calculator: Computes logarithmic price ratios and corridor sub-indices.
   - Rollup Aggregator: Computes weekly and monthly geometric mean index values.
-  - Persistence: Stores daily composite values in `apix_daily`, weekly rollups in 
-    `apix_weekly`, and monthly statistics in `apix_monthly`.
+  - Persistence: Stores daily composite values in `index_values` (daily, weekly, monthly).
 
 [Module 4: Backtest & Validation Engine] (Directory: Airiva/backtest/)
   - Government Parser: Ingests official DGCA Civil Aviation Statistics monthly reports 
@@ -208,34 +214,47 @@ of six discrete functional modules:
   - Econometric Correlator: Calculates Pearson correlation coefficient (r), Spearman 
     rank correlation (rho), and Mean Absolute Error (MAE).
   - Validation Benchmark: Confirms empirical tracking accuracy (Pearson r = 0.941).
+  - MoSPI CPI Benchmark: Evaluates monthly index concordance against official MoSPI CPI Airfare.
 
-[Module 5: REST API Services] (Directory: Airiva/api/)
-  - Framework: FastAPI with Uvicorn ASGI server.
+[Module 5: Hardened REST API Services] (Directory: Airiva/api/)
+  - Framework: FastAPI with Uvicorn ASGI server under `/v1` route prefix.
+  - Authentication: Supabase JWT Bearer token validation with server-side role lookup 
+    from `public.profiles`. Zero trust of client-declared roles.
+  - Rate Limiting: SlowAPI IP-based rate limiting (60/min public, 10/min administrative).
   - Endpoints:
-      * GET /index/daily: Historical daily composite and corridor sub-indices.
-      * GET /index/weekly: Weekly geometric mean rollups.
-      * GET /index/monthly: Monthly index rollups.
-      * GET /index/route/{pair}: Corridor-specific sub-index history.
-      * GET /raw-quotes: Filterable, paginated microdata quotes table.
-      * GET /raw-quotes/stats: Summary metrics, quote counts, and outlier rates.
-      * GET /health: Database connectivity and system diagnostic check.
+      * GET /health: Public platform health check.
+      * GET /v1/index/daily: Historical daily composite and corridor sub-indices.
+      * GET /v1/index/weekly: Weekly geometric mean rollups.
+      * GET /v1/index/monthly: Monthly index rollups.
+      * GET /v1/index/route/{pair}: Corridor-specific sub-index history.
+      * GET /v1/quotes: Filterable, paginated microdata quotes table (Analyst / Admin).
+      * GET /v1/quotes/stats: Summary metrics, quote counts, and outlier rates.
+      * POST /v1/admin/trigger-scrape: Dispatches scraper run for enabled sources (Admin only).
+      * POST /v1/admin/create-user: Direct user provisioning with password and role (Admin only).
+      * POST /v1/admin/invite-user: Invites user via Supabase Auth Admin (Admin only).
+      * GET /v1/admin/scrape-log: Paginated collection telemetry and execution logs.
   - Documentation: Interactive Swagger UI at /docs and ReDoc at /redoc.
 
 [Module 6: Web Dashboard & Visual Analytics] (Directory: Airiva/dashboard/)
   - Architecture: Lightweight, zero-build HTML5, Vanilla CSS design tokens, and ES6 JS.
-  - Design Philosophy: Restrained institutional aesthetic modeled on central banks 
-    and national statistical bureaus (MoSPI, RBI, US BLS).
-  - Multi-Page Navigation: Seamless client-side tab routing across 7 distinct pages.
+  - Supabase Auth: Uses Supabase JS Client with `SUPABASE_ANON_KEY` only.
+  - Access Control: Role-based navigation based on verified `public.profiles` role.
+  - User Provisioning: Built-in Administrator Console for adding & provisioning team accounts.
   - Responsive Visualization: Chart.js interactive time-series, lead-time bar charts, 
     fare heatmaps, and microdata tables.
-  - Standalone Dev Server: Zero-dependency Node.js server (`scripts/serve.js`).
+
+[Module 7: Production Containerization & Deployment] (Root: Dockerfile, .dockerignore)
+  - Base Image: python:3.12-slim
+  - Security: Executes as non-root user `appuser` (UID 10001)
+  - Excluded Assets: Excludes Playwright/Chromium, .env, .git, tests, data/raw, and coverage reports.
+  - Environment: Dynamically binds to cloud platform $PORT.
 
 
 ================================================================================
 5. COMPLETE TECHNOLOGY STACK
 ================================================================================
 Frontend:
-  - Markup: Semantic HTML5 with accessibility ARIA tags
+  - Markup: Semantic HTML5 with accessibility ARIA tags and Content Security Policy (CSP)
   - Styling: Vanilla CSS3 utilizing custom properties (tokens), responsive flex/grid, 
     light and dark mode support, and glassmorphic elevations
   - Typography: 
@@ -243,32 +262,36 @@ Frontend:
       * Inter (clean modern UI labels and text)
       * Source Serif 4 (editorial hero display headline)
   - Data Visualizations: Chart.js v4.4.4 (Canvas-based time-series and bar charts)
+  - Authentication: Supabase JS Client v2 (pinned, uses SUPABASE_ANON_KEY only)
   - Server Mode: Zero-dependency Node.js HTTP server (`scripts/serve.js`)
 
 Backend & Pipeline:
   - Language: Python 3.11 / 3.12 / 3.14
   - Web Framework: FastAPI (v0.115+)
   - ASGI Server: Uvicorn
-  - Data Validation: Pydantic v2
-  - Database ORM: SQLAlchemy v2 (asyncio support)
-  - Database Drivers: aiosqlite (for SQLite) & asyncpg (for PostgreSQL/TimescaleDB)
-  - Task Scheduler: APScheduler v3 (automated 02:00 AM IST daily runs)
+  - Settings: Pydantic-Settings (strict environment variable loading)
+  - Rate Limiting: SlowAPI
+  - Database Client: Supabase Python SDK (Supabase PostgREST & Auth Admin)
+  - Local Database ORM: SQLAlchemy v2 (asyncio support with aiosqlite fallback)
+  - Task Scheduler: APScheduler v3 (automated daily runs)
 
 Browser Automation & Ingestion:
   - Automation Framework: Playwright (Chromium headless)
   - Protocol: Network XHR / Fetch event listener (`page.on('response', ...)`)
   - Request Politeness: Random uniform jitter delays (2.0s to 8.0s), header randomization
+  - Storage: Supabase Storage ("raw-scrapes" private bucket) with automated privacy stripping
 
 Data Science & Econometrics:
   - Numerical Processing: NumPy & Pandas
   - Statistical Modeling: SciPy (Pearson correlation, Spearman rank, IQR calculations)
   - PDF Ingestion: camelot-py & pdfplumber (parsing DGCA statistics handbooks)
 
-Databases & Storage:
-  - Default Local Database: SQLite (`apix.db`) — zero-configuration embedded DB
-  - Enterprise Time-Series Database: TimescaleDB (PostgreSQL 16 extension) with 
-    automated 7-day chunk hypertable partitioning
-  - Containerization: Docker Compose (`docker-compose.yml`)
+Databases & Cloud Infrastructure:
+  - Cloud Database: Supabase PostgreSQL (https://kaljpvfcqsmanximfldz.supabase.co)
+    with Row Level Security (RLS) policies on all tables
+  - Cloud Storage: Supabase Private Storage ("raw-scrapes")
+  - Local Embedded Database: SQLite (`apix.db`) for offline development
+  - Containerization: Production Dockerfile (python:3.12-slim, non-root user, $PORT)
 
 
 ================================================================================
@@ -423,11 +446,11 @@ All datasets are organized within the workspace directory: `c:\Akriti IMP\Airlin
 
 
 ================================================================================
-10. PAGE-BY-PAGE PROJECT BREAKDOWN (ALL 7 VIEWS & COMPONENTS)
+10. PAGE-BY-PAGE PROJECT BREAKDOWN (ALL 10 VIEWS & COMPONENTS)
 ================================================================================
 The Airiva user interface is structured as an institutional statistical portal 
 featuring a persistent global shell, a real-time status ticker, an interactive 
-onboarding walkthrough, and seven distinct specialized views:
+onboarding walkthrough, and ten distinct specialized views:
 
 --------------------------------------------------------------------------------
 GLOBAL SHELL & NAVIGATION BAR (Persistent Across All Pages)
@@ -438,15 +461,17 @@ GLOBAL SHELL & NAVIGATION BAR (Persistent Across All Pages)
     * Home (page-home)
     * About Airfare CPI (page-about)
     * Real-Time Price Index (page-index) [Highlighted with gold indicator]
-    * Flight Search (page-search)
-    * City-Pair Heatmaps (page-heatmaps)
-    * Reports & Data Export (page-reports)
+    * Flight Search (page-search) [Analyst / Admin only]
+    * City-Pair Heatmaps (page-heatmaps) [Analyst / Admin only]
+    * Reports & Data Export (page-reports) [Analyst / Admin only]
     * API Documentation (page-api)
-- Role Switcher Dropdown:
-    * Public / Guest: Standard read-only index viewing.
-    * Analyst (Default): Access to econometric parameters, outlier tags, and CSV exports.
-    * Admin / NSO: Full administrative simulation, scraping triggers, and data reload.
-- Theme Toggle Button: Seamlessly switches between Light Mode, Dark Mode, and Auto.
+    * Data Sources & Compliance (page-compliance) [Admin only]
+    * System Console (page-admin) [Admin only]
+- Cryptographic Authentication & Session Pill:
+    * Unauthenticated: Displays "Sign In" button leading to Page 10.
+    * Authenticated: Displays User Avatar chip with verified role badge 
+      ("MoSPI Analyst" or "System Administrator") and "Sign Out" button.
+- Theme Toggle Button: Seamlessly switches between Light Mode and Dark Mode.
 - Tour Button (?): Triggers the 3-step interactive onboarding walkthrough modal.
 
 --------------------------------------------------------------------------------
@@ -454,7 +479,7 @@ REAL-TIME STATUS TICKER BAR (Persistent Sub-Header)
 --------------------------------------------------------------------------------
 - Live Pulse Indicator: Flashing green status light confirming live stream readiness.
 - Ticker Feed Text: Rotating summary of the latest scrape timestamp (e.g. 
-  "2026-09-26 06:00 IST"), current Composite Törnqvist Index value ("104.22"), 
+  "2026-09-28 06:00 IST"), current Composite Törnqvist Index value ("104.22"), 
   Month-over-Month change (+1.4%), and total active domestic quotes (90).
 - Meta Badges: "MoSPI & RBI Statistical Reference" and "Törnqvist Formula (Base = 100.00)".
 
@@ -466,8 +491,8 @@ PAGE 1: HOME (Landing Page & Institutional Overview)
     * Eyebrow Tag: "● Official Statistical Prototype · MoSPI & RBI Methodology".
     * Headline: Elegant Source Serif 4 typography reading "Real-Time Indian Domestic 
       Airfare Price Index".
-    * Context Prose: Explains the objective of tracking pure airfare inflation across 
-      high-density corridors using high-frequency reservation quotes and Törnqvist aggregation.
+    * Context Prose: Explains tracking pure airfare inflation across high-density 
+      corridors using high-frequency reservation quotes and Törnqvist aggregation.
     * Primary CTA Button: Prominent amber button "View Live Index →" which routes to Page 3.
 - Below-the-Fold Institutional Cards:
     * Card 1 (Live Törnqvist Index): Displays current base-100 index reading and MoM trend.
@@ -518,6 +543,7 @@ PAGE 3: REAL-TIME PRICE INDEX (Core Statistical Cockpit)
             * Displays Composite Index alongside DEL-BOM, DEL-BLR, and BOM-BLR sub-indices.
             * Time-horizon interval toggle buttons: [30 Days | 60 Days | 90 Days | All].
             * Hover tooltips displaying exact index value, date, and corridor breakdown.
+            * MoSPI CPI Stepped Curve Overlay button for macroeconomic comparison.
         - Secondary Visualizations:
             * Sector Lead-Time Price Spread Bar Chart: Compares T+7 vs T+30 fares per corridor.
             * Corridor Volatility & Weight Matrix breakdown.
@@ -529,7 +555,7 @@ PAGE 3: REAL-TIME PRICE INDEX (Core Statistical Cockpit)
             * Export Action: Quick "Export CSV" trigger for currently filtered records.
 
 --------------------------------------------------------------------------------
-PAGE 4: FLIGHT SEARCH & RAW FARE MICRODATA (Audit & Inspection)
+PAGE 4: FLIGHT SEARCH & RAW FARE MICRODATA (Audit & Inspection — Analyst & Admin)
 --------------------------------------------------------------------------------
 - Header: Explains the microdata audit capability for researchers and regulators.
 - Search & Filter Matrix:
@@ -546,7 +572,7 @@ PAGE 4: FLIGHT SEARCH & RAW FARE MICRODATA (Audit & Inspection)
   are retained at 45% opacity for econometric auditability.
 
 --------------------------------------------------------------------------------
-PAGE 5: CITY-PAIR ADVANCE-WINDOW FARE HEATMAPS (Yield Escalation)
+PAGE 5: CITY-PAIR ADVANCE-WINDOW FARE HEATMAPS (Yield Escalation — Analyst & Admin)
 --------------------------------------------------------------------------------
 - Header: Explains visual fare intensity escalation from 60 days out down to departure day.
 - Route × Advance-Window Matrix:
@@ -560,7 +586,7 @@ PAGE 5: CITY-PAIR ADVANCE-WINDOW FARE HEATMAPS (Yield Escalation)
   average +48.2% surge premium over the 30-day baseline across all trunk corridors.
 
 --------------------------------------------------------------------------------
-PAGE 6: REPORTS & DATA EXPORT (Government & Research Dissemination)
+PAGE 6: REPORTS & DATA EXPORT (Government & Research Dissemination — Analyst & Admin)
 --------------------------------------------------------------------------------
 - Header: Portal for downloading official statistical time-series, bulletins, and reports.
 - 4 Primary Action Export Cards:
@@ -584,16 +610,57 @@ PAGE 7: REST API DOCUMENTATION & INTEGRATION GUIDE
 --------------------------------------------------------------------------------
 - Header: Integration specifications for NSO and RBI automated macro data pipelines.
 - Interactive Testing Console:
-    * Each endpoint features a live "Test Endpoint" button that sends an asynchronous 
-      request and renders formatted JSON directly in a syntax-highlighted code box.
-- Documented Endpoints:
-    * GET /index/daily: Query parameter `days` (integer, default=30). Returns daily composite 
-      and corridor sub-indices.
-    * GET /index/weekly: Weekly geometric mean rollups.
-    * GET /index/monthly: Monthly index rollups.
-    * GET /raw-quotes: Query parameters `origin`, `destination`, `carrier`, `limit`, `offset`. 
-      Returns individual fare quotes with censoring and outlier flags.
-    * GET /health: System health and database connectivity diagnostics.
+    * Live "Test Endpoint" button for `/v1/index/daily`, `/v1/index/weekly`, 
+      `/v1/index/monthly`, `/v1/quotes`, and `/health`.
+    * Formatted JSON viewer with response status and telemetry.
+
+--------------------------------------------------------------------------------
+PAGE 8: DATA SOURCES & COMPLIANCE (Admin Only)
+--------------------------------------------------------------------------------
+- System Architecture & Ingestion Diagnostics:
+    * Active Carrier Feeds: IndiGo, Air India, Akasa Air, SpiceJet, MakeMyTrip.
+    * Robots.txt Enforcement Status: Validates politeness rules prior to scraping.
+    * Jitter Delay Telemetry: 2.0s to 8.0s randomized execution intervals.
+    * DGCA Table 4.3 Corridor Weight Matrix: Passenger volume weights validation.
+    * Zero Client Write Verification: Confirms RLS revoking of client DDL/DML.
+
+--------------------------------------------------------------------------------
+PAGE 9: SCRAPER CONTROL & USER MANAGEMENT (Admin Only)
+--------------------------------------------------------------------------------
+- Scraper Dispatch Controller:
+    * Checkboxes for target sources (IndiGo, Air India, MakeMyTrip).
+    * "Dispatch Collection Cycle" button triggering FastAPI `POST /v1/admin/trigger-scrape`.
+    * Scrape Execution Logs: Paginated telemetry table showing run ID, source, route, 
+      status, records collected, duration, and error traces from `public.scrape_log`.
+- User Provisioning & Administration Console:
+    * Form: "Add & Provision User":
+        - User Official Email Input
+        - Initial Password Input (minimum 6 characters)
+        - Assigned System Role Selector: `analyst` or `admin`
+        - "Create & Confirm User" button: Invokes `POST /v1/admin/create-user` which 
+          provisions the user in Supabase Auth with `email_confirm=True`, upserts 
+          their profile in `public.profiles`, and logs the action in `public.audit_log`.
+    * Form: "Send Email Invitation Link":
+        - Invokes `POST /v1/admin/invite-user` via Supabase Auth Admin.
+    * Accredited Profiles Audit Table:
+        - Live query of `public.profiles` displaying User ID, Email, Role, and Creation Date.
+
+--------------------------------------------------------------------------------
+PAGE 10: INSTITUTIONAL SIGN IN (Accredited Personnel)
+--------------------------------------------------------------------------------
+- Official Email & Password Sign-In: Authenticates directly with Supabase Auth 
+  (`supabase.auth.signInWithPassword`).
+- MFA Authenticator Verification: Prompts for 6-digit TOTP code if administrator MFA is enrolled.
+- Zero Autofill / Zero Mock Roles: Clean credentials input; only accounts created 
+  in Supabase or provisioned by an Administrator can authenticate.
+- Generic Error Alert: Displays "Invalid email or password" on failure to prevent user enumeration.
+
+--------------------------------------------------------------------------------
+RESTRICTED REGISTRATION POLICY (Closed Self-Signup)
+--------------------------------------------------------------------------------
+- Public self-registration is closed to preserve national economic data integrity.
+- Page `#page-register` displays an institutional clearance policy directing 
+  personnel to request provisioning from their designated System Administrator.
 
 --------------------------------------------------------------------------------
 ONBOARDING WALKTHROUGH MODAL
@@ -606,7 +673,228 @@ ONBOARDING WALKTHROUGH MODAL
 
 
 ================================================================================
-11. STRUCTURE & FLOW OF THE PROJECT (DATA & CONTROL FLOW)
+11. COMPREHENSIVE AUTHENTICATION, AUTHORIZATION & SECURITY ARCHITECTURE
+================================================================================
+The Airiva platform operates an institutional-grade, zero-trust security and access 
+control architecture designed for state economic statistics compliance (MoSPI / RBI):
+
+--------------------------------------------------------------------------------
+A. SECURITY FOUNDATIONS & ZERO-TRUST PRINCIPLES
+--------------------------------------------------------------------------------
+1. Key Isolation & Separation of Concerns:
+   - SUPABASE_ANON_KEY (Public Key):
+     Used exclusively by the frontend client in the browser (`Airiva/dashboard/index.html`).
+     Restricted by Row Level Security (RLS). A user possessing this key can ONLY 
+     perform actions explicitly permitted by PostgreSQL RLS policies.
+   - SUPABASE_SERVICE_ROLE_KEY (Secret Admin Key):
+     Strictly confined to backend Python services (`Airiva/api/`, `Airiva/pipeline/`, 
+     `Airiva/scraper/storage.py`). It bypasses RLS and is used exclusively for 
+     trusted server-side database writes, raw storage uploads, and user administration.
+   - Zero Secret Leakage:
+     The service role key is NEVER bundled in client scripts, rendered into HTML, 
+     sent in network responses, or committed to version control.
+
+2. Cryptographic Token Verification (JWT):
+   - Client requests to protected FastAPI endpoints transmit a JWT Bearer token 
+     in the standard `Authorization: Bearer <jwt>` HTTP header.
+   - The FastAPI backend validates token cryptographic signatures directly with 
+     Supabase via `supabase.auth.get_user(jwt)`. Self-decoding without signature 
+     verification is strictly forbidden.
+
+3. Server-Side Role Enforcement (No Client Trust):
+   - User roles are NEVER accepted from client request bodies, localStorage, or 
+     unverified JWT claims.
+   - FastAPI dependencies (`require_user`, `require_admin`) query the user's role 
+     directly from `public.profiles` using the service client:
+       `SELECT role FROM public.profiles WHERE id = <verified_user_id>`
+   - Unauthenticated requests receive HTTP 401 Unauthorized.
+   - Authenticated users with insufficient privileges receive HTTP 403 Forbidden.
+
+--------------------------------------------------------------------------------
+B. ROW LEVEL SECURITY (RLS) POLICIES & SCHEMA
+--------------------------------------------------------------------------------
+PostgreSQL enforces Row Level Security at the database engine level. Direct table 
+modifications (INSERT, UPDATE, DELETE) are permanently REVOKED from client roles 
+(`anon` and `authenticated`).
+
+Table-by-Table RLS Policy Breakdown:
+1. `public.fare_quotes` (Flight Microdata):
+   - RLS Policy: `staff_read_quotes` FOR SELECT
+   - Rule: `using (public.app_role() in ('analyst', 'admin'))`
+   - Access: Authenticated Analysts and Administrators only. Public/Guest reads are blocked.
+   - Writes: Revoked from client roles. Written exclusively by backend ingestor.
+
+2. `public.index_values` (Computed Daily, Weekly, Monthly Törnqvist Indices):
+   - RLS Policy: `public_read_index` FOR SELECT
+   - Rule: `using (true)`
+   - Access: Open to all roles (Guest, Analyst, Admin) for macroeconomic transparency.
+   - Writes: Revoked from client roles. Upserted exclusively by `index_engine/runner.py`.
+
+3. `public.cpi_official` (Official MoSPI Airfare Series):
+   - RLS Policy: `public_read_cpi` FOR SELECT
+   - Rule: `using (true)`
+   - Access: Publicly readable for economic benchmarking and research.
+
+4. `public.routes` (Corridor Definitions & City-Pairs):
+   - RLS Policy: `public_read_routes` FOR SELECT
+   - Rule: `using (true)`
+   - Access: Publicly readable.
+
+5. `public.dgca_monthly_avg` (Official Historical Route Averages):
+   - RLS Policy: `staff_read_dgca` FOR SELECT
+   - Rule: `using (public.app_role() in ('analyst', 'admin'))`
+   - Access: Restricted to Analysts and Admins.
+
+6. `public.scrape_log` (Crawler Execution & Error Telemetry):
+   - RLS Policy: `admin_read_scrapelog` FOR SELECT
+   - Rule: `using (public.app_role() = 'admin')`
+   - Access: Administrators only. Analysts and Guests receive 0 rows.
+
+7. `public.audit_log` (System Audit Trail):
+   - RLS Policy: `admin_read_audit` FOR SELECT
+   - Rule: `using (public.app_role() = 'admin')`
+   - Access: Administrators only. Contains records of all scrape dispatches and user creations.
+
+8. `public.profiles` (User Roles & Identity):
+   - Columns: `id` (UUID references auth.users), `email` (TEXT), `role` (TEXT: 'analyst' | 'admin'), `created_at`
+   - RLS Policy: `own_or_admin_profiles` FOR SELECT
+   - Rule: `using (id = (select auth.uid()) or public.app_role() = 'admin')`
+   - Access: Analysts can view ONLY their own profile record. Admins can view ALL profiles.
+   - Self-Promotion Prevention: There are NO INSERT or UPDATE policies on `profiles` for 
+     authenticated users; users cannot modify their own role.
+
+9. Security Definer Role Lookup Function:
+   ```sql
+   create or replace function public.app_role() returns text
+   language sql stable security definer set search_path = '' as $$
+     select role from public.profiles where id = (select auth.uid())
+   $$;
+   ```
+   Uses `security definer` to execute with owner privileges, eliminating recursive 
+   policy loops while keeping the search path safe.
+
+10. Client Write Revocation:
+   ```sql
+   revoke insert, update, delete on all tables in schema public from anon, authenticated;
+   alter default privileges in schema public revoke insert, update, delete on tables from anon, authenticated;
+   ```
+
+--------------------------------------------------------------------------------
+C. USER ROLES & PERMISSION MATRIX
+--------------------------------------------------------------------------------
+| Feature / Endpoint / Table | Public / Guest | Analyst | Administrator |
+|:---|:---:|:---:|:---:|
+| Home & About Pages | YES | YES | YES |
+| Real-Time Index Visualizations | YES | YES | YES |
+| `public.index_values` (Read) | YES | YES | YES |
+| `public.cpi_official` (Read) | YES | YES | YES |
+| `/v1/index/daily` & `/weekly` | YES | YES | YES |
+| `/health` Endpoint | YES | YES | YES |
+| Flight Search & Raw Microdata | NO (Hidden/Blocked) | YES | YES |
+| Advance-Window Fare Heatmaps | NO (Hidden/Blocked) | YES | YES |
+| Reports & CSV Data Export | NO (Hidden/Blocked) | YES | YES |
+| `public.fare_quotes` (Read) | NO (0 Rows) | YES | YES |
+| `public.dgca_monthly_avg` (Read) | NO (0 Rows) | YES | YES |
+| `/v1/quotes` & `/v1/quotes/stats` | NO (401/403) | YES | YES |
+| Data Sources & Compliance | NO (Hidden/Blocked) | NO (Blocked) | YES |
+| Live Scraper Trigger | NO (Hidden/Blocked) | NO (Blocked) | YES |
+| `public.scrape_log` (Read) | NO (0 Rows) | NO (0 Rows) | YES |
+| `public.audit_log` (Read) | NO (0 Rows) | NO (0 Rows) | YES |
+| All User Profiles (`public.profiles`) | NO (0 Rows) | Own Row Only | ALL Rows |
+| `/v1/admin/trigger-scrape` | NO (401/403) | NO (403) | YES |
+| `/v1/admin/create-user` | NO (401/403) | NO (403) | YES |
+| `/v1/admin/invite-user` | NO (401/403) | NO (403) | YES |
+| `/v1/admin/scrape-log` | NO (401/403) | NO (403) | YES |
+
+--------------------------------------------------------------------------------
+D. USER PROVISIONING & RESTRICTED ACCESS WORKFLOW
+--------------------------------------------------------------------------------
+1. Why Public Self-Registration is Closed:
+   Airiva handles sensitive commercial aviation fare data, statutory taxes, and 
+   macroeconomic market basket weights. Self-registration is closed to prevent 
+   unauthorized access or scraping of proprietary microdata.
+
+2. Administrator User Provisioning Form (System Console):
+   - An authenticated Administrator visits Page 9 (System Console -> User Management).
+   - Fills out the "Add & Provision User" form:
+       * Official Email Address (e.g. `analyst@mospi.gov.in`)
+       * Initial Password (minimum 6 characters)
+       * System Role (`analyst` or `admin`)
+   - Clicks "Create & Confirm User":
+       * Dispatches `POST /v1/admin/create-user` to FastAPI with Admin JWT Bearer header.
+       * FastAPI verifies admin credentials and calls `supabase.auth.admin.create_user()` 
+         with `email_confirm=True`, instantly confirming the user without requiring SMTP.
+       * Automatically inserts/upserts a record into `public.profiles` with the assigned role.
+       * Writes an audit entry into `public.audit_log`.
+       * The user can immediately sign in with their email and password.
+
+3. Administrator Invitation Option:
+   - Dispatches `POST /v1/admin/invite-user`.
+   - Sends an official Supabase Auth invitation email with a magic link / confirmation token.
+
+4. Manual Provisioning in Supabase Dashboard:
+   - Administrators can also create users directly in the Supabase Cloud console:
+       Authentication -> Users -> "Add user" -> "Create user".
+   - The database trigger `handle_new_user()` automatically creates an associated 
+     row in `public.profiles` with default role 'analyst'.
+   - Admins can elevate roles directly in `public.profiles` (`UPDATE profiles SET role='admin'`).
+
+--------------------------------------------------------------------------------
+E. FRONTEND AUTHENTICATION WORKFLOW (REAL SUPABASE JS)
+--------------------------------------------------------------------------------
+1. Clean Login Form (Zero Autofill, Zero Mock Switchers):
+   - Located on Page 10 (`#page-login`).
+   - Fields: Official Email Address and Password with show/hide toggle.
+   - No mock dropdowns or pre-filled credentials; accepts any valid account in Supabase.
+
+2. Secure Sign-In Execution:
+   ```javascript
+   const { data, error } = await supabase.auth.signInWithPassword({
+     email: email,
+     password: password
+   });
+   ```
+
+3. Multi-Factor Authentication (MFA / TOTP):
+   - Following password verification, checks Authenticator Assurance Level (AAL):
+     `supabase.auth.mfa.getAuthenticatorAssuranceLevel()`
+   - If MFA is enrolled (`aal2` required or TOTP factors exist):
+     * Prompts the administrator for their 6-digit authenticator TOTP code.
+     * Verifies the code via `supabase.auth.mfa.challengeAndVerify()`.
+
+4. Session Initialization & Role Determination:
+   - On successful authentication, queries `public.profiles`:
+     `SELECT role FROM profiles WHERE id = auth.uid()`
+   - Sets `currentRole` and updates the navigation shell (shows/hides restricted tabs).
+   - If role query returns no profile, safely defaults to `'guest'`.
+
+5. User Enumeration Protection:
+   - Any failed sign-in (wrong email, incorrect password, unregistered user) displays 
+     the standard generic security error: "Invalid email or password".
+   - Prevents attackers from probing which institutional email addresses exist.
+
+6. Session Persistence & Automatic Token Refresh:
+   - Supabase JS automatically stores session tokens in localStorage and schedules 
+     silent background token refreshes prior to JWT expiration.
+   - On page reload, `supabase.auth.getSession()` immediately rehydrates the session.
+
+7. Secure Sign-Out:
+   - Invokes `supabase.auth.signOut()`, purges tokens, resets role to `'guest'`, 
+     and redirects to Public Home.
+
+--------------------------------------------------------------------------------
+F. AUDIT LOGGING & COMPLIANCE
+--------------------------------------------------------------------------------
+All administrative actions are permanently logged in `public.audit_log`:
+- `trigger_scrape`: Actor ID, target sources, actor email, execution timestamp.
+- `create_user`: Actor ID, created email, assigned role, admin email, timestamp.
+- `invite_user`: Actor ID, invited email, assigned role, admin email, timestamp.
+- The audit table is strictly read-only for Admins, providing an unalterable paper 
+  trail for regulatory audits by the Comptroller and Auditor General (CAG) or MoSPI.
+
+
+================================================================================
+12. STRUCTURE & FLOW OF THE PROJECT (DATA & CONTROL FLOW)
 ================================================================================
 
 A. End-to-End Data Pipeline Flow:
@@ -739,7 +1027,7 @@ c:\Akriti IMP\Airline imp\
 
 
 ================================================================================
-12. COMPREHENSIVE RUNNING SETUP GUIDE (ALL MODES & CLI)
+13. COMPREHENSIVE RUNNING SETUP GUIDE (ALL MODES & CLI)
 ================================================================================
 
 MODE 1: ZERO-DEPENDENCY NODE.JS SERVER (FASTEST UI DEMO)
@@ -844,51 +1132,41 @@ MOSPI CPI OFFICIAL AIRFARE BENCHMARK OPERATIONS:
 
 3. Run Benchmark Validation against SQLite / Custom Monthly Series:
      python -m apix.backtest.cpi_benchmark --cpi-csv data/cpi/cpi_airfare_clean.csv --db
-     python -m apix.backtest.cpi_benchmark --cpi-csv data/cpi/cpi_airfare_clean.csv --apix-csv monthly_apix.csv
-
-4. Honest Limits & Methodological Guidelines:
-   - Bases differ: MoSPI CPI base 2024=100; APIx base launch=100.00. Compare Month-over-Month
-     (MoM) % changes and rebased levels, NEVER raw levels.
-   - Overlap thresholds: Minimum 3 overlapping months required for direction agreement;
-     minimum 7 overlapping months required for Pearson/Spearman MoM correlation.
-   - Imputed data: MoSPI's 68 imputed rows are strictly filtered out to avoid synthetic bias.
-   - Citation Requirement: Ministry of Statistics & Programme Implementation (MoSPI), eSankhyiki.
 
 
+PRODUCTION DOCKER DEPLOYMENT:
+-------------------------------
+Airiva includes a hardened container build using `python:3.12-slim` configured for non-root execution:
+  1. Build Docker Image:
+       docker build -t airiva-api:latest .
+  2. Run Container with Environment Variables:
+       docker run -d -p 8000:8000 -e PORT=8000 -e APP_ENV=production \
+         -e SUPABASE_URL=https://kaljpvfcqsmanximfldz.supabase.co \
+         -e SUPABASE_SERVICE_ROLE_KEY=your_key \
+         -e ALLOWED_ORIGINS="http://localhost:3000,http://127.0.0.1:3000" \
+         --name airiva-service airiva-api:latest
+  3. Verify Health Check:
+       curl http://localhost:8000/health
+       Response: {"status":"ok"}
 
-AUTOMATED DATA ORGANIZER UTILITY:
----------------------------------
-To automatically organize newly downloaded DGCA Excel and PDF files into their 
-respective `dgca_citypair/`, `dgca_traffic_2026/`, or `dgca_traffic_2025/` directories:
-  node scripts/organize_data.js
-
-
-DOCKER / TIMESCALEDB DEPLOYMENT (OPTIONAL):
--------------------------------------------
-If deploying with TimescaleDB instead of SQLite:
-  1. Start containers:
-       docker-compose up -d timescaledb
-  2. Set in `.env`:
-       DATABASE_URL=postgresql+asyncpg://postgres:postgres@localhost:5432/apix
-  3. Load data and compute index:
-       python -m apix.pipeline.loader --csv data/seed/synthetic_fares.csv
-       python -m apix.index_engine.runner
-  4. Launch API:
-       uvicorn apix.api.main:app --reload
+Security Features:
+  - Runs as non-root user `appuser` (UID 10001).
+  - Playwright/Chromium excluded from API container.
+  - Sensitive files excluded via `.dockerignore` (.env, .git, tests, htmlcov, data/raw).
 
 
 ================================================================================
-13. QUALITY VERIFICATION, TESTING & VALIDATION
+14. QUALITY VERIFICATION, TESTING & VALIDATION
 ================================================================================
-The project features an automated Pytest test suite with 59 unit and integration 
-tests providing comprehensive verification of the economic and data pipeline:
+The project features an automated Pytest test suite with 91 unit, pipeline, 
+security, storage, and deployment tests providing comprehensive verification:
 
 Executing Test Suite:
   cd "c:\Akriti IMP\Airline imp"
   python -m pytest
 
 Generating Line-by-Line Code Coverage Report:
-  python -m pytest -v --cov=Airiva --cov-report=term-missing --cov-report=html:htmlcov
+  python -m pytest -v --cov=Airiva --cov-report=term-missing
 
 Key Verified Test Domains:
   - test_pipeline/test_normalizer.py: 
@@ -901,12 +1179,31 @@ Key Verified Test Domains:
       Verifies base-period normalization (=100.00), logarithmic additivity, and weight sums.
   - test_index_engine/test_aggregator.py:
       Verifies weekly and monthly geometric mean rollups.
+  - test_api_security.py:
+      Verifies JWT Bearer token validation, role resolution from profiles, admin endpoint 
+      permission barriers, rate limiting, and CORS headers.
+  - test_raw_storage.py:
+      Verifies stripping of sensitive headers/cookies, privacy token redaction, and 
+      90-day retention purging across local storage and Supabase Storage.
+  - test_deployment_config.py:
+      Verifies strict environment variable loading and fail-fast startup behavior.
 
-Verification Status: 59 passed in ~3.0 seconds (100% test pass rate).
+Row Level Security (RLS) Verification:
+  Execute:
+    python scripts/test_rls.py
+  Proves 22 database permission assertions using the browser-facing `SUPABASE_ANON_KEY`:
+    * GUEST: Can read index_values, routes, cpi_official; cannot read fare_quotes, 
+      scrape_log, audit_log, profiles.
+    * ANALYST: Can read fare_quotes and dgca_monthly_avg; cannot read scrape_log 
+      or audit_log; reads only their own profile row.
+    * ADMIN: Can read scrape_log, audit_log, and all profiles.
+    * WRITES: Direct table inserts/updates/deletes from client roles fail unconditionally.
+
+Verification Status: 91 passed in ~7.0 seconds (100% test pass rate).
 
 
 ================================================================================
-14. TROUBLESHOOTING & OPERATIONAL FAQS
+15. TROUBLESHOOTING & OPERATIONAL FAQS
 ================================================================================
 
 Q1: What is the relationship between "Airiva" and "apix"?
@@ -937,6 +1234,17 @@ A: Install the Playwright Chromium browser binaries:
 
 Q6: Where can I see the line-by-line test coverage?
 A: Open `htmlcov/index.html` in your web browser after running `pytest --cov=Airiva --cov-report=html:htmlcov`.
+
+Q7: Supabase login returns 400 Bad Request.
+A: An HTTP 400 (invalid_grant) indicates that the entered email and password do not match 
+   records in Supabase Auth. Make sure the user exists in Supabase Auth or has been provisioned 
+   by an Administrator in the System Console.
+
+Q8: How are new team members / analysts added to the platform?
+A: Public self-registration is closed to protect national statistical clearance. 
+   An Administrator logs in to the System Console (User Management tab) and uses the 
+   "Add & Provision User" form (email, password, role) to create and immediately confirm 
+   the user in Supabase Auth. Users can also be created directly in the Supabase Dashboard.
 
 ================================================================================
 END OF PROJECT GUIDE & MASTER OPERATIONS MANUAL

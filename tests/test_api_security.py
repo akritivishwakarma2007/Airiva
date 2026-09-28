@@ -50,6 +50,7 @@ def mock_supabase():
     mock.table.return_value.insert.return_value.execute.return_value.data = [{"id": 1}]
     mock.table.return_value.upsert.return_value.execute.return_value.data = [{"id": "mock-user-id"}]
     mock.auth.admin.invite_user_by_email.return_value.user.id = "invited-user-id"
+    mock.auth.admin.create_user.return_value.user.id = "created-user-id"
 
     app.dependency_overrides[get_supabase_service_client] = lambda: mock
     yield mock
@@ -221,6 +222,39 @@ def test_invite_user_validates_email_and_role(client, mock_supabase):
     assert r_ok.json()["status"] == "ok"
     mock_supabase.auth.admin.invite_user_by_email.assert_called_once()
     mock_supabase.table.assert_any_call("audit_log")
+
+
+def test_create_user_admin_validates_and_provisions(client, mock_supabase):
+    """create-user requires email, min 6-char password, valid role, and is restricted to admin."""
+    headers = {"Authorization": "Bearer admin-token"}
+
+    # Short password rejected
+    r_short = client.post(
+        "/v1/admin/create-user",
+        json={"email": "newuser@example.com", "password": "123", "role": "analyst"},
+        headers=headers,
+    )
+    assert r_short.status_code == 422
+
+    # Invalid role rejected
+    r_bad_role = client.post(
+        "/v1/admin/create-user",
+        json={"email": "newuser@example.com", "password": "SecurePassword123!", "role": "guest"},
+        headers=headers,
+    )
+    assert r_bad_role.status_code == 422
+
+    # Valid creation
+    r_ok = client.post(
+        "/v1/admin/create-user",
+        json={"email": "newuser@example.com", "password": "SecurePassword123!", "role": "analyst"},
+        headers=headers,
+    )
+    assert r_ok.status_code == 201
+    assert r_ok.json()["status"] == "ok"
+    assert "newuser@example.com" in r_ok.json()["message"]
+    mock_supabase.auth.admin.create_user.assert_called_once()
+
 
 
 # ── 5. Health Check ───────────────────────────────────────────────────────────

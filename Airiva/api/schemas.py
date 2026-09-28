@@ -58,6 +58,25 @@ class InviteUserRequest(StrictBaseModel):
     )
 
 
+class CreateUserRequest(StrictBaseModel):
+    """Request payload for an admin to directly create and provision a user with a password."""
+    email: EmailStr = Field(
+        ...,
+        max_length=254,
+        description="Valid email address of the user to create",
+    )
+    password: str = Field(
+        ...,
+        min_length=6,
+        max_length=128,
+        description="Initial password for the user (minimum 6 characters)",
+    )
+    role: Literal["analyst", "admin"] = Field(
+        ...,
+        description="Initial role to assign to the user ('analyst' or 'admin')",
+    )
+
+
 class ScrapeLogItem(StrictBaseModel):
     """Single scrape log entry."""
     id: int
