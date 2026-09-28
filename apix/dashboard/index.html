@@ -4020,7 +4020,7 @@
           <form id="form-login" onsubmit="handleLoginSubmit(event)">
             <div class="auth-form-field">
               <label class="auth-label" for="login-email">Official Institutional Email</label>
-              <input type="email" id="login-email" class="auth-input" placeholder="e.g. analyst@mospi.gov.in" required autocomplete="username">
+              <input type="email" id="login-email" class="auth-input" placeholder="e.g. lakshyasingh0806@gmail.com" required autocomplete="username">
             </div>
 
             <div class="auth-form-field">
@@ -4037,6 +4037,34 @@
               <span>→</span>
             </button>
           </form>
+
+          <!-- Quick Test Credentials Box -->
+          <div style="margin-top:20px; padding:14px; border-radius:8px; background:var(--palette-slate-50); border:1px solid var(--color-line); font-size:12px;">
+            <div style="font-weight:600; color:var(--color-ink); margin-bottom:8px; display:flex; align-items:center; gap:6px;">
+              <span>🔑</span>
+              <span>Authorized Test Accounts (Pre-configured in Supabase Auth)</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; background:#fff; padding:8px 10px; border-radius:6px; border:1px solid var(--color-line);">
+                <div>
+                  <div style="font-weight:600; color:var(--color-ink);">Analyst (Statistical Access)</div>
+                  <div style="color:var(--color-muted); font-size:11px; font-family:var(--font-mono);">lakshyasingh0806@gmail.com</div>
+                </div>
+                <button type="button" class="btn btn-outline" style="font-size:11px; padding:4px 10px; height:auto; cursor:pointer;" onclick="fillCredentials('lakshyasingh0806@gmail.com', 'AnalystPassword123!')">
+                  Auto Fill
+                </button>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; background:#fff; padding:8px 10px; border-radius:6px; border:1px solid var(--color-line);">
+                <div>
+                  <div style="font-weight:600; color:var(--color-ink);">Admin (System Console)</div>
+                  <div style="color:var(--color-muted); font-size:11px; font-family:var(--font-mono);">akritivishwakarma2007@gmail.com</div>
+                </div>
+                <button type="button" class="btn btn-outline" style="font-size:11px; padding:4px 10px; height:auto; cursor:pointer;" onclick="fillCredentials('akritivishwakarma2007@gmail.com', 'AdminPassword123!')">
+                  Auto Fill
+                </button>
+              </div>
+            </div>
+          </div>
 
           <!-- Admin MFA Prompt (Displayed if user has enrolled MFA authenticator) -->
           <div id="mfa-prompt-container" style="display:none; margin-top:20px; padding:18px; border-radius:10px; background:var(--color-accent-subtle); border:1px solid var(--color-line);">
@@ -4515,6 +4543,15 @@ function togglePasswordVisibility(fieldId) {
   if (field) {
     field.type = field.type === 'password' ? 'text' : 'password';
   }
+}
+
+function fillCredentials(email, pwd) {
+  const emailInput = document.getElementById('login-email');
+  const pwdInput = document.getElementById('login-password');
+  const errorEl = document.getElementById('login-error');
+  if (emailInput) emailInput.value = email;
+  if (pwdInput) pwdInput.value = pwd;
+  if (errorEl) errorEl.style.display = 'none';
 }
 
 function showAuthToast(msg, role) {
