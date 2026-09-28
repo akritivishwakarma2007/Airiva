@@ -1075,10 +1075,16 @@ Step 6: Launch FastAPI server:
   uvicorn apix.api.main:app --host 0.0.0.0 --port 8000 --reload
 
 Step 7: Access in your browser:
-  - Web Dashboard:        http://localhost:8000/dashboard
-  - Interactive Swagger:  http://localhost:8000/docs
-  - ReDoc Documentation:  http://localhost:8000/redoc
-  - System Health Check:  http://localhost:8000/health
+  - Live Render Deployment:
+    * Service Health Check:  https://airiva.onrender.com/health
+    * Interactive Swagger:   https://airiva.onrender.com/docs
+    * ReDoc Documentation:   https://airiva.onrender.com/redoc
+    * Live Web Dashboard:    https://airiva.onrender.com/dashboard/
+  - Local Development:
+    * Web Dashboard:         http://localhost:8000/dashboard
+    * Interactive Swagger:   http://localhost:8000/docs
+    * ReDoc Documentation:   http://localhost:8000/redoc
+    * System Health Check:   http://localhost:8000/health
 
 
 MODE 3: DIRECT BROWSER LAUNCH (STANDALONE HTML)

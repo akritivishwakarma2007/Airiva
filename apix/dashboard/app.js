@@ -31,7 +31,10 @@ function escapeHtml(str) {
 }
 
 /* ── Constants ───────────────────────────────────────────────────────────── */
-const API_BASE   = '';                // same origin
+// Backend API base URL: defaults to Render production service, or uses origin if running on same host, or localhost
+const API_BASE = (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'))
+  ? (window.location.port === '8000' ? '' : 'http://localhost:8000')
+  : 'https://airiva.onrender.com';
 const COLORS     = {
   composite : '#1D4ED8', // Corporate Blue
   'DEL-BOM' : '#059669', // Emerald

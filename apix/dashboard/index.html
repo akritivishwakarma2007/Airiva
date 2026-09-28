@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Content Security Policy: Strict origin, Supabase API, and trusted CDNs -->
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://kaljpvfcqsmanximfldz.supabase.co http://localhost:* http://127.0.0.1:*; object-src 'none'; frame-src 'none';" />
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://kaljpvfcqsmanximfldz.supabase.co https://airiva.onrender.com http://localhost:* http://127.0.0.1:*; object-src 'none'; frame-src 'none';" />
   <meta name="description"
     content="Airiva — Real-Time Indian Domestic Airfare Price Index for NSO / MoSPI / RBI statistical monitoring" />
   <title>Airiva — Real-Time Indian Domestic Airfare Price Index</title>
@@ -4150,7 +4150,10 @@
 /* ── Supabase Configuration (Strict Anon Client Only) ───────────────────────── */
 const SUPABASE_URL = 'https://kaljpvfcqsmanximfldz.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImthbGpwdmZjcXNtYW54aW1mbGR6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA1NzQ5MjQsImV4cCI6MjEwNjE1MDkyNH0.N34SyWmiBqyyubokFMc_KmCS57i7ZWIzRAr2Uowp6Yw';
-const FASTAPI_BASE = 'http://localhost:8000'; // Local FastAPI backend service
+// Backend API base URL: defaults to Render production service, or uses origin if running on same host, or localhost
+const FASTAPI_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+  ? (window.location.port === '8000' ? '' : 'http://localhost:8000')
+  : 'https://airiva.onrender.com';
 
 let supabase = null;
 if (window.supabase && typeof window.supabase.createClient === 'function') {

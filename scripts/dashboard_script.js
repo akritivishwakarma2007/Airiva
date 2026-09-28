@@ -9,7 +9,10 @@
 /* ── Supabase Configuration (Strict Anon Client Only) ───────────────────────── */
 const SUPABASE_URL = 'https://kaljpvfcqsmanximfldz.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImthbGpwdmZjcXNtYW54aW1mbGR6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA1NzQ5MjQsImV4cCI6MjEwNjE1MDkyNH0.N34SyWmiBqyyubokFMc_KmCS57i7ZWIzRAr2Uowp6Yw';
-const FASTAPI_BASE = 'http://localhost:8000'; // Local FastAPI backend service
+// Backend API base URL: defaults to Render production service, or uses origin if running on same host, or localhost
+const FASTAPI_BASE = (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'))
+  ? (window.location.port === '8000' ? '' : 'http://localhost:8000')
+  : 'https://airiva.onrender.com';
 
 let supabase = null;
 if (window.supabase && typeof window.supabase.createClient === 'function') {

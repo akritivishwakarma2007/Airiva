@@ -74,10 +74,16 @@ python -m apix.index_engine.runner
 # 5. Launch FastAPI server
 uvicorn apix.api.main:app --host 0.0.0.0 --port 8000 --reload
 ```
-- **Interactive Dashboard**: [http://localhost:8000/dashboard](http://localhost:8000/dashboard)
-- **Interactive Swagger Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
-- **ReDoc Documentation**: [http://localhost:8000/redoc](http://localhost:8000/redoc)
-- **API Health Check**: [http://localhost:8000/health](http://localhost:8000/health)
+- **Live Production Deployment (Render)**:
+  - **Live Service Health**: [https://airiva.onrender.com/health](https://airiva.onrender.com/health)
+  - **Live Swagger API Docs**: [https://airiva.onrender.com/docs](https://airiva.onrender.com/docs)
+  - **Live ReDoc**: [https://airiva.onrender.com/redoc](https://airiva.onrender.com/redoc)
+  - **Live Dashboard**: [https://airiva.onrender.com/dashboard/](https://airiva.onrender.com/dashboard/)
+- **Local Development**:
+  - **Interactive Dashboard**: [http://localhost:8000/dashboard](http://localhost:8000/dashboard)
+  - **Interactive Swagger Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
+  - **ReDoc Documentation**: [http://localhost:8000/redoc](http://localhost:8000/redoc)
+  - **API Health Check**: [http://localhost:8000/health](http://localhost:8000/health)
 
 ---
 
