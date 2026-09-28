@@ -20,9 +20,9 @@ def update_dashboard():
     print(f"Backup created at {backup_file}")
 
     # 1. Update <head>: Add CSP meta tag & Pinned Supabase JS
-    csp_meta = """  <!-- Content Security Policy: Strict origin, Supabase API, and trusted CDNs -->
+    csp_meta = """  <!-- Content Security Policy: Strict origin, Supabase API, Render backend, and trusted CDNs -->
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://kaljpvfcqsmanximfldz.supabase.co http://localhost:* http://127.0.0.1:*; object-src 'none'; frame-src 'none';" />"""
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://kaljpvfcqsmanximfldz.supabase.co https://airiva.onrender.com https://cdn.jsdelivr.net http://localhost:* http://127.0.0.1:*; object-src 'none'; frame-src 'none';" />"""
     
     supabase_script = """  <!-- Supabase JS Client (Pinned Version 2.39.8) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.8/dist/umd/supabase.js"></script>"""
