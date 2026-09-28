@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "cpi_label": "MoSPI CPI Airfare (All India, Combined, base 2024=100)",
+    "source": "Ministry of Statistics & Programme Implementation (MoSPI), eSankhyiki",
+    "item_code": "07.3.3.1.2.01",
+    "base_year": 2024,
+    "frequency": "Monthly (Official) vs Daily (APIx)",
+    "apix_is_demo": true,
+    "disclaimer": "Bases differ (CPI 2024=100, APIx 100 at base launch). Compare MoM % change and rebased levels, never raw levels."
+  },
+  "cpi": [
+    {
+      "month": "2025-01",
+      "index": 115.05
+    },
+    {
+      "month": "2025-02",
+      "index": 131.66
+    },
+    {
+      "month": "2025-03",
+      "index": 108.19
+    },
+    {
+      "month": "2025-04",
+      "index": 110.94
+    },
+    {
+      "month": "2025-05",
+      "index": 110.92
+    },
+    {
+      "month": "2025-06",
+      "index": 114.48
+    },
+    {
+      "month": "2025-07",
+      "index": 102.05
+    },
+    {
+      "month": "2025-08",
+      "index": 112.11
+    },
+    {
+      "month": "2025-09",
+      "index": 105.22
+    },
+    {
+      "month": "2025-10",
+      "index": 108.19
+    },
+    {
+      "month": "2025-11",
+      "index": 121.45
+    },
+    {
+      "month": "2025-12",
+      "index": 124.23
+    },
+    {
+      "month": "2026-01",
+      "index": 122.71
+    },
+    {
+      "month": "2026-02",
+      "index": 122.43
+    },
+    {
+      "month": "2026-03",
+      "index": 123.55
+    },
+    {
+      "month": "2026-04",
+      "index": 123.27
+    },
+    {
+      "month": "2026-05",
+      "index": 127.62
+    },
+    {
+      "month": "2026-06",
+      "index": 126.09
+    },
+    {
+      "month": "2026-07",
+      "index": 125.46
+    },
+    {
+      "month": "2026-08",
+      "index": 135.49
+    }
+  ],
+  "apix": [
+    {
+      "month": "2026-01",
+      "index": 122.71
+    },
+    {
+      "month": "2026-02",
+      "index": 123.53
+    },
+    {
+      "month": "2026-03",
+      "index": 122.53
+    },
+    {
+      "month": "2026-04",
+      "index": 119.98
+    },
+    {
+      "month": "2026-05",
+      "index": 125.88
+    },
+    {
+      "month": "2026-06",
+      "index": 122.34
+    },
+    {
+      "month": "2026-07",
+      "index": 125.69
+    },
+    {
+      "month": "2026-08",
+      "index": 140.94
+    }
+  ],
+  "stats": {
+    "overlap_months": [
+      "2026-01",
+      "2026-02",
+      "2026-03",
+      "2026-04",
+      "2026-05",
+      "2026-06",
+      "2026-07",
+      "2026-08"
+    ],
+    "n_overlap": 8,
+    "status": "Direction, rebased error and MoM correlation reported.",
+    "direction_agreement_pct": 57.1,
+    "pearson_mom": 0.929,
+    "spearman_mom": 0.679,
+    "rebased_mae": 1.69
+  }
+}

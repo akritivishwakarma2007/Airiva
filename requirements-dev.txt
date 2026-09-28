@@ -1,0 +1,13 @@
+# ─── Development & Testing Dependencies (Pinned Versions) ───────────────────
+-r requirements.txt
+
+# Testing Framework & Coverage
+pytest==9.1.1
+pytest-asyncio==1.4.0
+pytest-cov==7.1.0
+pytest-mock==3.15.1
+coverage==7.16.1
+hypothesis==6.168.0
+
+# Browser Automation & Local Scraping Workers (Dev/Worker Only)
+playwright==1.63.0

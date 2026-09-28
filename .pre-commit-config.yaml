@@ -1,0 +1,36 @@
+# .pre-commit-config.yaml
+# See https://pre-commit.com for more information
+# Configured to automatically detect and block secret leaks before commits
+
+default_stages: [commit, push]
+
+repos:
+  # Gitleaks: Scans git commits and stages for API keys, tokens, and hard-coded secrets
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.4
+    hooks:
+      - id: gitleaks
+        name: Detect hardcoded secrets (gitleaks)
+        description: Detect hardcoded secrets like passwords, api keys, and tokens in git repo.
+        entry: gitleaks protect --verbose --redact --staged
+
+  # Detect-secrets: Yelp's secret detection tool
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        name: Detect secrets (detect-secrets)
+        args: ['--baseline', '.secrets.baseline']
+        exclude: package-lock.json
+
+  # Basic sanity & hygiene checks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-added-large-files
+        args: ['--maxkb=5000']
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace

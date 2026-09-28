@@ -1,0 +1,45 @@
+# Environment secrets and credentials
+.env
+.env.*
+
+# Version control
+.git
+.gitignore
+
+# Data directories and local databases
+data/raw
+apix.db
+apix.db-journal
+*.sqlite
+*.sqlite3
+
+# Test suite, test reports, and coverage artifacts
+tests/
+htmlcov/
+.coverage
+.coverage.*
+.pytest_cache/
+.tox/
+
+# Python byte-code and caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Temporary and backup files
+*.bak
+*.tmp
+*.swp
+*.swo
+
+# Docker files
+Dockerfile
+.dockerignore

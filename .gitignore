@@ -1,0 +1,58 @@
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Local databases
+apix.db
+Airiva.db
+*.db
+*.sqlite3
+
+# Credentials & Certificates
+*.pem
+*.key
+*.cert
+
+# Scraper raw data
+data/raw/
+
+# Test coverage & caches
+htmlcov/
+.coverage
+.coverage.*
+.pytest_cache/
+
+# Python cache & virtual environments
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+
+# Dependencies
+node_modules/
+
+# Backtest raw PDFs (download separately from DGCA)
+apix/backtest/data/*.pdf
+apix/backtest/data/*.PDF
+Airiva/backtest/data/*.pdf
+Airiva/backtest/data/*.PDF
+
+# Generated charts
+data/backtest_report.png
+data/*.png
+
+# IDE & OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db

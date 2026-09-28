@@ -1,0 +1,1881 @@
+year,month,state,sector,item_code,base_year,index_value,inflation,imputed
+2025,1,All India,Combined,07.3.3.1.2.01,2024,115.05,,False
+2025,2,All India,Combined,07.3.3.1.2.01,2024,131.66,,False
+2025,3,All India,Combined,07.3.3.1.2.01,2024,108.19,,False
+2025,4,All India,Combined,07.3.3.1.2.01,2024,110.94,,False
+2025,5,All India,Combined,07.3.3.1.2.01,2024,110.92,,False
+2025,6,All India,Combined,07.3.3.1.2.01,2024,114.48,,False
+2025,7,All India,Combined,07.3.3.1.2.01,2024,102.05,,False
+2025,8,All India,Combined,07.3.3.1.2.01,2024,112.11,,False
+2025,9,All India,Combined,07.3.3.1.2.01,2024,105.22,,False
+2025,10,All India,Combined,07.3.3.1.2.01,2024,108.19,,False
+2025,11,All India,Combined,07.3.3.1.2.01,2024,121.45,,False
+2025,12,All India,Combined,07.3.3.1.2.01,2024,124.23,,False
+2026,1,All India,Combined,07.3.3.1.2.01,2024,122.71,6.65,False
+2026,2,All India,Combined,07.3.3.1.2.01,2024,122.43,-7.01,False
+2026,3,All India,Combined,07.3.3.1.2.01,2024,123.55,14.2,False
+2026,4,All India,Combined,07.3.3.1.2.01,2024,123.27,11.11,False
+2026,5,All India,Combined,07.3.3.1.2.01,2024,127.62,15.06,False
+2026,6,All India,Combined,07.3.3.1.2.01,2024,126.09,10.14,False
+2026,7,All India,Combined,07.3.3.1.2.01,2024,125.46,22.94,False
+2026,8,All India,Combined,07.3.3.1.2.01,2024,135.49,20.85,False
+2025,1,All India,Rural,07.3.3.1.2.01,2024,120.78,,False
+2025,2,All India,Rural,07.3.3.1.2.01,2024,136.79,,False
+2025,3,All India,Rural,07.3.3.1.2.01,2024,112.28,,False
+2025,4,All India,Rural,07.3.3.1.2.01,2024,117.27,,False
+2025,5,All India,Rural,07.3.3.1.2.01,2024,114.62,,False
+2025,6,All India,Rural,07.3.3.1.2.01,2024,125.13,,False
+2025,7,All India,Rural,07.3.3.1.2.01,2024,103.27,,False
+2025,8,All India,Rural,07.3.3.1.2.01,2024,115.09,,False
+2025,9,All India,Rural,07.3.3.1.2.01,2024,109.43,,False
+2025,10,All India,Rural,07.3.3.1.2.01,2024,104.47,,False
+2025,11,All India,Rural,07.3.3.1.2.01,2024,136.83,,False
+2025,12,All India,Rural,07.3.3.1.2.01,2024,134.18,,False
+2026,1,All India,Rural,07.3.3.1.2.01,2024,134.8,11.61,False
+2026,2,All India,Rural,07.3.3.1.2.01,2024,130.76,-4.41,False
+2026,3,All India,Rural,07.3.3.1.2.01,2024,135.84,20.98,False
+2026,4,All India,Rural,07.3.3.1.2.01,2024,132.86,13.29,False
+2026,5,All India,Rural,07.3.3.1.2.01,2024,135.29,18.04,False
+2026,6,All India,Rural,07.3.3.1.2.01,2024,134.56,7.54,False
+2026,7,All India,Rural,07.3.3.1.2.01,2024,134.43,30.18,False
+2026,8,All India,Rural,07.3.3.1.2.01,2024,148.16,28.74,False
+2025,1,All India,Urban,07.3.3.1.2.01,2024,111.31,,False
+2025,2,All India,Urban,07.3.3.1.2.01,2024,128.31,,False
+2025,3,All India,Urban,07.3.3.1.2.01,2024,105.51,,False
+2025,4,All India,Urban,07.3.3.1.2.01,2024,106.81,,False
+2025,5,All India,Urban,07.3.3.1.2.01,2024,108.5,,False
+2025,6,All India,Urban,07.3.3.1.2.01,2024,107.52,,False
+2025,7,All India,Urban,07.3.3.1.2.01,2024,101.25,,False
+2025,8,All India,Urban,07.3.3.1.2.01,2024,110.16,,False
+2025,9,All India,Urban,07.3.3.1.2.01,2024,102.46,,False
+2025,10,All India,Urban,07.3.3.1.2.01,2024,110.62,,False
+2025,11,All India,Urban,07.3.3.1.2.01,2024,111.39,,False
+2025,12,All India,Urban,07.3.3.1.2.01,2024,117.73,,False
+2026,1,All India,Urban,07.3.3.1.2.01,2024,114.8,3.13,False
+2026,2,All India,Urban,07.3.3.1.2.01,2024,116.99,-8.82,False
+2026,3,All India,Urban,07.3.3.1.2.01,2024,115.52,9.48,False
+2026,4,All India,Urban,07.3.3.1.2.01,2024,117.01,9.55,False
+2026,5,All India,Urban,07.3.3.1.2.01,2024,122.61,13.01,False
+2026,6,All India,Urban,07.3.3.1.2.01,2024,120.55,12.12,False
+2026,7,All India,Urban,07.3.3.1.2.01,2024,119.6,18.12,False
+2026,8,All India,Urban,07.3.3.1.2.01,2024,127.2,15.47,False
+2025,1,Andaman And Nicobar Islands,Combined,07.3.3.1.2.01,2024,104.99,,False
+2025,2,Andaman And Nicobar Islands,Combined,07.3.3.1.2.01,2024,135.06,,False
+2025,3,Andaman And Nicobar Islands,Combined,07.3.3.1.2.01,2024,164.99,,False
+2025,4,Andaman And Nicobar Islands,Combined,07.3.3.1.2.01,2024,167.18,,False
+2025,5,Andaman And Nicobar Islands,Combined,07.3.3.1.2.01,2024,225.92,,False
+2025,6,Andaman And Nicobar Islands,Combined,07.3.3.1.2.01,2024,148.26,,False
+2025,7,Andaman And Nicobar Islands,Combined,07.3.3.1.2.01,2024,69.03,,False
+2025,8,Andaman And Nicobar Islands,Combined,07.3.3.1.2.01,2024,73.6,,False
+2025,9,Andaman And Nicobar Islands,Combined,07.3.3.1.2.01,2024,83.68,,False
+2025,10,Andaman And Nicobar Islands,Combined,07.3.3.1.2.01,2024,90.12,,False
+2025,11,Andaman And Nicobar Islands,Combined,07.3.3.1.2.01,2024,73.0,,False
+2025,12,Andaman And Nicobar Islands,Combined,07.3.3.1.2.01,2024,81.86,,False
+2026,1,Andaman And Nicobar Islands,Combined,07.3.3.1.2.01,2024,74.48,-29.06,False
+2026,2,Andaman And Nicobar Islands,Combined,07.3.3.1.2.01,2024,87.9,-34.92,False
+2026,3,Andaman And Nicobar Islands,Combined,07.3.3.1.2.01,2024,127.02,-23.01,False
+2026,4,Andaman And Nicobar Islands,Combined,07.3.3.1.2.01,2024,128.76,-22.98,False
+2026,5,Andaman And Nicobar Islands,Combined,07.3.3.1.2.01,2024,143.75,-36.37,False
+2026,6,Andaman And Nicobar Islands,Combined,07.3.3.1.2.01,2024,131.12,-11.56,False
+2026,7,Andaman And Nicobar Islands,Combined,07.3.3.1.2.01,2024,97.37,41.06,False
+2026,8,Andaman And Nicobar Islands,Combined,07.3.3.1.2.01,2024,99.97,35.82,False
+2025,1,Andaman And Nicobar Islands,Rural,07.3.3.1.2.01,2024,104.99,,False
+2025,2,Andaman And Nicobar Islands,Rural,07.3.3.1.2.01,2024,135.06,,False
+2025,3,Andaman And Nicobar Islands,Rural,07.3.3.1.2.01,2024,164.99,,False
+2025,4,Andaman And Nicobar Islands,Rural,07.3.3.1.2.01,2024,167.18,,False
+2025,5,Andaman And Nicobar Islands,Rural,07.3.3.1.2.01,2024,225.92,,False
+2025,6,Andaman And Nicobar Islands,Rural,07.3.3.1.2.01,2024,148.26,,False
+2025,7,Andaman And Nicobar Islands,Rural,07.3.3.1.2.01,2024,69.03,,False
+2025,8,Andaman And Nicobar Islands,Rural,07.3.3.1.2.01,2024,73.6,,False
+2025,9,Andaman And Nicobar Islands,Rural,07.3.3.1.2.01,2024,83.68,,False
+2025,10,Andaman And Nicobar Islands,Rural,07.3.3.1.2.01,2024,90.12,,False
+2025,11,Andaman And Nicobar Islands,Rural,07.3.3.1.2.01,2024,73.0,,False
+2025,12,Andaman And Nicobar Islands,Rural,07.3.3.1.2.01,2024,81.86,,False
+2026,1,Andaman And Nicobar Islands,Rural,07.3.3.1.2.01,2024,74.48,-29.06,False
+2026,2,Andaman And Nicobar Islands,Rural,07.3.3.1.2.01,2024,87.9,-34.92,False
+2026,3,Andaman And Nicobar Islands,Rural,07.3.3.1.2.01,2024,127.02,-23.01,False
+2026,4,Andaman And Nicobar Islands,Rural,07.3.3.1.2.01,2024,128.76,-22.98,False
+2026,5,Andaman And Nicobar Islands,Rural,07.3.3.1.2.01,2024,143.75,-36.37,False
+2026,6,Andaman And Nicobar Islands,Rural,07.3.3.1.2.01,2024,131.12,-11.56,False
+2026,7,Andaman And Nicobar Islands,Rural,07.3.3.1.2.01,2024,97.37,41.06,False
+2026,8,Andaman And Nicobar Islands,Rural,07.3.3.1.2.01,2024,99.97,35.82,False
+2025,1,Andaman And Nicobar Islands,Urban,07.3.3.1.2.01,2024,104.99,,False
+2025,2,Andaman And Nicobar Islands,Urban,07.3.3.1.2.01,2024,135.06,,False
+2025,3,Andaman And Nicobar Islands,Urban,07.3.3.1.2.01,2024,164.99,,False
+2025,4,Andaman And Nicobar Islands,Urban,07.3.3.1.2.01,2024,167.18,,False
+2025,5,Andaman And Nicobar Islands,Urban,07.3.3.1.2.01,2024,225.92,,False
+2025,6,Andaman And Nicobar Islands,Urban,07.3.3.1.2.01,2024,148.26,,False
+2025,7,Andaman And Nicobar Islands,Urban,07.3.3.1.2.01,2024,69.03,,False
+2025,8,Andaman And Nicobar Islands,Urban,07.3.3.1.2.01,2024,73.6,,False
+2025,9,Andaman And Nicobar Islands,Urban,07.3.3.1.2.01,2024,83.68,,False
+2025,10,Andaman And Nicobar Islands,Urban,07.3.3.1.2.01,2024,90.12,,False
+2025,11,Andaman And Nicobar Islands,Urban,07.3.3.1.2.01,2024,73.0,,False
+2025,12,Andaman And Nicobar Islands,Urban,07.3.3.1.2.01,2024,81.86,,False
+2026,1,Andaman And Nicobar Islands,Urban,07.3.3.1.2.01,2024,74.48,-29.06,False
+2026,2,Andaman And Nicobar Islands,Urban,07.3.3.1.2.01,2024,87.9,-34.92,False
+2026,3,Andaman And Nicobar Islands,Urban,07.3.3.1.2.01,2024,127.02,-23.01,False
+2026,4,Andaman And Nicobar Islands,Urban,07.3.3.1.2.01,2024,128.76,-22.98,False
+2026,5,Andaman And Nicobar Islands,Urban,07.3.3.1.2.01,2024,143.75,-36.37,False
+2026,6,Andaman And Nicobar Islands,Urban,07.3.3.1.2.01,2024,131.12,-11.56,False
+2026,7,Andaman And Nicobar Islands,Urban,07.3.3.1.2.01,2024,97.37,41.06,False
+2026,8,Andaman And Nicobar Islands,Urban,07.3.3.1.2.01,2024,99.97,35.82,False
+2025,1,Andhra Pradesh,Combined,07.3.3.1.2.01,2024,97.24,,False
+2025,2,Andhra Pradesh,Combined,07.3.3.1.2.01,2024,95.16,,False
+2025,3,Andhra Pradesh,Combined,07.3.3.1.2.01,2024,86.81,,False
+2025,4,Andhra Pradesh,Combined,07.3.3.1.2.01,2024,87.78,,False
+2025,5,Andhra Pradesh,Combined,07.3.3.1.2.01,2024,89.79,,False
+2025,6,Andhra Pradesh,Combined,07.3.3.1.2.01,2024,89.08,,False
+2025,7,Andhra Pradesh,Combined,07.3.3.1.2.01,2024,87.85,,False
+2025,8,Andhra Pradesh,Combined,07.3.3.1.2.01,2024,122.77,,False
+2025,9,Andhra Pradesh,Combined,07.3.3.1.2.01,2024,83.38,,False
+2025,10,Andhra Pradesh,Combined,07.3.3.1.2.01,2024,88.32,,False
+2025,11,Andhra Pradesh,Combined,07.3.3.1.2.01,2024,54.54,,False
+2025,12,Andhra Pradesh,Combined,07.3.3.1.2.01,2024,52.69,,False
+2026,1,Andhra Pradesh,Combined,07.3.3.1.2.01,2024,58.86,-39.47,False
+2026,2,Andhra Pradesh,Combined,07.3.3.1.2.01,2024,53.98,-43.27,False
+2026,3,Andhra Pradesh,Combined,07.3.3.1.2.01,2024,55.43,-36.15,False
+2026,4,Andhra Pradesh,Combined,07.3.3.1.2.01,2024,64.29,-26.77,False
+2026,5,Andhra Pradesh,Combined,07.3.3.1.2.01,2024,56.89,-36.65,False
+2026,6,Andhra Pradesh,Combined,07.3.3.1.2.01,2024,55.47,-37.73,False
+2026,7,Andhra Pradesh,Combined,07.3.3.1.2.01,2024,56.6,-35.57,False
+2026,8,Andhra Pradesh,Combined,07.3.3.1.2.01,2024,63.17,-48.54,False
+2025,1,Andhra Pradesh,Rural,07.3.3.1.2.01,2024,97.24,,False
+2025,2,Andhra Pradesh,Rural,07.3.3.1.2.01,2024,95.16,,False
+2025,3,Andhra Pradesh,Rural,07.3.3.1.2.01,2024,86.81,,False
+2025,4,Andhra Pradesh,Rural,07.3.3.1.2.01,2024,87.78,,False
+2025,5,Andhra Pradesh,Rural,07.3.3.1.2.01,2024,89.79,,False
+2025,6,Andhra Pradesh,Rural,07.3.3.1.2.01,2024,89.08,,False
+2025,7,Andhra Pradesh,Rural,07.3.3.1.2.01,2024,87.85,,False
+2025,8,Andhra Pradesh,Rural,07.3.3.1.2.01,2024,122.77,,False
+2025,9,Andhra Pradesh,Rural,07.3.3.1.2.01,2024,83.38,,False
+2025,10,Andhra Pradesh,Rural,07.3.3.1.2.01,2024,88.32,,False
+2025,11,Andhra Pradesh,Rural,07.3.3.1.2.01,2024,54.54,,False
+2025,12,Andhra Pradesh,Rural,07.3.3.1.2.01,2024,52.69,,False
+2026,1,Andhra Pradesh,Rural,07.3.3.1.2.01,2024,58.86,-39.47,False
+2026,2,Andhra Pradesh,Rural,07.3.3.1.2.01,2024,53.98,-43.27,False
+2026,3,Andhra Pradesh,Rural,07.3.3.1.2.01,2024,55.43,-36.15,False
+2026,4,Andhra Pradesh,Rural,07.3.3.1.2.01,2024,64.29,-26.77,False
+2026,5,Andhra Pradesh,Rural,07.3.3.1.2.01,2024,56.89,-36.65,False
+2026,6,Andhra Pradesh,Rural,07.3.3.1.2.01,2024,55.47,-37.73,False
+2026,7,Andhra Pradesh,Rural,07.3.3.1.2.01,2024,56.6,-35.57,False
+2026,8,Andhra Pradesh,Rural,07.3.3.1.2.01,2024,63.17,-48.54,False
+2025,1,Andhra Pradesh,Urban,07.3.3.1.2.01,2024,97.24,,False
+2025,2,Andhra Pradesh,Urban,07.3.3.1.2.01,2024,95.16,,False
+2025,3,Andhra Pradesh,Urban,07.3.3.1.2.01,2024,86.81,,False
+2025,4,Andhra Pradesh,Urban,07.3.3.1.2.01,2024,87.78,,False
+2025,5,Andhra Pradesh,Urban,07.3.3.1.2.01,2024,89.79,,False
+2025,6,Andhra Pradesh,Urban,07.3.3.1.2.01,2024,89.08,,False
+2025,7,Andhra Pradesh,Urban,07.3.3.1.2.01,2024,87.85,,False
+2025,8,Andhra Pradesh,Urban,07.3.3.1.2.01,2024,122.77,,False
+2025,9,Andhra Pradesh,Urban,07.3.3.1.2.01,2024,83.38,,False
+2025,10,Andhra Pradesh,Urban,07.3.3.1.2.01,2024,88.32,,False
+2025,11,Andhra Pradesh,Urban,07.3.3.1.2.01,2024,54.54,,False
+2025,12,Andhra Pradesh,Urban,07.3.3.1.2.01,2024,52.69,,False
+2026,1,Andhra Pradesh,Urban,07.3.3.1.2.01,2024,58.86,-39.47,False
+2026,2,Andhra Pradesh,Urban,07.3.3.1.2.01,2024,53.98,-43.27,False
+2026,3,Andhra Pradesh,Urban,07.3.3.1.2.01,2024,55.43,-36.15,False
+2026,4,Andhra Pradesh,Urban,07.3.3.1.2.01,2024,64.29,-26.77,False
+2026,5,Andhra Pradesh,Urban,07.3.3.1.2.01,2024,56.89,-36.65,False
+2026,6,Andhra Pradesh,Urban,07.3.3.1.2.01,2024,55.47,-37.73,False
+2026,7,Andhra Pradesh,Urban,07.3.3.1.2.01,2024,56.6,-35.57,False
+2026,8,Andhra Pradesh,Urban,07.3.3.1.2.01,2024,63.17,-48.54,False
+2025,1,Arunachal Pradesh,Combined,07.3.3.1.2.01,2024,149.92,,False
+2025,2,Arunachal Pradesh,Combined,07.3.3.1.2.01,2024,149.68,,False
+2025,3,Arunachal Pradesh,Combined,07.3.3.1.2.01,2024,134.08,,False
+2025,4,Arunachal Pradesh,Combined,07.3.3.1.2.01,2024,150.08,,False
+2025,5,Arunachal Pradesh,Combined,07.3.3.1.2.01,2024,121.58,,False
+2025,6,Arunachal Pradesh,Combined,07.3.3.1.2.01,2024,129.22,,False
+2025,7,Arunachal Pradesh,Combined,07.3.3.1.2.01,2024,139.76,,False
+2025,8,Arunachal Pradesh,Combined,07.3.3.1.2.01,2024,139.76,,False
+2025,9,Arunachal Pradesh,Combined,07.3.3.1.2.01,2024,131.41,,False
+2025,10,Arunachal Pradesh,Combined,07.3.3.1.2.01,2024,118.87,,False
+2025,11,Arunachal Pradesh,Combined,07.3.3.1.2.01,2024,136.88,,False
+2025,12,Arunachal Pradesh,Combined,07.3.3.1.2.01,2024,181.81,,False
+2026,1,Arunachal Pradesh,Combined,07.3.3.1.2.01,2024,196.55,31.1,False
+2026,2,Arunachal Pradesh,Combined,07.3.3.1.2.01,2024,158.05,5.59,False
+2026,3,Arunachal Pradesh,Combined,07.3.3.1.2.01,2024,111.91,-16.54,False
+2026,4,Arunachal Pradesh,Combined,07.3.3.1.2.01,2024,134.19,-10.58,False
+2026,5,Arunachal Pradesh,Combined,07.3.3.1.2.01,2024,135.2,11.21,False
+2026,6,Arunachal Pradesh,Combined,07.3.3.1.2.01,2024,141.06,9.16,False
+2026,7,Arunachal Pradesh,Combined,07.3.3.1.2.01,2024,130.27,-6.79,False
+2026,8,Arunachal Pradesh,Combined,07.3.3.1.2.01,2024,98.0,-29.88,False
+2025,1,Arunachal Pradesh,Rural,07.3.3.1.2.01,2024,149.92,,False
+2025,2,Arunachal Pradesh,Rural,07.3.3.1.2.01,2024,149.68,,False
+2025,3,Arunachal Pradesh,Rural,07.3.3.1.2.01,2024,134.08,,False
+2025,4,Arunachal Pradesh,Rural,07.3.3.1.2.01,2024,150.08,,False
+2025,5,Arunachal Pradesh,Rural,07.3.3.1.2.01,2024,121.58,,False
+2025,6,Arunachal Pradesh,Rural,07.3.3.1.2.01,2024,129.22,,False
+2025,7,Arunachal Pradesh,Rural,07.3.3.1.2.01,2024,139.76,,False
+2025,8,Arunachal Pradesh,Rural,07.3.3.1.2.01,2024,139.76,,False
+2025,9,Arunachal Pradesh,Rural,07.3.3.1.2.01,2024,131.41,,False
+2025,10,Arunachal Pradesh,Rural,07.3.3.1.2.01,2024,118.87,,False
+2025,11,Arunachal Pradesh,Rural,07.3.3.1.2.01,2024,136.88,,False
+2025,12,Arunachal Pradesh,Rural,07.3.3.1.2.01,2024,181.81,,False
+2026,1,Arunachal Pradesh,Rural,07.3.3.1.2.01,2024,196.55,31.1,False
+2026,2,Arunachal Pradesh,Rural,07.3.3.1.2.01,2024,158.05,5.59,False
+2026,3,Arunachal Pradesh,Rural,07.3.3.1.2.01,2024,111.91,-16.54,False
+2026,4,Arunachal Pradesh,Rural,07.3.3.1.2.01,2024,134.19,-10.58,False
+2026,5,Arunachal Pradesh,Rural,07.3.3.1.2.01,2024,135.2,11.21,False
+2026,6,Arunachal Pradesh,Rural,07.3.3.1.2.01,2024,141.06,9.16,False
+2026,7,Arunachal Pradesh,Rural,07.3.3.1.2.01,2024,130.27,-6.79,False
+2026,8,Arunachal Pradesh,Rural,07.3.3.1.2.01,2024,98.0,-29.88,False
+2025,1,Arunachal Pradesh,Urban,07.3.3.1.2.01,2024,149.92,,False
+2025,2,Arunachal Pradesh,Urban,07.3.3.1.2.01,2024,149.68,,False
+2025,3,Arunachal Pradesh,Urban,07.3.3.1.2.01,2024,134.08,,False
+2025,4,Arunachal Pradesh,Urban,07.3.3.1.2.01,2024,150.08,,False
+2025,5,Arunachal Pradesh,Urban,07.3.3.1.2.01,2024,121.58,,False
+2025,6,Arunachal Pradesh,Urban,07.3.3.1.2.01,2024,129.22,,False
+2025,7,Arunachal Pradesh,Urban,07.3.3.1.2.01,2024,139.76,,False
+2025,8,Arunachal Pradesh,Urban,07.3.3.1.2.01,2024,139.76,,False
+2025,9,Arunachal Pradesh,Urban,07.3.3.1.2.01,2024,131.41,,False
+2025,10,Arunachal Pradesh,Urban,07.3.3.1.2.01,2024,118.87,,False
+2025,11,Arunachal Pradesh,Urban,07.3.3.1.2.01,2024,136.88,,False
+2025,12,Arunachal Pradesh,Urban,07.3.3.1.2.01,2024,181.81,,False
+2026,1,Arunachal Pradesh,Urban,07.3.3.1.2.01,2024,196.55,31.1,False
+2026,2,Arunachal Pradesh,Urban,07.3.3.1.2.01,2024,158.05,5.59,False
+2026,3,Arunachal Pradesh,Urban,07.3.3.1.2.01,2024,111.91,-16.54,False
+2026,4,Arunachal Pradesh,Urban,07.3.3.1.2.01,2024,134.19,-10.58,False
+2026,5,Arunachal Pradesh,Urban,07.3.3.1.2.01,2024,135.2,11.21,False
+2026,6,Arunachal Pradesh,Urban,07.3.3.1.2.01,2024,141.06,9.16,False
+2026,7,Arunachal Pradesh,Urban,07.3.3.1.2.01,2024,130.27,-6.79,False
+2026,8,Arunachal Pradesh,Urban,07.3.3.1.2.01,2024,98.0,-29.88,False
+2025,1,Assam,Combined,07.3.3.1.2.01,2024,104.38,,False
+2025,2,Assam,Combined,07.3.3.1.2.01,2024,137.01,,False
+2025,3,Assam,Combined,07.3.3.1.2.01,2024,142.22,,False
+2025,4,Assam,Combined,07.3.3.1.2.01,2024,131.2,,False
+2025,5,Assam,Combined,07.3.3.1.2.01,2024,148.47,,False
+2025,6,Assam,Combined,07.3.3.1.2.01,2024,131.13,,False
+2025,7,Assam,Combined,07.3.3.1.2.01,2024,131.57,,False
+2025,8,Assam,Combined,07.3.3.1.2.01,2024,122.33,,False
+2025,9,Assam,Combined,07.3.3.1.2.01,2024,123.55,,False
+2025,10,Assam,Combined,07.3.3.1.2.01,2024,177.19,,False
+2025,11,Assam,Combined,07.3.3.1.2.01,2024,148.14,,False
+2025,12,Assam,Combined,07.3.3.1.2.01,2024,157.59,,False
+2026,1,Assam,Combined,07.3.3.1.2.01,2024,156.84,50.26,False
+2026,2,Assam,Combined,07.3.3.1.2.01,2024,160.05,16.81,False
+2026,3,Assam,Combined,07.3.3.1.2.01,2024,129.05,-9.26,False
+2026,4,Assam,Combined,07.3.3.1.2.01,2024,134.62,2.6,False
+2026,5,Assam,Combined,07.3.3.1.2.01,2024,136.63,-7.98,False
+2026,6,Assam,Combined,07.3.3.1.2.01,2024,128.88,-1.71,False
+2026,7,Assam,Combined,07.3.3.1.2.01,2024,122.66,-6.77,False
+2026,8,Assam,Combined,07.3.3.1.2.01,2024,113.15,-7.51,False
+2025,1,Assam,Rural,07.3.3.1.2.01,2024,104.38,,False
+2025,2,Assam,Rural,07.3.3.1.2.01,2024,137.01,,False
+2025,3,Assam,Rural,07.3.3.1.2.01,2024,142.22,,False
+2025,4,Assam,Rural,07.3.3.1.2.01,2024,131.2,,False
+2025,5,Assam,Rural,07.3.3.1.2.01,2024,148.47,,False
+2025,6,Assam,Rural,07.3.3.1.2.01,2024,131.13,,False
+2025,7,Assam,Rural,07.3.3.1.2.01,2024,131.57,,False
+2025,8,Assam,Rural,07.3.3.1.2.01,2024,122.33,,False
+2025,9,Assam,Rural,07.3.3.1.2.01,2024,123.55,,False
+2025,10,Assam,Rural,07.3.3.1.2.01,2024,177.19,,False
+2025,11,Assam,Rural,07.3.3.1.2.01,2024,148.14,,False
+2025,12,Assam,Rural,07.3.3.1.2.01,2024,157.59,,False
+2026,1,Assam,Rural,07.3.3.1.2.01,2024,156.84,50.26,False
+2026,2,Assam,Rural,07.3.3.1.2.01,2024,160.05,16.81,False
+2026,3,Assam,Rural,07.3.3.1.2.01,2024,129.05,-9.26,False
+2026,4,Assam,Rural,07.3.3.1.2.01,2024,134.62,2.6,False
+2026,5,Assam,Rural,07.3.3.1.2.01,2024,136.63,-7.98,False
+2026,6,Assam,Rural,07.3.3.1.2.01,2024,128.88,-1.71,False
+2026,7,Assam,Rural,07.3.3.1.2.01,2024,122.66,-6.77,False
+2026,8,Assam,Rural,07.3.3.1.2.01,2024,113.15,-7.51,False
+2025,1,Assam,Urban,07.3.3.1.2.01,2024,104.38,,False
+2025,2,Assam,Urban,07.3.3.1.2.01,2024,137.01,,False
+2025,3,Assam,Urban,07.3.3.1.2.01,2024,142.22,,False
+2025,4,Assam,Urban,07.3.3.1.2.01,2024,131.2,,False
+2025,5,Assam,Urban,07.3.3.1.2.01,2024,148.47,,False
+2025,6,Assam,Urban,07.3.3.1.2.01,2024,131.13,,False
+2025,7,Assam,Urban,07.3.3.1.2.01,2024,131.57,,False
+2025,8,Assam,Urban,07.3.3.1.2.01,2024,122.33,,False
+2025,9,Assam,Urban,07.3.3.1.2.01,2024,123.55,,False
+2025,10,Assam,Urban,07.3.3.1.2.01,2024,177.19,,False
+2025,11,Assam,Urban,07.3.3.1.2.01,2024,148.14,,False
+2025,12,Assam,Urban,07.3.3.1.2.01,2024,157.59,,False
+2026,1,Assam,Urban,07.3.3.1.2.01,2024,156.84,50.26,False
+2026,2,Assam,Urban,07.3.3.1.2.01,2024,160.05,16.81,False
+2026,3,Assam,Urban,07.3.3.1.2.01,2024,129.05,-9.26,False
+2026,4,Assam,Urban,07.3.3.1.2.01,2024,134.62,2.6,False
+2026,5,Assam,Urban,07.3.3.1.2.01,2024,136.63,-7.98,False
+2026,6,Assam,Urban,07.3.3.1.2.01,2024,128.88,-1.71,False
+2026,7,Assam,Urban,07.3.3.1.2.01,2024,122.66,-6.77,False
+2026,8,Assam,Urban,07.3.3.1.2.01,2024,113.15,-7.51,False
+2025,1,Bihar,Combined,07.3.3.1.2.01,2024,94.2,,False
+2025,2,Bihar,Combined,07.3.3.1.2.01,2024,163.01,,False
+2025,3,Bihar,Combined,07.3.3.1.2.01,2024,114.45,,False
+2025,4,Bihar,Combined,07.3.3.1.2.01,2024,110.14,,False
+2025,5,Bihar,Combined,07.3.3.1.2.01,2024,88.25,,False
+2025,6,Bihar,Combined,07.3.3.1.2.01,2024,111.74,,False
+2025,7,Bihar,Combined,07.3.3.1.2.01,2024,82.13,,False
+2025,8,Bihar,Combined,07.3.3.1.2.01,2024,88.98,,False
+2025,9,Bihar,Combined,07.3.3.1.2.01,2024,90.84,,False
+2025,10,Bihar,Combined,07.3.3.1.2.01,2024,87.67,,False
+2025,11,Bihar,Combined,07.3.3.1.2.01,2024,89.9,,False
+2025,12,Bihar,Combined,07.3.3.1.2.01,2024,99.58,,False
+2026,1,Bihar,Combined,07.3.3.1.2.01,2024,86.99,-7.65,False
+2026,2,Bihar,Combined,07.3.3.1.2.01,2024,90.73,-44.34,False
+2026,3,Bihar,Combined,07.3.3.1.2.01,2024,114.88,0.38,False
+2026,4,Bihar,Combined,07.3.3.1.2.01,2024,103.85,-5.72,False
+2026,5,Bihar,Combined,07.3.3.1.2.01,2024,112.2,27.14,False
+2026,6,Bihar,Combined,07.3.3.1.2.01,2024,110.07,-1.49,False
+2026,7,Bihar,Combined,07.3.3.1.2.01,2024,92.57,12.71,False
+2026,8,Bihar,Combined,07.3.3.1.2.01,2024,96.8,8.79,False
+2025,1,Bihar,Rural,07.3.3.1.2.01,2024,94.2,,False
+2025,2,Bihar,Rural,07.3.3.1.2.01,2024,163.01,,False
+2025,3,Bihar,Rural,07.3.3.1.2.01,2024,114.45,,False
+2025,4,Bihar,Rural,07.3.3.1.2.01,2024,110.14,,False
+2025,5,Bihar,Rural,07.3.3.1.2.01,2024,88.25,,False
+2025,6,Bihar,Rural,07.3.3.1.2.01,2024,111.74,,False
+2025,7,Bihar,Rural,07.3.3.1.2.01,2024,82.13,,False
+2025,8,Bihar,Rural,07.3.3.1.2.01,2024,88.98,,False
+2025,9,Bihar,Rural,07.3.3.1.2.01,2024,90.84,,False
+2025,10,Bihar,Rural,07.3.3.1.2.01,2024,87.67,,False
+2025,11,Bihar,Rural,07.3.3.1.2.01,2024,89.9,,False
+2025,12,Bihar,Rural,07.3.3.1.2.01,2024,99.58,,False
+2026,1,Bihar,Rural,07.3.3.1.2.01,2024,86.99,-7.65,False
+2026,2,Bihar,Rural,07.3.3.1.2.01,2024,90.73,-44.34,False
+2026,3,Bihar,Rural,07.3.3.1.2.01,2024,114.88,0.38,False
+2026,4,Bihar,Rural,07.3.3.1.2.01,2024,103.85,-5.72,False
+2026,5,Bihar,Rural,07.3.3.1.2.01,2024,112.2,27.14,False
+2026,6,Bihar,Rural,07.3.3.1.2.01,2024,110.07,-1.49,False
+2026,7,Bihar,Rural,07.3.3.1.2.01,2024,92.57,12.71,False
+2026,8,Bihar,Rural,07.3.3.1.2.01,2024,96.8,8.79,False
+2025,1,Bihar,Urban,07.3.3.1.2.01,2024,94.2,,False
+2025,2,Bihar,Urban,07.3.3.1.2.01,2024,163.01,,False
+2025,3,Bihar,Urban,07.3.3.1.2.01,2024,114.45,,False
+2025,4,Bihar,Urban,07.3.3.1.2.01,2024,110.14,,False
+2025,5,Bihar,Urban,07.3.3.1.2.01,2024,88.25,,False
+2025,6,Bihar,Urban,07.3.3.1.2.01,2024,111.74,,False
+2025,7,Bihar,Urban,07.3.3.1.2.01,2024,82.13,,False
+2025,8,Bihar,Urban,07.3.3.1.2.01,2024,88.98,,False
+2025,9,Bihar,Urban,07.3.3.1.2.01,2024,90.84,,False
+2025,10,Bihar,Urban,07.3.3.1.2.01,2024,87.67,,False
+2025,11,Bihar,Urban,07.3.3.1.2.01,2024,89.9,,False
+2025,12,Bihar,Urban,07.3.3.1.2.01,2024,99.58,,False
+2026,1,Bihar,Urban,07.3.3.1.2.01,2024,86.99,-7.65,False
+2026,2,Bihar,Urban,07.3.3.1.2.01,2024,90.73,-44.34,False
+2026,3,Bihar,Urban,07.3.3.1.2.01,2024,114.88,0.38,False
+2026,4,Bihar,Urban,07.3.3.1.2.01,2024,103.85,-5.72,False
+2026,5,Bihar,Urban,07.3.3.1.2.01,2024,112.2,27.14,False
+2026,6,Bihar,Urban,07.3.3.1.2.01,2024,110.07,-1.49,False
+2026,7,Bihar,Urban,07.3.3.1.2.01,2024,92.57,12.71,False
+2026,8,Bihar,Urban,07.3.3.1.2.01,2024,96.8,8.79,False
+2025,1,Chhattisgarh,Combined,07.3.3.1.2.01,2024,130.97,,False
+2025,2,Chhattisgarh,Combined,07.3.3.1.2.01,2024,113.78,,False
+2025,3,Chhattisgarh,Combined,07.3.3.1.2.01,2024,130.12,,False
+2025,4,Chhattisgarh,Combined,07.3.3.1.2.01,2024,136.58,,False
+2025,5,Chhattisgarh,Combined,07.3.3.1.2.01,2024,142.19,,False
+2025,6,Chhattisgarh,Combined,07.3.3.1.2.01,2024,156.22,,False
+2025,7,Chhattisgarh,Combined,07.3.3.1.2.01,2024,119.29,,False
+2025,8,Chhattisgarh,Combined,07.3.3.1.2.01,2024,121.24,,False
+2025,9,Chhattisgarh,Combined,07.3.3.1.2.01,2024,141.69,,False
+2025,10,Chhattisgarh,Combined,07.3.3.1.2.01,2024,162.01,,False
+2025,11,Chhattisgarh,Combined,07.3.3.1.2.01,2024,129.98,,False
+2025,12,Chhattisgarh,Combined,07.3.3.1.2.01,2024,149.16,,False
+2026,1,Chhattisgarh,Combined,07.3.3.1.2.01,2024,133.98,2.29,False
+2026,2,Chhattisgarh,Combined,07.3.3.1.2.01,2024,135.23,18.85,False
+2026,3,Chhattisgarh,Combined,07.3.3.1.2.01,2024,151.85,16.71,False
+2026,4,Chhattisgarh,Combined,07.3.3.1.2.01,2024,154.82,13.35,False
+2026,5,Chhattisgarh,Combined,07.3.3.1.2.01,2024,163.32,14.86,False
+2026,6,Chhattisgarh,Combined,07.3.3.1.2.01,2024,193.07,23.59,False
+2026,7,Chhattisgarh,Combined,07.3.3.1.2.01,2024,113.44,-4.9,False
+2026,8,Chhattisgarh,Combined,07.3.3.1.2.01,2024,125.59,3.59,False
+2025,1,Chhattisgarh,Urban,07.3.3.1.2.01,2024,130.97,,False
+2025,2,Chhattisgarh,Urban,07.3.3.1.2.01,2024,113.78,,False
+2025,3,Chhattisgarh,Urban,07.3.3.1.2.01,2024,130.12,,False
+2025,4,Chhattisgarh,Urban,07.3.3.1.2.01,2024,136.58,,False
+2025,5,Chhattisgarh,Urban,07.3.3.1.2.01,2024,142.19,,False
+2025,6,Chhattisgarh,Urban,07.3.3.1.2.01,2024,156.22,,False
+2025,7,Chhattisgarh,Urban,07.3.3.1.2.01,2024,119.29,,False
+2025,8,Chhattisgarh,Urban,07.3.3.1.2.01,2024,121.24,,False
+2025,9,Chhattisgarh,Urban,07.3.3.1.2.01,2024,141.69,,False
+2025,10,Chhattisgarh,Urban,07.3.3.1.2.01,2024,162.01,,False
+2025,11,Chhattisgarh,Urban,07.3.3.1.2.01,2024,129.98,,False
+2025,12,Chhattisgarh,Urban,07.3.3.1.2.01,2024,149.16,,False
+2026,1,Chhattisgarh,Urban,07.3.3.1.2.01,2024,133.98,2.29,False
+2026,2,Chhattisgarh,Urban,07.3.3.1.2.01,2024,135.23,18.85,False
+2026,3,Chhattisgarh,Urban,07.3.3.1.2.01,2024,151.85,16.71,False
+2026,4,Chhattisgarh,Urban,07.3.3.1.2.01,2024,154.82,13.35,False
+2026,5,Chhattisgarh,Urban,07.3.3.1.2.01,2024,163.32,14.86,False
+2026,6,Chhattisgarh,Urban,07.3.3.1.2.01,2024,193.07,23.59,False
+2026,7,Chhattisgarh,Urban,07.3.3.1.2.01,2024,113.44,-4.9,False
+2026,8,Chhattisgarh,Urban,07.3.3.1.2.01,2024,125.59,3.59,False
+2025,1,Goa,Combined,07.3.3.1.2.01,2024,117.0,,False
+2025,2,Goa,Combined,07.3.3.1.2.01,2024,123.06,,False
+2025,3,Goa,Combined,07.3.3.1.2.01,2024,114.09,,False
+2025,4,Goa,Combined,07.3.3.1.2.01,2024,164.75,,False
+2025,5,Goa,Combined,07.3.3.1.2.01,2024,116.53,,False
+2025,6,Goa,Combined,07.3.3.1.2.01,2024,121.46,,False
+2025,7,Goa,Combined,07.3.3.1.2.01,2024,110.01,,False
+2025,8,Goa,Combined,07.3.3.1.2.01,2024,121.96,,False
+2025,9,Goa,Combined,07.3.3.1.2.01,2024,110.88,,False
+2025,10,Goa,Combined,07.3.3.1.2.01,2024,176.25,,False
+2025,11,Goa,Combined,07.3.3.1.2.01,2024,125.3,,False
+2025,12,Goa,Combined,07.3.3.1.2.01,2024,114.48,,False
+2026,1,Goa,Combined,07.3.3.1.2.01,2024,138.98,18.78,False
+2026,2,Goa,Combined,07.3.3.1.2.01,2024,154.08,25.21,False
+2026,3,Goa,Combined,07.3.3.1.2.01,2024,151.96,33.19,False
+2026,4,Goa,Combined,07.3.3.1.2.01,2024,157.3,-4.52,False
+2026,5,Goa,Combined,07.3.3.1.2.01,2024,141.0,20.99,False
+2026,6,Goa,Combined,07.3.3.1.2.01,2024,156.77,29.07,False
+2026,7,Goa,Combined,07.3.3.1.2.01,2024,147.57,34.14,False
+2026,8,Goa,Combined,07.3.3.1.2.01,2024,179.22,46.95,False
+2025,1,Goa,Rural,07.3.3.1.2.01,2024,117.0,,False
+2025,2,Goa,Rural,07.3.3.1.2.01,2024,123.06,,False
+2025,3,Goa,Rural,07.3.3.1.2.01,2024,114.09,,False
+2025,4,Goa,Rural,07.3.3.1.2.01,2024,164.75,,False
+2025,5,Goa,Rural,07.3.3.1.2.01,2024,116.53,,False
+2025,6,Goa,Rural,07.3.3.1.2.01,2024,121.46,,False
+2025,7,Goa,Rural,07.3.3.1.2.01,2024,110.01,,False
+2025,8,Goa,Rural,07.3.3.1.2.01,2024,121.96,,False
+2025,9,Goa,Rural,07.3.3.1.2.01,2024,110.88,,False
+2025,10,Goa,Rural,07.3.3.1.2.01,2024,176.25,,False
+2025,11,Goa,Rural,07.3.3.1.2.01,2024,125.3,,False
+2025,12,Goa,Rural,07.3.3.1.2.01,2024,114.48,,False
+2026,1,Goa,Rural,07.3.3.1.2.01,2024,138.98,18.78,False
+2026,2,Goa,Rural,07.3.3.1.2.01,2024,154.08,25.21,False
+2026,3,Goa,Rural,07.3.3.1.2.01,2024,151.96,33.19,False
+2026,4,Goa,Rural,07.3.3.1.2.01,2024,157.3,-4.52,False
+2026,5,Goa,Rural,07.3.3.1.2.01,2024,141.0,20.99,False
+2026,6,Goa,Rural,07.3.3.1.2.01,2024,156.77,29.07,False
+2026,7,Goa,Rural,07.3.3.1.2.01,2024,147.57,34.14,False
+2026,8,Goa,Rural,07.3.3.1.2.01,2024,179.22,46.95,False
+2025,1,Goa,Urban,07.3.3.1.2.01,2024,117.0,,False
+2025,2,Goa,Urban,07.3.3.1.2.01,2024,123.06,,False
+2025,3,Goa,Urban,07.3.3.1.2.01,2024,114.09,,False
+2025,4,Goa,Urban,07.3.3.1.2.01,2024,164.75,,False
+2025,5,Goa,Urban,07.3.3.1.2.01,2024,116.53,,False
+2025,6,Goa,Urban,07.3.3.1.2.01,2024,121.46,,False
+2025,7,Goa,Urban,07.3.3.1.2.01,2024,110.01,,False
+2025,8,Goa,Urban,07.3.3.1.2.01,2024,121.96,,False
+2025,9,Goa,Urban,07.3.3.1.2.01,2024,110.88,,False
+2025,10,Goa,Urban,07.3.3.1.2.01,2024,176.25,,False
+2025,11,Goa,Urban,07.3.3.1.2.01,2024,125.3,,False
+2025,12,Goa,Urban,07.3.3.1.2.01,2024,114.48,,False
+2026,1,Goa,Urban,07.3.3.1.2.01,2024,138.98,18.78,False
+2026,2,Goa,Urban,07.3.3.1.2.01,2024,154.08,25.21,False
+2026,3,Goa,Urban,07.3.3.1.2.01,2024,151.96,33.19,False
+2026,4,Goa,Urban,07.3.3.1.2.01,2024,157.3,-4.52,False
+2026,5,Goa,Urban,07.3.3.1.2.01,2024,141.0,20.99,False
+2026,6,Goa,Urban,07.3.3.1.2.01,2024,156.77,29.07,False
+2026,7,Goa,Urban,07.3.3.1.2.01,2024,147.57,34.14,False
+2026,8,Goa,Urban,07.3.3.1.2.01,2024,179.22,46.95,False
+2025,1,Gujarat,Combined,07.3.3.1.2.01,2024,103.0,,False
+2025,2,Gujarat,Combined,07.3.3.1.2.01,2024,107.17,,False
+2025,3,Gujarat,Combined,07.3.3.1.2.01,2024,99.07,,False
+2025,4,Gujarat,Combined,07.3.3.1.2.01,2024,104.12,,False
+2025,5,Gujarat,Combined,07.3.3.1.2.01,2024,103.61,,False
+2025,6,Gujarat,Combined,07.3.3.1.2.01,2024,104.38,,False
+2025,7,Gujarat,Combined,07.3.3.1.2.01,2024,103.66,,False
+2025,8,Gujarat,Combined,07.3.3.1.2.01,2024,104.49,,False
+2025,9,Gujarat,Combined,07.3.3.1.2.01,2024,98.95,,False
+2025,10,Gujarat,Combined,07.3.3.1.2.01,2024,122.38,,False
+2025,11,Gujarat,Combined,07.3.3.1.2.01,2024,123.43,,False
+2025,12,Gujarat,Combined,07.3.3.1.2.01,2024,115.25,,False
+2026,1,Gujarat,Combined,07.3.3.1.2.01,2024,107.34,4.22,False
+2026,2,Gujarat,Combined,07.3.3.1.2.01,2024,120.86,12.78,False
+2026,3,Gujarat,Combined,07.3.3.1.2.01,2024,111.73,12.78,False
+2026,4,Gujarat,Combined,07.3.3.1.2.01,2024,111.35,6.95,False
+2026,5,Gujarat,Combined,07.3.3.1.2.01,2024,110.56,6.7,False
+2026,6,Gujarat,Combined,07.3.3.1.2.01,2024,117.82,12.88,False
+2026,7,Gujarat,Combined,07.3.3.1.2.01,2024,107.99,4.18,False
+2026,8,Gujarat,Combined,07.3.3.1.2.01,2024,115.82,10.84,False
+2025,1,Gujarat,Rural,07.3.3.1.2.01,2024,103.0,,False
+2025,2,Gujarat,Rural,07.3.3.1.2.01,2024,107.17,,False
+2025,3,Gujarat,Rural,07.3.3.1.2.01,2024,99.07,,False
+2025,4,Gujarat,Rural,07.3.3.1.2.01,2024,104.12,,False
+2025,5,Gujarat,Rural,07.3.3.1.2.01,2024,103.61,,False
+2025,6,Gujarat,Rural,07.3.3.1.2.01,2024,104.38,,False
+2025,7,Gujarat,Rural,07.3.3.1.2.01,2024,103.66,,False
+2025,8,Gujarat,Rural,07.3.3.1.2.01,2024,104.49,,False
+2025,9,Gujarat,Rural,07.3.3.1.2.01,2024,98.95,,False
+2025,10,Gujarat,Rural,07.3.3.1.2.01,2024,122.38,,False
+2025,11,Gujarat,Rural,07.3.3.1.2.01,2024,123.43,,False
+2025,12,Gujarat,Rural,07.3.3.1.2.01,2024,115.25,,False
+2026,1,Gujarat,Rural,07.3.3.1.2.01,2024,107.34,4.22,False
+2026,2,Gujarat,Rural,07.3.3.1.2.01,2024,120.86,12.78,False
+2026,3,Gujarat,Rural,07.3.3.1.2.01,2024,111.73,12.78,False
+2026,4,Gujarat,Rural,07.3.3.1.2.01,2024,111.35,6.95,False
+2026,5,Gujarat,Rural,07.3.3.1.2.01,2024,110.56,6.7,False
+2026,6,Gujarat,Rural,07.3.3.1.2.01,2024,117.82,12.88,False
+2026,7,Gujarat,Rural,07.3.3.1.2.01,2024,107.99,4.18,False
+2026,8,Gujarat,Rural,07.3.3.1.2.01,2024,115.82,10.84,False
+2025,1,Gujarat,Urban,07.3.3.1.2.01,2024,103.0,,False
+2025,2,Gujarat,Urban,07.3.3.1.2.01,2024,107.17,,False
+2025,3,Gujarat,Urban,07.3.3.1.2.01,2024,99.07,,False
+2025,4,Gujarat,Urban,07.3.3.1.2.01,2024,104.12,,False
+2025,5,Gujarat,Urban,07.3.3.1.2.01,2024,103.61,,False
+2025,6,Gujarat,Urban,07.3.3.1.2.01,2024,104.38,,False
+2025,7,Gujarat,Urban,07.3.3.1.2.01,2024,103.66,,False
+2025,8,Gujarat,Urban,07.3.3.1.2.01,2024,104.49,,False
+2025,9,Gujarat,Urban,07.3.3.1.2.01,2024,98.95,,False
+2025,10,Gujarat,Urban,07.3.3.1.2.01,2024,122.38,,False
+2025,11,Gujarat,Urban,07.3.3.1.2.01,2024,123.43,,False
+2025,12,Gujarat,Urban,07.3.3.1.2.01,2024,115.25,,False
+2026,1,Gujarat,Urban,07.3.3.1.2.01,2024,107.34,4.22,False
+2026,2,Gujarat,Urban,07.3.3.1.2.01,2024,120.86,12.78,False
+2026,3,Gujarat,Urban,07.3.3.1.2.01,2024,111.73,12.78,False
+2026,4,Gujarat,Urban,07.3.3.1.2.01,2024,111.35,6.95,False
+2026,5,Gujarat,Urban,07.3.3.1.2.01,2024,110.56,6.7,False
+2026,6,Gujarat,Urban,07.3.3.1.2.01,2024,117.82,12.88,False
+2026,7,Gujarat,Urban,07.3.3.1.2.01,2024,107.99,4.18,False
+2026,8,Gujarat,Urban,07.3.3.1.2.01,2024,115.82,10.84,False
+2025,1,Haryana,Combined,07.3.3.1.2.01,2024,121.24,,False
+2025,2,Haryana,Combined,07.3.3.1.2.01,2024,159.97,,False
+2025,3,Haryana,Combined,07.3.3.1.2.01,2024,116.41,,False
+2025,4,Haryana,Combined,07.3.3.1.2.01,2024,99.42,,False
+2025,5,Haryana,Combined,07.3.3.1.2.01,2024,102.32,,False
+2025,6,Haryana,Combined,07.3.3.1.2.01,2024,112.97,,False
+2025,7,Haryana,Combined,07.3.3.1.2.01,2024,90.47,,False
+2025,8,Haryana,Combined,07.3.3.1.2.01,2024,118.99,,False
+2025,9,Haryana,Combined,07.3.3.1.2.01,2024,106.9,,False
+2025,10,Haryana,Combined,07.3.3.1.2.01,2024,87.11,,False
+2025,11,Haryana,Combined,07.3.3.1.2.01,2024,89.98,,False
+2025,12,Haryana,Combined,07.3.3.1.2.01,2024,104.37,,False
+2026,1,Haryana,Combined,07.3.3.1.2.01,2024,104.33,-13.95,False
+2026,2,Haryana,Combined,07.3.3.1.2.01,2024,94.97,-40.63,False
+2026,3,Haryana,Combined,07.3.3.1.2.01,2024,101.69,-12.64,False
+2026,4,Haryana,Combined,07.3.3.1.2.01,2024,109.35,9.98,False
+2026,5,Haryana,Combined,07.3.3.1.2.01,2024,108.83,6.36,False
+2026,6,Haryana,Combined,07.3.3.1.2.01,2024,110.35,-2.32,False
+2026,7,Haryana,Combined,07.3.3.1.2.01,2024,131.72,45.6,False
+2026,8,Haryana,Combined,07.3.3.1.2.01,2024,131.0,10.1,False
+2025,1,Haryana,Rural,07.3.3.1.2.01,2024,121.24,,False
+2025,2,Haryana,Rural,07.3.3.1.2.01,2024,159.97,,False
+2025,3,Haryana,Rural,07.3.3.1.2.01,2024,116.41,,False
+2025,4,Haryana,Rural,07.3.3.1.2.01,2024,99.42,,False
+2025,5,Haryana,Rural,07.3.3.1.2.01,2024,102.32,,False
+2025,6,Haryana,Rural,07.3.3.1.2.01,2024,112.97,,False
+2025,7,Haryana,Rural,07.3.3.1.2.01,2024,90.47,,False
+2025,8,Haryana,Rural,07.3.3.1.2.01,2024,118.99,,False
+2025,9,Haryana,Rural,07.3.3.1.2.01,2024,106.9,,False
+2025,10,Haryana,Rural,07.3.3.1.2.01,2024,87.11,,False
+2025,11,Haryana,Rural,07.3.3.1.2.01,2024,89.98,,False
+2025,12,Haryana,Rural,07.3.3.1.2.01,2024,104.37,,False
+2026,1,Haryana,Rural,07.3.3.1.2.01,2024,104.33,-13.95,False
+2026,2,Haryana,Rural,07.3.3.1.2.01,2024,94.97,-40.63,False
+2026,3,Haryana,Rural,07.3.3.1.2.01,2024,101.69,-12.64,False
+2026,4,Haryana,Rural,07.3.3.1.2.01,2024,109.35,9.98,False
+2026,5,Haryana,Rural,07.3.3.1.2.01,2024,108.83,6.36,False
+2026,6,Haryana,Rural,07.3.3.1.2.01,2024,110.35,-2.32,False
+2026,7,Haryana,Rural,07.3.3.1.2.01,2024,131.72,45.6,False
+2026,8,Haryana,Rural,07.3.3.1.2.01,2024,131.0,10.1,False
+2025,1,Haryana,Urban,07.3.3.1.2.01,2024,121.24,,False
+2025,2,Haryana,Urban,07.3.3.1.2.01,2024,159.97,,False
+2025,3,Haryana,Urban,07.3.3.1.2.01,2024,116.41,,False
+2025,4,Haryana,Urban,07.3.3.1.2.01,2024,99.42,,False
+2025,5,Haryana,Urban,07.3.3.1.2.01,2024,102.32,,False
+2025,6,Haryana,Urban,07.3.3.1.2.01,2024,112.97,,False
+2025,7,Haryana,Urban,07.3.3.1.2.01,2024,90.47,,False
+2025,8,Haryana,Urban,07.3.3.1.2.01,2024,118.99,,False
+2025,9,Haryana,Urban,07.3.3.1.2.01,2024,106.9,,False
+2025,10,Haryana,Urban,07.3.3.1.2.01,2024,87.11,,False
+2025,11,Haryana,Urban,07.3.3.1.2.01,2024,89.98,,False
+2025,12,Haryana,Urban,07.3.3.1.2.01,2024,104.37,,False
+2026,1,Haryana,Urban,07.3.3.1.2.01,2024,104.33,-13.95,False
+2026,2,Haryana,Urban,07.3.3.1.2.01,2024,94.97,-40.63,False
+2026,3,Haryana,Urban,07.3.3.1.2.01,2024,101.69,-12.64,False
+2026,4,Haryana,Urban,07.3.3.1.2.01,2024,109.35,9.98,False
+2026,5,Haryana,Urban,07.3.3.1.2.01,2024,108.83,6.36,False
+2026,6,Haryana,Urban,07.3.3.1.2.01,2024,110.35,-2.32,False
+2026,7,Haryana,Urban,07.3.3.1.2.01,2024,131.72,45.6,False
+2026,8,Haryana,Urban,07.3.3.1.2.01,2024,131.0,10.1,False
+2025,1,Himachal Pradesh,Combined,07.3.3.1.2.01,2024,89.11,,False
+2025,2,Himachal Pradesh,Combined,07.3.3.1.2.01,2024,74.81,,False
+2025,3,Himachal Pradesh,Combined,07.3.3.1.2.01,2024,74.81,,False
+2025,4,Himachal Pradesh,Combined,07.3.3.1.2.01,2024,93.88,,False
+2025,5,Himachal Pradesh,Combined,07.3.3.1.2.01,2024,102.95,,False
+2025,6,Himachal Pradesh,Combined,07.3.3.1.2.01,2024,109.56,,False
+2025,7,Himachal Pradesh,Combined,07.3.3.1.2.01,2024,89.11,,False
+2025,8,Himachal Pradesh,Combined,07.3.3.1.2.01,2024,63.52,,False
+2025,9,Himachal Pradesh,Combined,07.3.3.1.2.01,2024,65.0,,False
+2025,10,Himachal Pradesh,Combined,07.3.3.1.2.01,2024,70.08,,False
+2025,11,Himachal Pradesh,Combined,07.3.3.1.2.01,2024,70.08,,False
+2025,12,Himachal Pradesh,Combined,07.3.3.1.2.01,2024,101.15,,False
+2026,1,Himachal Pradesh,Combined,07.3.3.1.2.01,2024,80.34,-9.84,False
+2026,2,Himachal Pradesh,Combined,07.3.3.1.2.01,2024,107.61,43.85,False
+2026,3,Himachal Pradesh,Combined,07.3.3.1.2.01,2024,113.44,51.64,False
+2026,4,Himachal Pradesh,Combined,07.3.3.1.2.01,2024,132.79,41.44,False
+2026,5,Himachal Pradesh,Combined,07.3.3.1.2.01,2024,144.33,40.2,False
+2026,6,Himachal Pradesh,Combined,07.3.3.1.2.01,2024,185.06,68.92,False
+2026,7,Himachal Pradesh,Combined,07.3.3.1.2.01,2024,154.11,72.95,False
+2026,8,Himachal Pradesh,Combined,07.3.3.1.2.01,2024,133.4,110.03,False
+2025,1,Himachal Pradesh,Rural,07.3.3.1.2.01,2024,89.11,,False
+2025,2,Himachal Pradesh,Rural,07.3.3.1.2.01,2024,74.81,,False
+2025,3,Himachal Pradesh,Rural,07.3.3.1.2.01,2024,74.81,,False
+2025,4,Himachal Pradesh,Rural,07.3.3.1.2.01,2024,93.88,,False
+2025,5,Himachal Pradesh,Rural,07.3.3.1.2.01,2024,102.95,,False
+2025,6,Himachal Pradesh,Rural,07.3.3.1.2.01,2024,109.56,,False
+2025,7,Himachal Pradesh,Rural,07.3.3.1.2.01,2024,89.11,,False
+2025,8,Himachal Pradesh,Rural,07.3.3.1.2.01,2024,63.52,,False
+2025,9,Himachal Pradesh,Rural,07.3.3.1.2.01,2024,65.0,,False
+2025,10,Himachal Pradesh,Rural,07.3.3.1.2.01,2024,70.08,,False
+2025,11,Himachal Pradesh,Rural,07.3.3.1.2.01,2024,70.08,,False
+2025,12,Himachal Pradesh,Rural,07.3.3.1.2.01,2024,101.15,,False
+2026,1,Himachal Pradesh,Rural,07.3.3.1.2.01,2024,80.34,-9.84,False
+2026,2,Himachal Pradesh,Rural,07.3.3.1.2.01,2024,107.61,43.85,False
+2026,3,Himachal Pradesh,Rural,07.3.3.1.2.01,2024,113.44,51.64,False
+2026,4,Himachal Pradesh,Rural,07.3.3.1.2.01,2024,132.79,41.44,False
+2026,5,Himachal Pradesh,Rural,07.3.3.1.2.01,2024,144.33,40.2,False
+2026,6,Himachal Pradesh,Rural,07.3.3.1.2.01,2024,185.06,68.92,False
+2026,7,Himachal Pradesh,Rural,07.3.3.1.2.01,2024,154.11,72.95,False
+2026,8,Himachal Pradesh,Rural,07.3.3.1.2.01,2024,133.4,110.03,False
+2025,1,Himachal Pradesh,Urban,07.3.3.1.2.01,2024,89.11,,False
+2025,2,Himachal Pradesh,Urban,07.3.3.1.2.01,2024,74.81,,False
+2025,3,Himachal Pradesh,Urban,07.3.3.1.2.01,2024,74.81,,False
+2025,4,Himachal Pradesh,Urban,07.3.3.1.2.01,2024,93.88,,False
+2025,5,Himachal Pradesh,Urban,07.3.3.1.2.01,2024,102.95,,False
+2025,6,Himachal Pradesh,Urban,07.3.3.1.2.01,2024,109.56,,False
+2025,7,Himachal Pradesh,Urban,07.3.3.1.2.01,2024,89.11,,False
+2025,8,Himachal Pradesh,Urban,07.3.3.1.2.01,2024,63.52,,False
+2025,9,Himachal Pradesh,Urban,07.3.3.1.2.01,2024,65.0,,False
+2025,10,Himachal Pradesh,Urban,07.3.3.1.2.01,2024,70.08,,False
+2025,11,Himachal Pradesh,Urban,07.3.3.1.2.01,2024,70.08,,False
+2025,12,Himachal Pradesh,Urban,07.3.3.1.2.01,2024,101.15,,False
+2026,1,Himachal Pradesh,Urban,07.3.3.1.2.01,2024,80.34,-9.84,False
+2026,2,Himachal Pradesh,Urban,07.3.3.1.2.01,2024,107.61,43.85,False
+2026,3,Himachal Pradesh,Urban,07.3.3.1.2.01,2024,113.44,51.64,False
+2026,4,Himachal Pradesh,Urban,07.3.3.1.2.01,2024,132.79,41.44,False
+2026,5,Himachal Pradesh,Urban,07.3.3.1.2.01,2024,144.33,40.2,False
+2026,6,Himachal Pradesh,Urban,07.3.3.1.2.01,2024,185.06,68.92,False
+2026,7,Himachal Pradesh,Urban,07.3.3.1.2.01,2024,154.11,72.95,False
+2026,8,Himachal Pradesh,Urban,07.3.3.1.2.01,2024,133.4,110.03,False
+2025,1,Jammu And Kashmir,Combined,07.3.3.1.2.01,2024,107.31,,False
+2025,2,Jammu And Kashmir,Combined,07.3.3.1.2.01,2024,105.55,,False
+2025,3,Jammu And Kashmir,Combined,07.3.3.1.2.01,2024,107.15,,False
+2025,4,Jammu And Kashmir,Combined,07.3.3.1.2.01,2024,85.29,,False
+2025,5,Jammu And Kashmir,Combined,07.3.3.1.2.01,2024,79.43,,False
+2025,6,Jammu And Kashmir,Combined,07.3.3.1.2.01,2024,77.05,,False
+2025,7,Jammu And Kashmir,Combined,07.3.3.1.2.01,2024,113.73,,False
+2025,8,Jammu And Kashmir,Combined,07.3.3.1.2.01,2024,118.74,,False
+2025,9,Jammu And Kashmir,Combined,07.3.3.1.2.01,2024,114.4,,False
+2025,10,Jammu And Kashmir,Combined,07.3.3.1.2.01,2024,128.62,,False
+2025,11,Jammu And Kashmir,Combined,07.3.3.1.2.01,2024,105.19,,False
+2025,12,Jammu And Kashmir,Combined,07.3.3.1.2.01,2024,100.23,,False
+2026,1,Jammu And Kashmir,Combined,07.3.3.1.2.01,2024,90.34,-15.82,False
+2026,2,Jammu And Kashmir,Combined,07.3.3.1.2.01,2024,93.26,-11.64,False
+2026,3,Jammu And Kashmir,Combined,07.3.3.1.2.01,2024,101.73,-5.05,False
+2026,4,Jammu And Kashmir,Combined,07.3.3.1.2.01,2024,113.91,33.55,False
+2026,5,Jammu And Kashmir,Combined,07.3.3.1.2.01,2024,136.8,72.23,False
+2026,6,Jammu And Kashmir,Combined,07.3.3.1.2.01,2024,131.55,70.72,False
+2026,7,Jammu And Kashmir,Combined,07.3.3.1.2.01,2024,110.79,-2.59,False
+2026,8,Jammu And Kashmir,Combined,07.3.3.1.2.01,2024,94.5,-20.41,False
+2025,1,Jammu And Kashmir,Urban,07.3.3.1.2.01,2024,107.31,,False
+2025,2,Jammu And Kashmir,Urban,07.3.3.1.2.01,2024,105.55,,False
+2025,3,Jammu And Kashmir,Urban,07.3.3.1.2.01,2024,107.15,,False
+2025,4,Jammu And Kashmir,Urban,07.3.3.1.2.01,2024,85.29,,False
+2025,5,Jammu And Kashmir,Urban,07.3.3.1.2.01,2024,79.43,,False
+2025,6,Jammu And Kashmir,Urban,07.3.3.1.2.01,2024,77.05,,False
+2025,7,Jammu And Kashmir,Urban,07.3.3.1.2.01,2024,113.73,,False
+2025,8,Jammu And Kashmir,Urban,07.3.3.1.2.01,2024,118.74,,False
+2025,9,Jammu And Kashmir,Urban,07.3.3.1.2.01,2024,114.4,,False
+2025,10,Jammu And Kashmir,Urban,07.3.3.1.2.01,2024,128.62,,False
+2025,11,Jammu And Kashmir,Urban,07.3.3.1.2.01,2024,105.19,,False
+2025,12,Jammu And Kashmir,Urban,07.3.3.1.2.01,2024,100.23,,False
+2026,1,Jammu And Kashmir,Urban,07.3.3.1.2.01,2024,90.34,-15.82,False
+2026,2,Jammu And Kashmir,Urban,07.3.3.1.2.01,2024,93.26,-11.64,False
+2026,3,Jammu And Kashmir,Urban,07.3.3.1.2.01,2024,101.73,-5.05,False
+2026,4,Jammu And Kashmir,Urban,07.3.3.1.2.01,2024,113.91,33.55,False
+2026,5,Jammu And Kashmir,Urban,07.3.3.1.2.01,2024,136.8,72.23,False
+2026,6,Jammu And Kashmir,Urban,07.3.3.1.2.01,2024,131.55,70.72,False
+2026,7,Jammu And Kashmir,Urban,07.3.3.1.2.01,2024,110.79,-2.59,False
+2026,8,Jammu And Kashmir,Urban,07.3.3.1.2.01,2024,94.5,-20.41,False
+2025,1,Jharkhand,Combined,07.3.3.1.2.01,2024,107.97,,False
+2025,2,Jharkhand,Combined,07.3.3.1.2.01,2024,122.05,,False
+2025,3,Jharkhand,Combined,07.3.3.1.2.01,2024,115.89,,False
+2025,4,Jharkhand,Combined,07.3.3.1.2.01,2024,96.56,,False
+2025,5,Jharkhand,Combined,07.3.3.1.2.01,2024,84.85,,False
+2025,6,Jharkhand,Combined,07.3.3.1.2.01,2024,119.66,,False
+2025,7,Jharkhand,Combined,07.3.3.1.2.01,2024,89.77,,False
+2025,8,Jharkhand,Combined,07.3.3.1.2.01,2024,89.1,,False
+2025,9,Jharkhand,Combined,07.3.3.1.2.01,2024,89.6,,False
+2025,10,Jharkhand,Combined,07.3.3.1.2.01,2024,101.89,,False
+2025,11,Jharkhand,Combined,07.3.3.1.2.01,2024,101.89,,True
+2025,12,Jharkhand,Combined,07.3.3.1.2.01,2024,90.52,,False
+2026,1,Jharkhand,Combined,07.3.3.1.2.01,2024,83.47,-22.69,False
+2026,2,Jharkhand,Combined,07.3.3.1.2.01,2024,90.36,-25.97,False
+2026,3,Jharkhand,Combined,07.3.3.1.2.01,2024,99.48,-14.15,False
+2026,4,Jharkhand,Combined,07.3.3.1.2.01,2024,93.23,-3.45,False
+2026,5,Jharkhand,Combined,07.3.3.1.2.01,2024,96.81,14.1,False
+2026,6,Jharkhand,Combined,07.3.3.1.2.01,2024,101.14,-15.48,False
+2026,7,Jharkhand,Combined,07.3.3.1.2.01,2024,81.84,-8.84,False
+2026,8,Jharkhand,Combined,07.3.3.1.2.01,2024,83.61,-6.15,False
+2025,1,Jharkhand,Urban,07.3.3.1.2.01,2024,107.97,,False
+2025,2,Jharkhand,Urban,07.3.3.1.2.01,2024,122.05,,False
+2025,3,Jharkhand,Urban,07.3.3.1.2.01,2024,115.89,,False
+2025,4,Jharkhand,Urban,07.3.3.1.2.01,2024,96.56,,False
+2025,5,Jharkhand,Urban,07.3.3.1.2.01,2024,84.85,,False
+2025,6,Jharkhand,Urban,07.3.3.1.2.01,2024,119.66,,False
+2025,7,Jharkhand,Urban,07.3.3.1.2.01,2024,89.77,,False
+2025,8,Jharkhand,Urban,07.3.3.1.2.01,2024,89.1,,False
+2025,9,Jharkhand,Urban,07.3.3.1.2.01,2024,89.6,,False
+2025,10,Jharkhand,Urban,07.3.3.1.2.01,2024,101.89,,False
+2025,11,Jharkhand,Urban,07.3.3.1.2.01,2024,101.89,,True
+2025,12,Jharkhand,Urban,07.3.3.1.2.01,2024,90.52,,False
+2026,1,Jharkhand,Urban,07.3.3.1.2.01,2024,83.47,-22.69,False
+2026,2,Jharkhand,Urban,07.3.3.1.2.01,2024,90.36,-25.97,False
+2026,3,Jharkhand,Urban,07.3.3.1.2.01,2024,99.48,-14.15,False
+2026,4,Jharkhand,Urban,07.3.3.1.2.01,2024,93.23,-3.45,False
+2026,5,Jharkhand,Urban,07.3.3.1.2.01,2024,96.81,14.1,False
+2026,6,Jharkhand,Urban,07.3.3.1.2.01,2024,101.14,-15.48,False
+2026,7,Jharkhand,Urban,07.3.3.1.2.01,2024,81.84,-8.84,False
+2026,8,Jharkhand,Urban,07.3.3.1.2.01,2024,83.61,-6.15,False
+2025,1,Karnataka,Combined,07.3.3.1.2.01,2024,111.66,,False
+2025,2,Karnataka,Combined,07.3.3.1.2.01,2024,148.96,,False
+2025,3,Karnataka,Combined,07.3.3.1.2.01,2024,108.94,,False
+2025,4,Karnataka,Combined,07.3.3.1.2.01,2024,113.96,,False
+2025,5,Karnataka,Combined,07.3.3.1.2.01,2024,130.18,,False
+2025,6,Karnataka,Combined,07.3.3.1.2.01,2024,102.25,,False
+2025,7,Karnataka,Combined,07.3.3.1.2.01,2024,107.76,,False
+2025,8,Karnataka,Combined,07.3.3.1.2.01,2024,108.24,,False
+2025,9,Karnataka,Combined,07.3.3.1.2.01,2024,109.57,,False
+2025,10,Karnataka,Combined,07.3.3.1.2.01,2024,119.4,,False
+2025,11,Karnataka,Combined,07.3.3.1.2.01,2024,121.43,,False
+2025,12,Karnataka,Combined,07.3.3.1.2.01,2024,140.42,,False
+2026,1,Karnataka,Combined,07.3.3.1.2.01,2024,124.93,11.88,False
+2026,2,Karnataka,Combined,07.3.3.1.2.01,2024,128.65,-13.64,False
+2026,3,Karnataka,Combined,07.3.3.1.2.01,2024,119.21,9.43,False
+2026,4,Karnataka,Combined,07.3.3.1.2.01,2024,113.93,-0.02,False
+2026,5,Karnataka,Combined,07.3.3.1.2.01,2024,117.94,-9.4,False
+2026,6,Karnataka,Combined,07.3.3.1.2.01,2024,115.35,12.82,False
+2026,7,Karnataka,Combined,07.3.3.1.2.01,2024,119.02,10.45,False
+2026,8,Karnataka,Combined,07.3.3.1.2.01,2024,129.46,19.6,False
+2025,1,Karnataka,Rural,07.3.3.1.2.01,2024,111.66,,False
+2025,2,Karnataka,Rural,07.3.3.1.2.01,2024,148.96,,False
+2025,3,Karnataka,Rural,07.3.3.1.2.01,2024,108.94,,False
+2025,4,Karnataka,Rural,07.3.3.1.2.01,2024,113.96,,False
+2025,5,Karnataka,Rural,07.3.3.1.2.01,2024,130.18,,False
+2025,6,Karnataka,Rural,07.3.3.1.2.01,2024,102.25,,False
+2025,7,Karnataka,Rural,07.3.3.1.2.01,2024,107.76,,False
+2025,8,Karnataka,Rural,07.3.3.1.2.01,2024,108.24,,False
+2025,9,Karnataka,Rural,07.3.3.1.2.01,2024,109.57,,False
+2025,10,Karnataka,Rural,07.3.3.1.2.01,2024,119.4,,False
+2025,11,Karnataka,Rural,07.3.3.1.2.01,2024,121.43,,False
+2025,12,Karnataka,Rural,07.3.3.1.2.01,2024,140.42,,False
+2026,1,Karnataka,Rural,07.3.3.1.2.01,2024,124.93,11.88,False
+2026,2,Karnataka,Rural,07.3.3.1.2.01,2024,128.65,-13.64,False
+2026,3,Karnataka,Rural,07.3.3.1.2.01,2024,119.21,9.43,False
+2026,4,Karnataka,Rural,07.3.3.1.2.01,2024,113.93,-0.02,False
+2026,5,Karnataka,Rural,07.3.3.1.2.01,2024,117.94,-9.4,False
+2026,6,Karnataka,Rural,07.3.3.1.2.01,2024,115.35,12.82,False
+2026,7,Karnataka,Rural,07.3.3.1.2.01,2024,119.02,10.45,False
+2026,8,Karnataka,Rural,07.3.3.1.2.01,2024,129.46,19.6,False
+2025,1,Karnataka,Urban,07.3.3.1.2.01,2024,111.66,,False
+2025,2,Karnataka,Urban,07.3.3.1.2.01,2024,148.96,,False
+2025,3,Karnataka,Urban,07.3.3.1.2.01,2024,108.94,,False
+2025,4,Karnataka,Urban,07.3.3.1.2.01,2024,113.96,,False
+2025,5,Karnataka,Urban,07.3.3.1.2.01,2024,130.18,,False
+2025,6,Karnataka,Urban,07.3.3.1.2.01,2024,102.25,,False
+2025,7,Karnataka,Urban,07.3.3.1.2.01,2024,107.76,,False
+2025,8,Karnataka,Urban,07.3.3.1.2.01,2024,108.24,,False
+2025,9,Karnataka,Urban,07.3.3.1.2.01,2024,109.57,,False
+2025,10,Karnataka,Urban,07.3.3.1.2.01,2024,119.4,,False
+2025,11,Karnataka,Urban,07.3.3.1.2.01,2024,121.43,,False
+2025,12,Karnataka,Urban,07.3.3.1.2.01,2024,140.42,,False
+2026,1,Karnataka,Urban,07.3.3.1.2.01,2024,124.93,11.88,False
+2026,2,Karnataka,Urban,07.3.3.1.2.01,2024,128.65,-13.64,False
+2026,3,Karnataka,Urban,07.3.3.1.2.01,2024,119.21,9.43,False
+2026,4,Karnataka,Urban,07.3.3.1.2.01,2024,113.93,-0.02,False
+2026,5,Karnataka,Urban,07.3.3.1.2.01,2024,117.94,-9.4,False
+2026,6,Karnataka,Urban,07.3.3.1.2.01,2024,115.35,12.82,False
+2026,7,Karnataka,Urban,07.3.3.1.2.01,2024,119.02,10.45,False
+2026,8,Karnataka,Urban,07.3.3.1.2.01,2024,129.46,19.6,False
+2025,1,Kerala,Combined,07.3.3.1.2.01,2024,134.93,,False
+2025,2,Kerala,Combined,07.3.3.1.2.01,2024,124.38,,False
+2025,3,Kerala,Combined,07.3.3.1.2.01,2024,98.52,,False
+2025,4,Kerala,Combined,07.3.3.1.2.01,2024,118.55,,False
+2025,5,Kerala,Combined,07.3.3.1.2.01,2024,114.6,,False
+2025,6,Kerala,Combined,07.3.3.1.2.01,2024,114.07,,False
+2025,7,Kerala,Combined,07.3.3.1.2.01,2024,96.12,,False
+2025,8,Kerala,Combined,07.3.3.1.2.01,2024,107.48,,False
+2025,9,Kerala,Combined,07.3.3.1.2.01,2024,108.47,,False
+2025,10,Kerala,Combined,07.3.3.1.2.01,2024,100.25,,False
+2025,11,Kerala,Combined,07.3.3.1.2.01,2024,107.26,,False
+2025,12,Kerala,Combined,07.3.3.1.2.01,2024,128.22,,False
+2026,1,Kerala,Combined,07.3.3.1.2.01,2024,149.14,10.53,False
+2026,2,Kerala,Combined,07.3.3.1.2.01,2024,133.74,7.53,False
+2026,3,Kerala,Combined,07.3.3.1.2.01,2024,126.86,28.76,False
+2026,4,Kerala,Combined,07.3.3.1.2.01,2024,124.36,4.9,False
+2026,5,Kerala,Combined,07.3.3.1.2.01,2024,122.62,7.01,False
+2026,6,Kerala,Combined,07.3.3.1.2.01,2024,124.21,8.89,False
+2026,7,Kerala,Combined,07.3.3.1.2.01,2024,117.96,22.72,False
+2026,8,Kerala,Combined,07.3.3.1.2.01,2024,148.91,38.54,False
+2025,1,Kerala,Rural,07.3.3.1.2.01,2024,134.93,,False
+2025,2,Kerala,Rural,07.3.3.1.2.01,2024,124.38,,False
+2025,3,Kerala,Rural,07.3.3.1.2.01,2024,98.52,,False
+2025,4,Kerala,Rural,07.3.3.1.2.01,2024,118.55,,False
+2025,5,Kerala,Rural,07.3.3.1.2.01,2024,114.6,,False
+2025,6,Kerala,Rural,07.3.3.1.2.01,2024,114.07,,False
+2025,7,Kerala,Rural,07.3.3.1.2.01,2024,96.12,,False
+2025,8,Kerala,Rural,07.3.3.1.2.01,2024,107.48,,False
+2025,9,Kerala,Rural,07.3.3.1.2.01,2024,108.47,,False
+2025,10,Kerala,Rural,07.3.3.1.2.01,2024,100.25,,False
+2025,11,Kerala,Rural,07.3.3.1.2.01,2024,107.26,,False
+2025,12,Kerala,Rural,07.3.3.1.2.01,2024,128.22,,False
+2026,1,Kerala,Rural,07.3.3.1.2.01,2024,149.14,10.53,False
+2026,2,Kerala,Rural,07.3.3.1.2.01,2024,133.74,7.53,False
+2026,3,Kerala,Rural,07.3.3.1.2.01,2024,126.86,28.76,False
+2026,4,Kerala,Rural,07.3.3.1.2.01,2024,124.36,4.9,False
+2026,5,Kerala,Rural,07.3.3.1.2.01,2024,122.62,7.01,False
+2026,6,Kerala,Rural,07.3.3.1.2.01,2024,124.21,8.89,False
+2026,7,Kerala,Rural,07.3.3.1.2.01,2024,117.96,22.72,False
+2026,8,Kerala,Rural,07.3.3.1.2.01,2024,148.91,38.54,False
+2025,1,Kerala,Urban,07.3.3.1.2.01,2024,134.93,,False
+2025,2,Kerala,Urban,07.3.3.1.2.01,2024,124.38,,False
+2025,3,Kerala,Urban,07.3.3.1.2.01,2024,98.52,,False
+2025,4,Kerala,Urban,07.3.3.1.2.01,2024,118.55,,False
+2025,5,Kerala,Urban,07.3.3.1.2.01,2024,114.6,,False
+2025,6,Kerala,Urban,07.3.3.1.2.01,2024,114.07,,False
+2025,7,Kerala,Urban,07.3.3.1.2.01,2024,96.12,,False
+2025,8,Kerala,Urban,07.3.3.1.2.01,2024,107.48,,False
+2025,9,Kerala,Urban,07.3.3.1.2.01,2024,108.47,,False
+2025,10,Kerala,Urban,07.3.3.1.2.01,2024,100.25,,False
+2025,11,Kerala,Urban,07.3.3.1.2.01,2024,107.26,,False
+2025,12,Kerala,Urban,07.3.3.1.2.01,2024,128.22,,False
+2026,1,Kerala,Urban,07.3.3.1.2.01,2024,149.14,10.53,False
+2026,2,Kerala,Urban,07.3.3.1.2.01,2024,133.74,7.53,False
+2026,3,Kerala,Urban,07.3.3.1.2.01,2024,126.86,28.76,False
+2026,4,Kerala,Urban,07.3.3.1.2.01,2024,124.36,4.9,False
+2026,5,Kerala,Urban,07.3.3.1.2.01,2024,122.62,7.01,False
+2026,6,Kerala,Urban,07.3.3.1.2.01,2024,124.21,8.89,False
+2026,7,Kerala,Urban,07.3.3.1.2.01,2024,117.96,22.72,False
+2026,8,Kerala,Urban,07.3.3.1.2.01,2024,148.91,38.54,False
+2025,1,Ladakh,Combined,07.3.3.1.2.01,2024,109.57,,False
+2025,2,Ladakh,Combined,07.3.3.1.2.01,2024,85.67,,False
+2025,3,Ladakh,Combined,07.3.3.1.2.01,2024,54.16,,False
+2025,4,Ladakh,Combined,07.3.3.1.2.01,2024,92.85,,False
+2025,5,Ladakh,Combined,07.3.3.1.2.01,2024,86.46,,False
+2025,6,Ladakh,Combined,07.3.3.1.2.01,2024,132.16,,False
+2025,7,Ladakh,Combined,07.3.3.1.2.01,2024,138.96,,False
+2025,8,Ladakh,Combined,07.3.3.1.2.01,2024,161.99,,False
+2025,9,Ladakh,Combined,07.3.3.1.2.01,2024,162.48,,False
+2025,10,Ladakh,Combined,07.3.3.1.2.01,2024,121.06,,False
+2025,11,Ladakh,Combined,07.3.3.1.2.01,2024,73.53,,False
+2025,12,Ladakh,Combined,07.3.3.1.2.01,2024,89.15,,False
+2026,1,Ladakh,Combined,07.3.3.1.2.01,2024,63.94,-41.65,False
+2026,2,Ladakh,Combined,07.3.3.1.2.01,2024,58.86,-31.29,False
+2026,3,Ladakh,Combined,07.3.3.1.2.01,2024,68.51,26.48,False
+2026,4,Ladakh,Combined,07.3.3.1.2.01,2024,75.46,-18.73,False
+2026,5,Ladakh,Combined,07.3.3.1.2.01,2024,97.21,12.43,False
+2026,6,Ladakh,Combined,07.3.3.1.2.01,2024,237.55,79.74,False
+2026,7,Ladakh,Combined,07.3.3.1.2.01,2024,181.9,30.91,False
+2026,8,Ladakh,Combined,07.3.3.1.2.01,2024,205.27,26.72,False
+2025,1,Ladakh,Urban,07.3.3.1.2.01,2024,109.57,,False
+2025,2,Ladakh,Urban,07.3.3.1.2.01,2024,85.67,,False
+2025,3,Ladakh,Urban,07.3.3.1.2.01,2024,54.16,,False
+2025,4,Ladakh,Urban,07.3.3.1.2.01,2024,92.85,,False
+2025,5,Ladakh,Urban,07.3.3.1.2.01,2024,86.46,,False
+2025,6,Ladakh,Urban,07.3.3.1.2.01,2024,132.16,,False
+2025,7,Ladakh,Urban,07.3.3.1.2.01,2024,138.96,,False
+2025,8,Ladakh,Urban,07.3.3.1.2.01,2024,161.99,,False
+2025,9,Ladakh,Urban,07.3.3.1.2.01,2024,162.48,,False
+2025,10,Ladakh,Urban,07.3.3.1.2.01,2024,121.06,,False
+2025,11,Ladakh,Urban,07.3.3.1.2.01,2024,73.53,,False
+2025,12,Ladakh,Urban,07.3.3.1.2.01,2024,89.15,,False
+2026,1,Ladakh,Urban,07.3.3.1.2.01,2024,63.94,-41.65,False
+2026,2,Ladakh,Urban,07.3.3.1.2.01,2024,58.86,-31.29,False
+2026,3,Ladakh,Urban,07.3.3.1.2.01,2024,68.51,26.48,False
+2026,4,Ladakh,Urban,07.3.3.1.2.01,2024,75.46,-18.73,False
+2026,5,Ladakh,Urban,07.3.3.1.2.01,2024,97.21,12.43,False
+2026,6,Ladakh,Urban,07.3.3.1.2.01,2024,237.55,79.74,False
+2026,7,Ladakh,Urban,07.3.3.1.2.01,2024,181.9,30.91,False
+2026,8,Ladakh,Urban,07.3.3.1.2.01,2024,205.27,26.72,False
+2025,1,Lakshadweep,Combined,07.3.3.1.2.01,2024,131.51,,False
+2025,2,Lakshadweep,Combined,07.3.3.1.2.01,2024,131.51,,False
+2025,3,Lakshadweep,Combined,07.3.3.1.2.01,2024,134.14,,False
+2025,4,Lakshadweep,Combined,07.3.3.1.2.01,2024,136.33,,False
+2025,5,Lakshadweep,Combined,07.3.3.1.2.01,2024,130.47,,False
+2025,6,Lakshadweep,Combined,07.3.3.1.2.01,2024,121.74,,False
+2025,7,Lakshadweep,Combined,07.3.3.1.2.01,2024,122.11,,False
+2025,8,Lakshadweep,Combined,07.3.3.1.2.01,2024,122.11,,False
+2025,9,Lakshadweep,Combined,07.3.3.1.2.01,2024,122.11,,False
+2025,10,Lakshadweep,Combined,07.3.3.1.2.01,2024,122.11,,False
+2025,11,Lakshadweep,Combined,07.3.3.1.2.01,2024,124.99,,False
+2025,12,Lakshadweep,Combined,07.3.3.1.2.01,2024,120.86,,False
+2026,1,Lakshadweep,Combined,07.3.3.1.2.01,2024,124.99,-4.96,False
+2026,2,Lakshadweep,Combined,07.3.3.1.2.01,2024,123.76,-5.89,False
+2026,3,Lakshadweep,Combined,07.3.3.1.2.01,2024,122.53,-8.65,False
+2026,4,Lakshadweep,Combined,07.3.3.1.2.01,2024,122.94,-9.82,False
+2026,5,Lakshadweep,Combined,07.3.3.1.2.01,2024,123.76,-5.14,False
+2026,6,Lakshadweep,Combined,07.3.3.1.2.01,2024,138.49,13.76,False
+2026,7,Lakshadweep,Combined,07.3.3.1.2.01,2024,139.61,14.33,True
+2026,8,Lakshadweep,Combined,07.3.3.1.2.01,2024,144.85,18.62,False
+2025,1,Lakshadweep,Rural,07.3.3.1.2.01,2024,131.51,,False
+2025,2,Lakshadweep,Rural,07.3.3.1.2.01,2024,131.51,,False
+2025,3,Lakshadweep,Rural,07.3.3.1.2.01,2024,134.14,,False
+2025,4,Lakshadweep,Rural,07.3.3.1.2.01,2024,136.33,,False
+2025,5,Lakshadweep,Rural,07.3.3.1.2.01,2024,130.47,,False
+2025,6,Lakshadweep,Rural,07.3.3.1.2.01,2024,121.74,,False
+2025,7,Lakshadweep,Rural,07.3.3.1.2.01,2024,122.11,,False
+2025,8,Lakshadweep,Rural,07.3.3.1.2.01,2024,122.11,,False
+2025,9,Lakshadweep,Rural,07.3.3.1.2.01,2024,122.11,,False
+2025,10,Lakshadweep,Rural,07.3.3.1.2.01,2024,122.11,,False
+2025,11,Lakshadweep,Rural,07.3.3.1.2.01,2024,124.99,,False
+2025,12,Lakshadweep,Rural,07.3.3.1.2.01,2024,120.86,,False
+2026,1,Lakshadweep,Rural,07.3.3.1.2.01,2024,124.99,-4.96,False
+2026,2,Lakshadweep,Rural,07.3.3.1.2.01,2024,123.76,-5.89,False
+2026,3,Lakshadweep,Rural,07.3.3.1.2.01,2024,122.53,-8.65,False
+2026,4,Lakshadweep,Rural,07.3.3.1.2.01,2024,122.94,-9.82,False
+2026,5,Lakshadweep,Rural,07.3.3.1.2.01,2024,123.76,-5.14,False
+2026,6,Lakshadweep,Rural,07.3.3.1.2.01,2024,138.49,13.76,False
+2026,7,Lakshadweep,Rural,07.3.3.1.2.01,2024,139.61,14.33,True
+2026,8,Lakshadweep,Rural,07.3.3.1.2.01,2024,144.85,18.62,False
+2025,1,Lakshadweep,Urban,07.3.3.1.2.01,2024,131.51,,False
+2025,2,Lakshadweep,Urban,07.3.3.1.2.01,2024,131.51,,False
+2025,3,Lakshadweep,Urban,07.3.3.1.2.01,2024,134.14,,False
+2025,4,Lakshadweep,Urban,07.3.3.1.2.01,2024,136.33,,False
+2025,5,Lakshadweep,Urban,07.3.3.1.2.01,2024,130.47,,False
+2025,6,Lakshadweep,Urban,07.3.3.1.2.01,2024,121.74,,False
+2025,7,Lakshadweep,Urban,07.3.3.1.2.01,2024,122.11,,False
+2025,8,Lakshadweep,Urban,07.3.3.1.2.01,2024,122.11,,False
+2025,9,Lakshadweep,Urban,07.3.3.1.2.01,2024,122.11,,False
+2025,10,Lakshadweep,Urban,07.3.3.1.2.01,2024,122.11,,False
+2025,11,Lakshadweep,Urban,07.3.3.1.2.01,2024,124.99,,False
+2025,12,Lakshadweep,Urban,07.3.3.1.2.01,2024,120.86,,False
+2026,1,Lakshadweep,Urban,07.3.3.1.2.01,2024,124.99,-4.96,False
+2026,2,Lakshadweep,Urban,07.3.3.1.2.01,2024,123.76,-5.89,False
+2026,3,Lakshadweep,Urban,07.3.3.1.2.01,2024,122.53,-8.65,False
+2026,4,Lakshadweep,Urban,07.3.3.1.2.01,2024,122.94,-9.82,False
+2026,5,Lakshadweep,Urban,07.3.3.1.2.01,2024,123.76,-5.14,False
+2026,6,Lakshadweep,Urban,07.3.3.1.2.01,2024,138.49,13.76,False
+2026,7,Lakshadweep,Urban,07.3.3.1.2.01,2024,139.61,14.33,True
+2026,8,Lakshadweep,Urban,07.3.3.1.2.01,2024,144.85,18.62,False
+2025,1,Madhya Pradesh,Combined,07.3.3.1.2.01,2024,108.65,,False
+2025,2,Madhya Pradesh,Combined,07.3.3.1.2.01,2024,115.41,,False
+2025,3,Madhya Pradesh,Combined,07.3.3.1.2.01,2024,97.6,,False
+2025,4,Madhya Pradesh,Combined,07.3.3.1.2.01,2024,78.67,,False
+2025,5,Madhya Pradesh,Combined,07.3.3.1.2.01,2024,77.51,,False
+2025,6,Madhya Pradesh,Combined,07.3.3.1.2.01,2024,72.09,,False
+2025,7,Madhya Pradesh,Combined,07.3.3.1.2.01,2024,81.69,,False
+2025,8,Madhya Pradesh,Combined,07.3.3.1.2.01,2024,85.87,,False
+2025,9,Madhya Pradesh,Combined,07.3.3.1.2.01,2024,88.01,,False
+2025,10,Madhya Pradesh,Combined,07.3.3.1.2.01,2024,92.58,,False
+2025,11,Madhya Pradesh,Combined,07.3.3.1.2.01,2024,89.84,,False
+2025,12,Madhya Pradesh,Combined,07.3.3.1.2.01,2024,90.45,,False
+2026,1,Madhya Pradesh,Combined,07.3.3.1.2.01,2024,88.05,-18.95,False
+2026,2,Madhya Pradesh,Combined,07.3.3.1.2.01,2024,85.0,-26.35,False
+2026,3,Madhya Pradesh,Combined,07.3.3.1.2.01,2024,88.09,-9.75,False
+2026,4,Madhya Pradesh,Combined,07.3.3.1.2.01,2024,89.69,14.01,False
+2026,5,Madhya Pradesh,Combined,07.3.3.1.2.01,2024,91.66,18.26,False
+2026,6,Madhya Pradesh,Combined,07.3.3.1.2.01,2024,93.36,29.5,False
+2026,7,Madhya Pradesh,Combined,07.3.3.1.2.01,2024,93.34,14.25,False
+2026,8,Madhya Pradesh,Combined,07.3.3.1.2.01,2024,106.06,23.52,False
+2025,1,Madhya Pradesh,Rural,07.3.3.1.2.01,2024,108.65,,False
+2025,2,Madhya Pradesh,Rural,07.3.3.1.2.01,2024,115.41,,False
+2025,3,Madhya Pradesh,Rural,07.3.3.1.2.01,2024,97.6,,False
+2025,4,Madhya Pradesh,Rural,07.3.3.1.2.01,2024,78.67,,False
+2025,5,Madhya Pradesh,Rural,07.3.3.1.2.01,2024,77.51,,False
+2025,6,Madhya Pradesh,Rural,07.3.3.1.2.01,2024,72.09,,False
+2025,7,Madhya Pradesh,Rural,07.3.3.1.2.01,2024,81.69,,False
+2025,8,Madhya Pradesh,Rural,07.3.3.1.2.01,2024,85.87,,False
+2025,9,Madhya Pradesh,Rural,07.3.3.1.2.01,2024,88.01,,False
+2025,10,Madhya Pradesh,Rural,07.3.3.1.2.01,2024,92.58,,False
+2025,11,Madhya Pradesh,Rural,07.3.3.1.2.01,2024,89.84,,False
+2025,12,Madhya Pradesh,Rural,07.3.3.1.2.01,2024,90.45,,False
+2026,1,Madhya Pradesh,Rural,07.3.3.1.2.01,2024,88.05,-18.95,False
+2026,2,Madhya Pradesh,Rural,07.3.3.1.2.01,2024,85.0,-26.35,False
+2026,3,Madhya Pradesh,Rural,07.3.3.1.2.01,2024,88.09,-9.75,False
+2026,4,Madhya Pradesh,Rural,07.3.3.1.2.01,2024,89.69,14.01,False
+2026,5,Madhya Pradesh,Rural,07.3.3.1.2.01,2024,91.66,18.26,False
+2026,6,Madhya Pradesh,Rural,07.3.3.1.2.01,2024,93.36,29.5,False
+2026,7,Madhya Pradesh,Rural,07.3.3.1.2.01,2024,93.34,14.25,False
+2026,8,Madhya Pradesh,Rural,07.3.3.1.2.01,2024,106.06,23.52,False
+2025,1,Madhya Pradesh,Urban,07.3.3.1.2.01,2024,108.65,,False
+2025,2,Madhya Pradesh,Urban,07.3.3.1.2.01,2024,115.41,,False
+2025,3,Madhya Pradesh,Urban,07.3.3.1.2.01,2024,97.6,,False
+2025,4,Madhya Pradesh,Urban,07.3.3.1.2.01,2024,78.67,,False
+2025,5,Madhya Pradesh,Urban,07.3.3.1.2.01,2024,77.51,,False
+2025,6,Madhya Pradesh,Urban,07.3.3.1.2.01,2024,72.09,,False
+2025,7,Madhya Pradesh,Urban,07.3.3.1.2.01,2024,81.69,,False
+2025,8,Madhya Pradesh,Urban,07.3.3.1.2.01,2024,85.87,,False
+2025,9,Madhya Pradesh,Urban,07.3.3.1.2.01,2024,88.01,,False
+2025,10,Madhya Pradesh,Urban,07.3.3.1.2.01,2024,92.58,,False
+2025,11,Madhya Pradesh,Urban,07.3.3.1.2.01,2024,89.84,,False
+2025,12,Madhya Pradesh,Urban,07.3.3.1.2.01,2024,90.45,,False
+2026,1,Madhya Pradesh,Urban,07.3.3.1.2.01,2024,88.05,-18.95,False
+2026,2,Madhya Pradesh,Urban,07.3.3.1.2.01,2024,85.0,-26.35,False
+2026,3,Madhya Pradesh,Urban,07.3.3.1.2.01,2024,88.09,-9.75,False
+2026,4,Madhya Pradesh,Urban,07.3.3.1.2.01,2024,89.69,14.01,False
+2026,5,Madhya Pradesh,Urban,07.3.3.1.2.01,2024,91.66,18.26,False
+2026,6,Madhya Pradesh,Urban,07.3.3.1.2.01,2024,93.36,29.5,False
+2026,7,Madhya Pradesh,Urban,07.3.3.1.2.01,2024,93.34,14.25,False
+2026,8,Madhya Pradesh,Urban,07.3.3.1.2.01,2024,106.06,23.52,False
+2025,1,Maharashtra,Combined,07.3.3.1.2.01,2024,119.11,,False
+2025,2,Maharashtra,Combined,07.3.3.1.2.01,2024,133.43,,False
+2025,3,Maharashtra,Combined,07.3.3.1.2.01,2024,110.61,,False
+2025,4,Maharashtra,Combined,07.3.3.1.2.01,2024,104.6,,False
+2025,5,Maharashtra,Combined,07.3.3.1.2.01,2024,122.45,,False
+2025,6,Maharashtra,Combined,07.3.3.1.2.01,2024,117.87,,False
+2025,7,Maharashtra,Combined,07.3.3.1.2.01,2024,93.3,,False
+2025,8,Maharashtra,Combined,07.3.3.1.2.01,2024,112.14,,False
+2025,9,Maharashtra,Combined,07.3.3.1.2.01,2024,108.96,,False
+2025,10,Maharashtra,Combined,07.3.3.1.2.01,2024,127.19,,False
+2025,11,Maharashtra,Combined,07.3.3.1.2.01,2024,121.53,,False
+2025,12,Maharashtra,Combined,07.3.3.1.2.01,2024,131.96,,False
+2026,1,Maharashtra,Combined,07.3.3.1.2.01,2024,126.3,6.04,False
+2026,2,Maharashtra,Combined,07.3.3.1.2.01,2024,122.91,-7.89,False
+2026,3,Maharashtra,Combined,07.3.3.1.2.01,2024,114.71,3.71,False
+2026,4,Maharashtra,Combined,07.3.3.1.2.01,2024,121.66,16.3,False
+2026,5,Maharashtra,Combined,07.3.3.1.2.01,2024,130.26,6.38,False
+2026,6,Maharashtra,Combined,07.3.3.1.2.01,2024,114.18,-3.13,False
+2026,7,Maharashtra,Combined,07.3.3.1.2.01,2024,125.83,34.86,False
+2026,8,Maharashtra,Combined,07.3.3.1.2.01,2024,118.51,5.69,False
+2025,1,Maharashtra,Rural,07.3.3.1.2.01,2024,119.11,,False
+2025,2,Maharashtra,Rural,07.3.3.1.2.01,2024,133.43,,False
+2025,3,Maharashtra,Rural,07.3.3.1.2.01,2024,110.61,,False
+2025,4,Maharashtra,Rural,07.3.3.1.2.01,2024,104.6,,False
+2025,5,Maharashtra,Rural,07.3.3.1.2.01,2024,122.45,,False
+2025,6,Maharashtra,Rural,07.3.3.1.2.01,2024,117.87,,False
+2025,7,Maharashtra,Rural,07.3.3.1.2.01,2024,93.3,,False
+2025,8,Maharashtra,Rural,07.3.3.1.2.01,2024,112.14,,False
+2025,9,Maharashtra,Rural,07.3.3.1.2.01,2024,108.96,,False
+2025,10,Maharashtra,Rural,07.3.3.1.2.01,2024,127.19,,False
+2025,11,Maharashtra,Rural,07.3.3.1.2.01,2024,121.53,,False
+2025,12,Maharashtra,Rural,07.3.3.1.2.01,2024,131.96,,False
+2026,1,Maharashtra,Rural,07.3.3.1.2.01,2024,126.3,6.04,False
+2026,2,Maharashtra,Rural,07.3.3.1.2.01,2024,122.91,-7.89,False
+2026,3,Maharashtra,Rural,07.3.3.1.2.01,2024,114.71,3.71,False
+2026,4,Maharashtra,Rural,07.3.3.1.2.01,2024,121.66,16.3,False
+2026,5,Maharashtra,Rural,07.3.3.1.2.01,2024,130.26,6.38,False
+2026,6,Maharashtra,Rural,07.3.3.1.2.01,2024,114.18,-3.13,False
+2026,7,Maharashtra,Rural,07.3.3.1.2.01,2024,125.83,34.86,False
+2026,8,Maharashtra,Rural,07.3.3.1.2.01,2024,118.51,5.69,False
+2025,1,Maharashtra,Urban,07.3.3.1.2.01,2024,119.11,,False
+2025,2,Maharashtra,Urban,07.3.3.1.2.01,2024,133.43,,False
+2025,3,Maharashtra,Urban,07.3.3.1.2.01,2024,110.61,,False
+2025,4,Maharashtra,Urban,07.3.3.1.2.01,2024,104.6,,False
+2025,5,Maharashtra,Urban,07.3.3.1.2.01,2024,122.45,,False
+2025,6,Maharashtra,Urban,07.3.3.1.2.01,2024,117.87,,False
+2025,7,Maharashtra,Urban,07.3.3.1.2.01,2024,93.3,,False
+2025,8,Maharashtra,Urban,07.3.3.1.2.01,2024,112.14,,False
+2025,9,Maharashtra,Urban,07.3.3.1.2.01,2024,108.96,,False
+2025,10,Maharashtra,Urban,07.3.3.1.2.01,2024,127.19,,False
+2025,11,Maharashtra,Urban,07.3.3.1.2.01,2024,121.53,,False
+2025,12,Maharashtra,Urban,07.3.3.1.2.01,2024,131.96,,False
+2026,1,Maharashtra,Urban,07.3.3.1.2.01,2024,126.3,6.04,False
+2026,2,Maharashtra,Urban,07.3.3.1.2.01,2024,122.91,-7.89,False
+2026,3,Maharashtra,Urban,07.3.3.1.2.01,2024,114.71,3.71,False
+2026,4,Maharashtra,Urban,07.3.3.1.2.01,2024,121.66,16.3,False
+2026,5,Maharashtra,Urban,07.3.3.1.2.01,2024,130.26,6.38,False
+2026,6,Maharashtra,Urban,07.3.3.1.2.01,2024,114.18,-3.13,False
+2026,7,Maharashtra,Urban,07.3.3.1.2.01,2024,125.83,34.86,False
+2026,8,Maharashtra,Urban,07.3.3.1.2.01,2024,118.51,5.69,False
+2025,1,Manipur,Combined,07.3.3.1.2.01,2024,145.97,,False
+2025,2,Manipur,Combined,07.3.3.1.2.01,2024,101.07,,False
+2025,3,Manipur,Combined,07.3.3.1.2.01,2024,112.45,,False
+2025,4,Manipur,Combined,07.3.3.1.2.01,2024,120.15,,False
+2025,5,Manipur,Combined,07.3.3.1.2.01,2024,119.86,,False
+2025,6,Manipur,Combined,07.3.3.1.2.01,2024,94.11,,False
+2025,7,Manipur,Combined,07.3.3.1.2.01,2024,132.34,,False
+2025,8,Manipur,Combined,07.3.3.1.2.01,2024,135.79,,False
+2025,9,Manipur,Combined,07.3.3.1.2.01,2024,105.57,,False
+2025,10,Manipur,Combined,07.3.3.1.2.01,2024,127.85,,False
+2025,11,Manipur,Combined,07.3.3.1.2.01,2024,116.37,,False
+2025,12,Manipur,Combined,07.3.3.1.2.01,2024,127.64,,False
+2026,1,Manipur,Combined,07.3.3.1.2.01,2024,142.94,-2.08,False
+2026,2,Manipur,Combined,07.3.3.1.2.01,2024,117.61,16.36,False
+2026,3,Manipur,Combined,07.3.3.1.2.01,2024,103.5,-7.96,False
+2026,4,Manipur,Combined,07.3.3.1.2.01,2024,105.7,-12.03,False
+2026,5,Manipur,Combined,07.3.3.1.2.01,2024,95.88,-20.01,False
+2026,6,Manipur,Combined,07.3.3.1.2.01,2024,114.56,21.72,False
+2026,7,Manipur,Combined,07.3.3.1.2.01,2024,113.03,-14.59,False
+2026,8,Manipur,Combined,07.3.3.1.2.01,2024,121.88,-10.25,False
+2025,1,Manipur,Rural,07.3.3.1.2.01,2024,145.97,,False
+2025,2,Manipur,Rural,07.3.3.1.2.01,2024,101.07,,False
+2025,3,Manipur,Rural,07.3.3.1.2.01,2024,112.45,,False
+2025,4,Manipur,Rural,07.3.3.1.2.01,2024,120.15,,False
+2025,5,Manipur,Rural,07.3.3.1.2.01,2024,119.86,,False
+2025,6,Manipur,Rural,07.3.3.1.2.01,2024,94.11,,False
+2025,7,Manipur,Rural,07.3.3.1.2.01,2024,132.34,,False
+2025,8,Manipur,Rural,07.3.3.1.2.01,2024,135.79,,False
+2025,9,Manipur,Rural,07.3.3.1.2.01,2024,105.57,,False
+2025,10,Manipur,Rural,07.3.3.1.2.01,2024,127.85,,False
+2025,11,Manipur,Rural,07.3.3.1.2.01,2024,116.37,,False
+2025,12,Manipur,Rural,07.3.3.1.2.01,2024,127.64,,False
+2026,1,Manipur,Rural,07.3.3.1.2.01,2024,142.94,-2.08,False
+2026,2,Manipur,Rural,07.3.3.1.2.01,2024,117.61,16.36,False
+2026,3,Manipur,Rural,07.3.3.1.2.01,2024,103.5,-7.96,False
+2026,4,Manipur,Rural,07.3.3.1.2.01,2024,105.7,-12.03,False
+2026,5,Manipur,Rural,07.3.3.1.2.01,2024,95.88,-20.01,False
+2026,6,Manipur,Rural,07.3.3.1.2.01,2024,114.56,21.72,False
+2026,7,Manipur,Rural,07.3.3.1.2.01,2024,113.03,-14.59,False
+2026,8,Manipur,Rural,07.3.3.1.2.01,2024,121.88,-10.25,False
+2025,1,Manipur,Urban,07.3.3.1.2.01,2024,145.97,,False
+2025,2,Manipur,Urban,07.3.3.1.2.01,2024,101.07,,False
+2025,3,Manipur,Urban,07.3.3.1.2.01,2024,112.45,,False
+2025,4,Manipur,Urban,07.3.3.1.2.01,2024,120.15,,False
+2025,5,Manipur,Urban,07.3.3.1.2.01,2024,119.86,,False
+2025,6,Manipur,Urban,07.3.3.1.2.01,2024,94.11,,False
+2025,7,Manipur,Urban,07.3.3.1.2.01,2024,132.34,,False
+2025,8,Manipur,Urban,07.3.3.1.2.01,2024,135.79,,False
+2025,9,Manipur,Urban,07.3.3.1.2.01,2024,105.57,,False
+2025,10,Manipur,Urban,07.3.3.1.2.01,2024,127.85,,False
+2025,11,Manipur,Urban,07.3.3.1.2.01,2024,116.37,,False
+2025,12,Manipur,Urban,07.3.3.1.2.01,2024,127.64,,False
+2026,1,Manipur,Urban,07.3.3.1.2.01,2024,142.94,-2.08,False
+2026,2,Manipur,Urban,07.3.3.1.2.01,2024,117.61,16.36,False
+2026,3,Manipur,Urban,07.3.3.1.2.01,2024,103.5,-7.96,False
+2026,4,Manipur,Urban,07.3.3.1.2.01,2024,105.7,-12.03,False
+2026,5,Manipur,Urban,07.3.3.1.2.01,2024,95.88,-20.01,False
+2026,6,Manipur,Urban,07.3.3.1.2.01,2024,114.56,21.72,False
+2026,7,Manipur,Urban,07.3.3.1.2.01,2024,113.03,-14.59,False
+2026,8,Manipur,Urban,07.3.3.1.2.01,2024,121.88,-10.25,False
+2025,1,Meghalaya,Combined,07.3.3.1.2.01,2024,78.35,,False
+2025,2,Meghalaya,Combined,07.3.3.1.2.01,2024,102.82,,False
+2025,3,Meghalaya,Combined,07.3.3.1.2.01,2024,157.18,,False
+2025,4,Meghalaya,Combined,07.3.3.1.2.01,2024,135.04,,False
+2025,5,Meghalaya,Combined,07.3.3.1.2.01,2024,175.31,,False
+2025,6,Meghalaya,Combined,07.3.3.1.2.01,2024,148.2,,False
+2025,7,Meghalaya,Combined,07.3.3.1.2.01,2024,134.09,,False
+2025,8,Meghalaya,Combined,07.3.3.1.2.01,2024,195.04,,False
+2025,9,Meghalaya,Combined,07.3.3.1.2.01,2024,157.94,,False
+2025,10,Meghalaya,Combined,07.3.3.1.2.01,2024,160.06,,False
+2025,11,Meghalaya,Combined,07.3.3.1.2.01,2024,159.59,,False
+2025,12,Meghalaya,Combined,07.3.3.1.2.01,2024,240.43,,False
+2026,1,Meghalaya,Combined,07.3.3.1.2.01,2024,128.17,63.58,False
+2026,2,Meghalaya,Combined,07.3.3.1.2.01,2024,123.09,19.72,False
+2026,3,Meghalaya,Combined,07.3.3.1.2.01,2024,152.62,-2.91,False
+2026,4,Meghalaya,Combined,07.3.3.1.2.01,2024,152.62,13.02,False
+2026,5,Meghalaya,Combined,07.3.3.1.2.01,2024,200.64,14.45,False
+2026,6,Meghalaya,Combined,07.3.3.1.2.01,2024,202.84,36.87,False
+2026,7,Meghalaya,Combined,07.3.3.1.2.01,2024,154.06,14.89,False
+2026,8,Meghalaya,Combined,07.3.3.1.2.01,2024,209.52,7.42,False
+2025,1,Meghalaya,Urban,07.3.3.1.2.01,2024,78.35,,False
+2025,2,Meghalaya,Urban,07.3.3.1.2.01,2024,102.82,,False
+2025,3,Meghalaya,Urban,07.3.3.1.2.01,2024,157.18,,False
+2025,4,Meghalaya,Urban,07.3.3.1.2.01,2024,135.04,,False
+2025,5,Meghalaya,Urban,07.3.3.1.2.01,2024,175.31,,False
+2025,6,Meghalaya,Urban,07.3.3.1.2.01,2024,148.2,,False
+2025,7,Meghalaya,Urban,07.3.3.1.2.01,2024,134.09,,False
+2025,8,Meghalaya,Urban,07.3.3.1.2.01,2024,195.04,,False
+2025,9,Meghalaya,Urban,07.3.3.1.2.01,2024,157.94,,False
+2025,10,Meghalaya,Urban,07.3.3.1.2.01,2024,160.06,,False
+2025,11,Meghalaya,Urban,07.3.3.1.2.01,2024,159.59,,False
+2025,12,Meghalaya,Urban,07.3.3.1.2.01,2024,240.43,,False
+2026,1,Meghalaya,Urban,07.3.3.1.2.01,2024,128.17,63.58,False
+2026,2,Meghalaya,Urban,07.3.3.1.2.01,2024,123.09,19.72,False
+2026,3,Meghalaya,Urban,07.3.3.1.2.01,2024,152.62,-2.91,False
+2026,4,Meghalaya,Urban,07.3.3.1.2.01,2024,152.62,13.02,False
+2026,5,Meghalaya,Urban,07.3.3.1.2.01,2024,200.64,14.45,False
+2026,6,Meghalaya,Urban,07.3.3.1.2.01,2024,202.84,36.87,False
+2026,7,Meghalaya,Urban,07.3.3.1.2.01,2024,154.06,14.89,False
+2026,8,Meghalaya,Urban,07.3.3.1.2.01,2024,209.52,7.42,False
+2025,1,Mizoram,Combined,07.3.3.1.2.01,2024,128.27,,False
+2025,2,Mizoram,Combined,07.3.3.1.2.01,2024,157.05,,False
+2025,3,Mizoram,Combined,07.3.3.1.2.01,2024,109.06,,False
+2025,4,Mizoram,Combined,07.3.3.1.2.01,2024,84.44,,False
+2025,5,Mizoram,Combined,07.3.3.1.2.01,2024,118.49,,False
+2025,6,Mizoram,Combined,07.3.3.1.2.01,2024,155.37,,False
+2025,7,Mizoram,Combined,07.3.3.1.2.01,2024,235.21,,False
+2025,8,Mizoram,Combined,07.3.3.1.2.01,2024,156.69,,False
+2025,9,Mizoram,Combined,07.3.3.1.2.01,2024,148.08,,False
+2025,10,Mizoram,Combined,07.3.3.1.2.01,2024,149.92,,False
+2025,11,Mizoram,Combined,07.3.3.1.2.01,2024,153.05,,False
+2025,12,Mizoram,Combined,07.3.3.1.2.01,2024,117.98,,False
+2026,1,Mizoram,Combined,07.3.3.1.2.01,2024,98.18,-23.46,False
+2026,2,Mizoram,Combined,07.3.3.1.2.01,2024,102.28,-34.87,False
+2026,3,Mizoram,Combined,07.3.3.1.2.01,2024,114.48,4.97,False
+2026,4,Mizoram,Combined,07.3.3.1.2.01,2024,98.83,17.05,False
+2026,5,Mizoram,Combined,07.3.3.1.2.01,2024,103.35,-12.78,False
+2026,6,Mizoram,Combined,07.3.3.1.2.01,2024,136.49,-12.15,False
+2026,7,Mizoram,Combined,07.3.3.1.2.01,2024,136.49,-41.97,True
+2026,8,Mizoram,Combined,07.3.3.1.2.01,2024,135.26,-13.67,False
+2025,1,Mizoram,Rural,07.3.3.1.2.01,2024,128.27,,False
+2025,2,Mizoram,Rural,07.3.3.1.2.01,2024,157.05,,False
+2025,3,Mizoram,Rural,07.3.3.1.2.01,2024,109.06,,False
+2025,4,Mizoram,Rural,07.3.3.1.2.01,2024,84.44,,False
+2025,5,Mizoram,Rural,07.3.3.1.2.01,2024,118.49,,False
+2025,6,Mizoram,Rural,07.3.3.1.2.01,2024,155.37,,False
+2025,7,Mizoram,Rural,07.3.3.1.2.01,2024,235.21,,False
+2025,8,Mizoram,Rural,07.3.3.1.2.01,2024,156.69,,False
+2025,9,Mizoram,Rural,07.3.3.1.2.01,2024,148.08,,False
+2025,10,Mizoram,Rural,07.3.3.1.2.01,2024,149.92,,False
+2025,11,Mizoram,Rural,07.3.3.1.2.01,2024,153.05,,False
+2025,12,Mizoram,Rural,07.3.3.1.2.01,2024,117.98,,False
+2026,1,Mizoram,Rural,07.3.3.1.2.01,2024,98.18,-23.46,False
+2026,2,Mizoram,Rural,07.3.3.1.2.01,2024,102.28,-34.87,False
+2026,3,Mizoram,Rural,07.3.3.1.2.01,2024,114.48,4.97,False
+2026,4,Mizoram,Rural,07.3.3.1.2.01,2024,98.83,17.05,False
+2026,5,Mizoram,Rural,07.3.3.1.2.01,2024,103.35,-12.78,False
+2026,6,Mizoram,Rural,07.3.3.1.2.01,2024,136.49,-12.15,False
+2026,7,Mizoram,Rural,07.3.3.1.2.01,2024,136.49,-41.97,True
+2026,8,Mizoram,Rural,07.3.3.1.2.01,2024,135.26,-13.67,False
+2025,1,Mizoram,Urban,07.3.3.1.2.01,2024,128.27,,False
+2025,2,Mizoram,Urban,07.3.3.1.2.01,2024,157.05,,False
+2025,3,Mizoram,Urban,07.3.3.1.2.01,2024,109.06,,False
+2025,4,Mizoram,Urban,07.3.3.1.2.01,2024,84.44,,False
+2025,5,Mizoram,Urban,07.3.3.1.2.01,2024,118.49,,False
+2025,6,Mizoram,Urban,07.3.3.1.2.01,2024,155.37,,False
+2025,7,Mizoram,Urban,07.3.3.1.2.01,2024,235.21,,False
+2025,8,Mizoram,Urban,07.3.3.1.2.01,2024,156.69,,False
+2025,9,Mizoram,Urban,07.3.3.1.2.01,2024,148.08,,False
+2025,10,Mizoram,Urban,07.3.3.1.2.01,2024,149.92,,False
+2025,11,Mizoram,Urban,07.3.3.1.2.01,2024,153.05,,False
+2025,12,Mizoram,Urban,07.3.3.1.2.01,2024,117.98,,False
+2026,1,Mizoram,Urban,07.3.3.1.2.01,2024,98.18,-23.46,False
+2026,2,Mizoram,Urban,07.3.3.1.2.01,2024,102.28,-34.87,False
+2026,3,Mizoram,Urban,07.3.3.1.2.01,2024,114.48,4.97,False
+2026,4,Mizoram,Urban,07.3.3.1.2.01,2024,98.83,17.05,False
+2026,5,Mizoram,Urban,07.3.3.1.2.01,2024,103.35,-12.78,False
+2026,6,Mizoram,Urban,07.3.3.1.2.01,2024,136.49,-12.15,False
+2026,7,Mizoram,Urban,07.3.3.1.2.01,2024,136.49,-41.97,True
+2026,8,Mizoram,Urban,07.3.3.1.2.01,2024,135.26,-13.67,False
+2025,1,NCT of Delhi,Combined,07.3.3.1.2.01,2024,121.24,,False
+2025,2,NCT of Delhi,Combined,07.3.3.1.2.01,2024,159.97,,False
+2025,3,NCT of Delhi,Combined,07.3.3.1.2.01,2024,116.41,,False
+2025,4,NCT of Delhi,Combined,07.3.3.1.2.01,2024,99.42,,False
+2025,5,NCT of Delhi,Combined,07.3.3.1.2.01,2024,102.32,,False
+2025,6,NCT of Delhi,Combined,07.3.3.1.2.01,2024,112.97,,False
+2025,7,NCT of Delhi,Combined,07.3.3.1.2.01,2024,90.47,,False
+2025,8,NCT of Delhi,Combined,07.3.3.1.2.01,2024,118.99,,False
+2025,9,NCT of Delhi,Combined,07.3.3.1.2.01,2024,106.9,,False
+2025,10,NCT of Delhi,Combined,07.3.3.1.2.01,2024,87.11,,False
+2025,11,NCT of Delhi,Combined,07.3.3.1.2.01,2024,89.98,,False
+2025,12,NCT of Delhi,Combined,07.3.3.1.2.01,2024,104.37,,False
+2026,1,NCT of Delhi,Combined,07.3.3.1.2.01,2024,104.33,-13.95,False
+2026,2,NCT of Delhi,Combined,07.3.3.1.2.01,2024,94.97,-40.63,False
+2026,3,NCT of Delhi,Combined,07.3.3.1.2.01,2024,101.69,-12.64,False
+2026,4,NCT of Delhi,Combined,07.3.3.1.2.01,2024,109.35,9.98,False
+2026,5,NCT of Delhi,Combined,07.3.3.1.2.01,2024,108.83,6.36,False
+2026,6,NCT of Delhi,Combined,07.3.3.1.2.01,2024,110.35,-2.32,False
+2026,7,NCT of Delhi,Combined,07.3.3.1.2.01,2024,131.72,45.6,False
+2026,8,NCT of Delhi,Combined,07.3.3.1.2.01,2024,131.0,10.1,False
+2025,1,NCT of Delhi,Urban,07.3.3.1.2.01,2024,121.24,,False
+2025,2,NCT of Delhi,Urban,07.3.3.1.2.01,2024,159.97,,False
+2025,3,NCT of Delhi,Urban,07.3.3.1.2.01,2024,116.41,,False
+2025,4,NCT of Delhi,Urban,07.3.3.1.2.01,2024,99.42,,False
+2025,5,NCT of Delhi,Urban,07.3.3.1.2.01,2024,102.32,,False
+2025,6,NCT of Delhi,Urban,07.3.3.1.2.01,2024,112.97,,False
+2025,7,NCT of Delhi,Urban,07.3.3.1.2.01,2024,90.47,,False
+2025,8,NCT of Delhi,Urban,07.3.3.1.2.01,2024,118.99,,False
+2025,9,NCT of Delhi,Urban,07.3.3.1.2.01,2024,106.9,,False
+2025,10,NCT of Delhi,Urban,07.3.3.1.2.01,2024,87.11,,False
+2025,11,NCT of Delhi,Urban,07.3.3.1.2.01,2024,89.98,,False
+2025,12,NCT of Delhi,Urban,07.3.3.1.2.01,2024,104.37,,False
+2026,1,NCT of Delhi,Urban,07.3.3.1.2.01,2024,104.33,-13.95,False
+2026,2,NCT of Delhi,Urban,07.3.3.1.2.01,2024,94.97,-40.63,False
+2026,3,NCT of Delhi,Urban,07.3.3.1.2.01,2024,101.69,-12.64,False
+2026,4,NCT of Delhi,Urban,07.3.3.1.2.01,2024,109.35,9.98,False
+2026,5,NCT of Delhi,Urban,07.3.3.1.2.01,2024,108.83,6.36,False
+2026,6,NCT of Delhi,Urban,07.3.3.1.2.01,2024,110.35,-2.32,False
+2026,7,NCT of Delhi,Urban,07.3.3.1.2.01,2024,131.72,45.6,False
+2026,8,NCT of Delhi,Urban,07.3.3.1.2.01,2024,131.0,10.1,False
+2025,1,Nagaland,Combined,07.3.3.1.2.01,2024,182.14,,False
+2025,2,Nagaland,Combined,07.3.3.1.2.01,2024,83.45,,False
+2025,3,Nagaland,Combined,07.3.3.1.2.01,2024,76.42,,False
+2025,4,Nagaland,Combined,07.3.3.1.2.01,2024,81.17,,False
+2025,5,Nagaland,Combined,07.3.3.1.2.01,2024,78.08,,False
+2025,6,Nagaland,Combined,07.3.3.1.2.01,2024,71.46,,False
+2025,7,Nagaland,Combined,07.3.3.1.2.01,2024,72.59,,False
+2025,8,Nagaland,Combined,07.3.3.1.2.01,2024,70.55,,False
+2025,9,Nagaland,Combined,07.3.3.1.2.01,2024,70.5,,False
+2025,10,Nagaland,Combined,07.3.3.1.2.01,2024,80.85,,False
+2025,11,Nagaland,Combined,07.3.3.1.2.01,2024,91.25,,False
+2025,12,Nagaland,Combined,07.3.3.1.2.01,2024,91.25,,True
+2026,1,Nagaland,Combined,07.3.3.1.2.01,2024,73.28,-59.77,False
+2026,2,Nagaland,Combined,07.3.3.1.2.01,2024,69.75,-16.42,False
+2026,3,Nagaland,Combined,07.3.3.1.2.01,2024,71.99,-5.8,False
+2026,4,Nagaland,Combined,07.3.3.1.2.01,2024,107.09,31.93,False
+2026,5,Nagaland,Combined,07.3.3.1.2.01,2024,107.31,37.43,False
+2026,6,Nagaland,Combined,07.3.3.1.2.01,2024,92.61,29.59,False
+2026,7,Nagaland,Combined,07.3.3.1.2.01,2024,83.68,15.29,False
+2026,8,Nagaland,Combined,07.3.3.1.2.01,2024,84.27,19.46,False
+2025,1,Nagaland,Rural,07.3.3.1.2.01,2024,182.14,,False
+2025,2,Nagaland,Rural,07.3.3.1.2.01,2024,83.45,,False
+2025,3,Nagaland,Rural,07.3.3.1.2.01,2024,76.42,,False
+2025,4,Nagaland,Rural,07.3.3.1.2.01,2024,81.17,,False
+2025,5,Nagaland,Rural,07.3.3.1.2.01,2024,78.08,,False
+2025,6,Nagaland,Rural,07.3.3.1.2.01,2024,71.46,,False
+2025,7,Nagaland,Rural,07.3.3.1.2.01,2024,72.59,,False
+2025,8,Nagaland,Rural,07.3.3.1.2.01,2024,70.55,,False
+2025,9,Nagaland,Rural,07.3.3.1.2.01,2024,70.5,,False
+2025,10,Nagaland,Rural,07.3.3.1.2.01,2024,80.85,,False
+2025,11,Nagaland,Rural,07.3.3.1.2.01,2024,91.25,,False
+2025,12,Nagaland,Rural,07.3.3.1.2.01,2024,91.25,,True
+2026,1,Nagaland,Rural,07.3.3.1.2.01,2024,73.28,-59.77,False
+2026,2,Nagaland,Rural,07.3.3.1.2.01,2024,69.75,-16.42,False
+2026,3,Nagaland,Rural,07.3.3.1.2.01,2024,71.99,-5.8,False
+2026,4,Nagaland,Rural,07.3.3.1.2.01,2024,107.09,31.93,False
+2026,5,Nagaland,Rural,07.3.3.1.2.01,2024,107.31,37.43,False
+2026,6,Nagaland,Rural,07.3.3.1.2.01,2024,92.61,29.59,False
+2026,7,Nagaland,Rural,07.3.3.1.2.01,2024,83.68,15.29,False
+2026,8,Nagaland,Rural,07.3.3.1.2.01,2024,84.27,19.46,False
+2025,1,Nagaland,Urban,07.3.3.1.2.01,2024,182.14,,False
+2025,2,Nagaland,Urban,07.3.3.1.2.01,2024,83.45,,False
+2025,3,Nagaland,Urban,07.3.3.1.2.01,2024,76.42,,False
+2025,4,Nagaland,Urban,07.3.3.1.2.01,2024,81.17,,False
+2025,5,Nagaland,Urban,07.3.3.1.2.01,2024,78.08,,False
+2025,6,Nagaland,Urban,07.3.3.1.2.01,2024,71.46,,False
+2025,7,Nagaland,Urban,07.3.3.1.2.01,2024,72.59,,False
+2025,8,Nagaland,Urban,07.3.3.1.2.01,2024,70.55,,False
+2025,9,Nagaland,Urban,07.3.3.1.2.01,2024,70.5,,False
+2025,10,Nagaland,Urban,07.3.3.1.2.01,2024,80.85,,False
+2025,11,Nagaland,Urban,07.3.3.1.2.01,2024,91.25,,False
+2025,12,Nagaland,Urban,07.3.3.1.2.01,2024,91.25,,True
+2026,1,Nagaland,Urban,07.3.3.1.2.01,2024,73.28,-59.77,False
+2026,2,Nagaland,Urban,07.3.3.1.2.01,2024,69.75,-16.42,False
+2026,3,Nagaland,Urban,07.3.3.1.2.01,2024,71.99,-5.8,False
+2026,4,Nagaland,Urban,07.3.3.1.2.01,2024,107.09,31.93,False
+2026,5,Nagaland,Urban,07.3.3.1.2.01,2024,107.31,37.43,False
+2026,6,Nagaland,Urban,07.3.3.1.2.01,2024,92.61,29.59,False
+2026,7,Nagaland,Urban,07.3.3.1.2.01,2024,83.68,15.29,False
+2026,8,Nagaland,Urban,07.3.3.1.2.01,2024,84.27,19.46,False
+2025,1,Odisha,Combined,07.3.3.1.2.01,2024,112.22,,False
+2025,2,Odisha,Combined,07.3.3.1.2.01,2024,110.12,,False
+2025,3,Odisha,Combined,07.3.3.1.2.01,2024,106.53,,False
+2025,4,Odisha,Combined,07.3.3.1.2.01,2024,106.97,,False
+2025,5,Odisha,Combined,07.3.3.1.2.01,2024,100.06,,False
+2025,6,Odisha,Combined,07.3.3.1.2.01,2024,99.56,,False
+2025,7,Odisha,Combined,07.3.3.1.2.01,2024,98.66,,False
+2025,8,Odisha,Combined,07.3.3.1.2.01,2024,104.94,,False
+2025,9,Odisha,Combined,07.3.3.1.2.01,2024,110.11,,False
+2025,10,Odisha,Combined,07.3.3.1.2.01,2024,105.19,,False
+2025,11,Odisha,Combined,07.3.3.1.2.01,2024,105.67,,False
+2025,12,Odisha,Combined,07.3.3.1.2.01,2024,174.85,,False
+2026,1,Odisha,Combined,07.3.3.1.2.01,2024,212.56,89.42,False
+2026,2,Odisha,Combined,07.3.3.1.2.01,2024,237.29,115.48,False
+2026,3,Odisha,Combined,07.3.3.1.2.01,2024,226.54,112.66,False
+2026,4,Odisha,Combined,07.3.3.1.2.01,2024,179.43,67.74,False
+2026,5,Odisha,Combined,07.3.3.1.2.01,2024,235.15,135.01,False
+2026,6,Odisha,Combined,07.3.3.1.2.01,2024,210.48,111.42,False
+2026,7,Odisha,Combined,07.3.3.1.2.01,2024,245.5,148.83,False
+2026,8,Odisha,Combined,07.3.3.1.2.01,2024,275.33,162.37,False
+2025,1,Odisha,Urban,07.3.3.1.2.01,2024,112.22,,False
+2025,2,Odisha,Urban,07.3.3.1.2.01,2024,110.12,,False
+2025,3,Odisha,Urban,07.3.3.1.2.01,2024,106.53,,False
+2025,4,Odisha,Urban,07.3.3.1.2.01,2024,106.97,,False
+2025,5,Odisha,Urban,07.3.3.1.2.01,2024,100.06,,False
+2025,6,Odisha,Urban,07.3.3.1.2.01,2024,99.56,,False
+2025,7,Odisha,Urban,07.3.3.1.2.01,2024,98.66,,False
+2025,8,Odisha,Urban,07.3.3.1.2.01,2024,104.94,,False
+2025,9,Odisha,Urban,07.3.3.1.2.01,2024,110.11,,False
+2025,10,Odisha,Urban,07.3.3.1.2.01,2024,105.19,,False
+2025,11,Odisha,Urban,07.3.3.1.2.01,2024,105.67,,False
+2025,12,Odisha,Urban,07.3.3.1.2.01,2024,174.85,,False
+2026,1,Odisha,Urban,07.3.3.1.2.01,2024,212.56,89.42,False
+2026,2,Odisha,Urban,07.3.3.1.2.01,2024,237.29,115.48,False
+2026,3,Odisha,Urban,07.3.3.1.2.01,2024,226.54,112.66,False
+2026,4,Odisha,Urban,07.3.3.1.2.01,2024,179.43,67.74,False
+2026,5,Odisha,Urban,07.3.3.1.2.01,2024,235.15,135.01,False
+2026,6,Odisha,Urban,07.3.3.1.2.01,2024,210.48,111.42,False
+2026,7,Odisha,Urban,07.3.3.1.2.01,2024,245.5,148.83,False
+2026,8,Odisha,Urban,07.3.3.1.2.01,2024,275.33,162.37,False
+2025,1,Punjab,Combined,07.3.3.1.2.01,2024,102.89,,False
+2025,2,Punjab,Combined,07.3.3.1.2.01,2024,135.59,,False
+2025,3,Punjab,Combined,07.3.3.1.2.01,2024,169.43,,False
+2025,4,Punjab,Combined,07.3.3.1.2.01,2024,137.09,,False
+2025,5,Punjab,Combined,07.3.3.1.2.01,2024,161.64,,False
+2025,6,Punjab,Combined,07.3.3.1.2.01,2024,272.44,,False
+2025,7,Punjab,Combined,07.3.3.1.2.01,2024,159.07,,False
+2025,8,Punjab,Combined,07.3.3.1.2.01,2024,206.03,,False
+2025,9,Punjab,Combined,07.3.3.1.2.01,2024,175.07,,False
+2025,10,Punjab,Combined,07.3.3.1.2.01,2024,166.11,,False
+2025,11,Punjab,Combined,07.3.3.1.2.01,2024,518.87,,False
+2025,12,Punjab,Combined,07.3.3.1.2.01,2024,303.92,,False
+2026,1,Punjab,Combined,07.3.3.1.2.01,2024,234.68,128.09,False
+2026,2,Punjab,Combined,07.3.3.1.2.01,2024,241.88,78.39,False
+2026,3,Punjab,Combined,07.3.3.1.2.01,2024,344.15,103.13,False
+2026,4,Punjab,Combined,07.3.3.1.2.01,2024,332.84,142.79,False
+2026,5,Punjab,Combined,07.3.3.1.2.01,2024,361.81,123.83,False
+2026,6,Punjab,Combined,07.3.3.1.2.01,2024,343.96,26.25,False
+2026,7,Punjab,Combined,07.3.3.1.2.01,2024,432.69,172.01,False
+2026,8,Punjab,Combined,07.3.3.1.2.01,2024,382.16,85.49,False
+2025,1,Punjab,Rural,07.3.3.1.2.01,2024,102.89,,False
+2025,2,Punjab,Rural,07.3.3.1.2.01,2024,135.59,,False
+2025,3,Punjab,Rural,07.3.3.1.2.01,2024,169.43,,False
+2025,4,Punjab,Rural,07.3.3.1.2.01,2024,137.09,,False
+2025,5,Punjab,Rural,07.3.3.1.2.01,2024,161.64,,False
+2025,6,Punjab,Rural,07.3.3.1.2.01,2024,272.44,,False
+2025,7,Punjab,Rural,07.3.3.1.2.01,2024,159.07,,False
+2025,8,Punjab,Rural,07.3.3.1.2.01,2024,206.03,,False
+2025,9,Punjab,Rural,07.3.3.1.2.01,2024,175.07,,False
+2025,10,Punjab,Rural,07.3.3.1.2.01,2024,166.11,,False
+2025,11,Punjab,Rural,07.3.3.1.2.01,2024,518.87,,False
+2025,12,Punjab,Rural,07.3.3.1.2.01,2024,303.92,,False
+2026,1,Punjab,Rural,07.3.3.1.2.01,2024,234.68,128.09,False
+2026,2,Punjab,Rural,07.3.3.1.2.01,2024,241.88,78.39,False
+2026,3,Punjab,Rural,07.3.3.1.2.01,2024,344.15,103.13,False
+2026,4,Punjab,Rural,07.3.3.1.2.01,2024,332.84,142.79,False
+2026,5,Punjab,Rural,07.3.3.1.2.01,2024,361.81,123.83,False
+2026,6,Punjab,Rural,07.3.3.1.2.01,2024,343.96,26.25,False
+2026,7,Punjab,Rural,07.3.3.1.2.01,2024,432.69,172.01,False
+2026,8,Punjab,Rural,07.3.3.1.2.01,2024,382.16,85.49,False
+2025,1,Punjab,Urban,07.3.3.1.2.01,2024,102.89,,False
+2025,2,Punjab,Urban,07.3.3.1.2.01,2024,135.59,,False
+2025,3,Punjab,Urban,07.3.3.1.2.01,2024,169.43,,False
+2025,4,Punjab,Urban,07.3.3.1.2.01,2024,137.09,,False
+2025,5,Punjab,Urban,07.3.3.1.2.01,2024,161.64,,False
+2025,6,Punjab,Urban,07.3.3.1.2.01,2024,272.44,,False
+2025,7,Punjab,Urban,07.3.3.1.2.01,2024,159.07,,False
+2025,8,Punjab,Urban,07.3.3.1.2.01,2024,206.03,,False
+2025,9,Punjab,Urban,07.3.3.1.2.01,2024,175.07,,False
+2025,10,Punjab,Urban,07.3.3.1.2.01,2024,166.11,,False
+2025,11,Punjab,Urban,07.3.3.1.2.01,2024,518.87,,False
+2025,12,Punjab,Urban,07.3.3.1.2.01,2024,303.92,,False
+2026,1,Punjab,Urban,07.3.3.1.2.01,2024,234.68,128.09,False
+2026,2,Punjab,Urban,07.3.3.1.2.01,2024,241.88,78.39,False
+2026,3,Punjab,Urban,07.3.3.1.2.01,2024,344.15,103.13,False
+2026,4,Punjab,Urban,07.3.3.1.2.01,2024,332.84,142.79,False
+2026,5,Punjab,Urban,07.3.3.1.2.01,2024,361.81,123.83,False
+2026,6,Punjab,Urban,07.3.3.1.2.01,2024,343.96,26.25,False
+2026,7,Punjab,Urban,07.3.3.1.2.01,2024,432.69,172.01,False
+2026,8,Punjab,Urban,07.3.3.1.2.01,2024,382.16,85.49,False
+2025,1,Rajasthan,Combined,07.3.3.1.2.01,2024,101.95,,False
+2025,2,Rajasthan,Combined,07.3.3.1.2.01,2024,127.04,,False
+2025,3,Rajasthan,Combined,07.3.3.1.2.01,2024,132.04,,False
+2025,4,Rajasthan,Combined,07.3.3.1.2.01,2024,139.01,,False
+2025,5,Rajasthan,Combined,07.3.3.1.2.01,2024,114.67,,False
+2025,6,Rajasthan,Combined,07.3.3.1.2.01,2024,116.61,,False
+2025,7,Rajasthan,Combined,07.3.3.1.2.01,2024,121.36,,False
+2025,8,Rajasthan,Combined,07.3.3.1.2.01,2024,152.82,,False
+2025,9,Rajasthan,Combined,07.3.3.1.2.01,2024,138.21,,False
+2025,10,Rajasthan,Combined,07.3.3.1.2.01,2024,89.93,,False
+2025,11,Rajasthan,Combined,07.3.3.1.2.01,2024,107.19,,False
+2025,12,Rajasthan,Combined,07.3.3.1.2.01,2024,111.38,,False
+2026,1,Rajasthan,Combined,07.3.3.1.2.01,2024,92.7,-9.07,False
+2026,2,Rajasthan,Combined,07.3.3.1.2.01,2024,96.65,-23.92,False
+2026,3,Rajasthan,Combined,07.3.3.1.2.01,2024,80.15,-39.3,False
+2026,4,Rajasthan,Combined,07.3.3.1.2.01,2024,98.04,-29.48,False
+2026,5,Rajasthan,Combined,07.3.3.1.2.01,2024,73.81,-35.64,False
+2026,6,Rajasthan,Combined,07.3.3.1.2.01,2024,74.4,-36.2,False
+2026,7,Rajasthan,Combined,07.3.3.1.2.01,2024,76.73,-36.78,False
+2026,8,Rajasthan,Combined,07.3.3.1.2.01,2024,93.29,-38.95,False
+2025,1,Rajasthan,Rural,07.3.3.1.2.01,2024,101.95,,False
+2025,2,Rajasthan,Rural,07.3.3.1.2.01,2024,127.04,,False
+2025,3,Rajasthan,Rural,07.3.3.1.2.01,2024,132.04,,False
+2025,4,Rajasthan,Rural,07.3.3.1.2.01,2024,139.01,,False
+2025,5,Rajasthan,Rural,07.3.3.1.2.01,2024,114.67,,False
+2025,6,Rajasthan,Rural,07.3.3.1.2.01,2024,116.61,,False
+2025,7,Rajasthan,Rural,07.3.3.1.2.01,2024,121.36,,False
+2025,8,Rajasthan,Rural,07.3.3.1.2.01,2024,152.82,,False
+2025,9,Rajasthan,Rural,07.3.3.1.2.01,2024,138.21,,False
+2025,10,Rajasthan,Rural,07.3.3.1.2.01,2024,89.93,,False
+2025,11,Rajasthan,Rural,07.3.3.1.2.01,2024,107.19,,False
+2025,12,Rajasthan,Rural,07.3.3.1.2.01,2024,111.38,,False
+2026,1,Rajasthan,Rural,07.3.3.1.2.01,2024,92.7,-9.07,False
+2026,2,Rajasthan,Rural,07.3.3.1.2.01,2024,96.65,-23.92,False
+2026,3,Rajasthan,Rural,07.3.3.1.2.01,2024,80.15,-39.3,False
+2026,4,Rajasthan,Rural,07.3.3.1.2.01,2024,98.04,-29.48,False
+2026,5,Rajasthan,Rural,07.3.3.1.2.01,2024,73.81,-35.64,False
+2026,6,Rajasthan,Rural,07.3.3.1.2.01,2024,74.4,-36.2,False
+2026,7,Rajasthan,Rural,07.3.3.1.2.01,2024,76.73,-36.78,False
+2026,8,Rajasthan,Rural,07.3.3.1.2.01,2024,93.29,-38.95,False
+2025,1,Rajasthan,Urban,07.3.3.1.2.01,2024,101.95,,False
+2025,2,Rajasthan,Urban,07.3.3.1.2.01,2024,127.04,,False
+2025,3,Rajasthan,Urban,07.3.3.1.2.01,2024,132.04,,False
+2025,4,Rajasthan,Urban,07.3.3.1.2.01,2024,139.01,,False
+2025,5,Rajasthan,Urban,07.3.3.1.2.01,2024,114.67,,False
+2025,6,Rajasthan,Urban,07.3.3.1.2.01,2024,116.61,,False
+2025,7,Rajasthan,Urban,07.3.3.1.2.01,2024,121.36,,False
+2025,8,Rajasthan,Urban,07.3.3.1.2.01,2024,152.82,,False
+2025,9,Rajasthan,Urban,07.3.3.1.2.01,2024,138.21,,False
+2025,10,Rajasthan,Urban,07.3.3.1.2.01,2024,89.93,,False
+2025,11,Rajasthan,Urban,07.3.3.1.2.01,2024,107.19,,False
+2025,12,Rajasthan,Urban,07.3.3.1.2.01,2024,111.38,,False
+2026,1,Rajasthan,Urban,07.3.3.1.2.01,2024,92.7,-9.07,False
+2026,2,Rajasthan,Urban,07.3.3.1.2.01,2024,96.65,-23.92,False
+2026,3,Rajasthan,Urban,07.3.3.1.2.01,2024,80.15,-39.3,False
+2026,4,Rajasthan,Urban,07.3.3.1.2.01,2024,98.04,-29.48,False
+2026,5,Rajasthan,Urban,07.3.3.1.2.01,2024,73.81,-35.64,False
+2026,6,Rajasthan,Urban,07.3.3.1.2.01,2024,74.4,-36.2,False
+2026,7,Rajasthan,Urban,07.3.3.1.2.01,2024,76.73,-36.78,False
+2026,8,Rajasthan,Urban,07.3.3.1.2.01,2024,93.29,-38.95,False
+2025,1,Sikkim,Combined,07.3.3.1.2.01,2024,100.0,,True
+2025,2,Sikkim,Combined,07.3.3.1.2.01,2024,100.0,,True
+2025,3,Sikkim,Combined,07.3.3.1.2.01,2024,100.0,,True
+2025,4,Sikkim,Combined,07.3.3.1.2.01,2024,100.0,,True
+2025,5,Sikkim,Combined,07.3.3.1.2.01,2024,100.0,,True
+2025,6,Sikkim,Combined,07.3.3.1.2.01,2024,100.0,,True
+2025,7,Sikkim,Combined,07.3.3.1.2.01,2024,100.0,,True
+2025,8,Sikkim,Combined,07.3.3.1.2.01,2024,100.0,,True
+2025,9,Sikkim,Combined,07.3.3.1.2.01,2024,100.0,,True
+2025,10,Sikkim,Combined,07.3.3.1.2.01,2024,100.0,,True
+2025,11,Sikkim,Combined,07.3.3.1.2.01,2024,100.0,,True
+2025,12,Sikkim,Combined,07.3.3.1.2.01,2024,100.0,,True
+2026,1,Sikkim,Combined,07.3.3.1.2.01,2024,100.0,0.0,True
+2026,2,Sikkim,Combined,07.3.3.1.2.01,2024,100.0,0.0,True
+2026,3,Sikkim,Combined,07.3.3.1.2.01,2024,100.0,0.0,True
+2026,4,Sikkim,Combined,07.3.3.1.2.01,2024,100.0,0.0,True
+2026,5,Sikkim,Combined,07.3.3.1.2.01,2024,100.0,0.0,True
+2026,6,Sikkim,Combined,07.3.3.1.2.01,2024,100.0,0.0,True
+2026,7,Sikkim,Combined,07.3.3.1.2.01,2024,100.0,0.0,True
+2026,8,Sikkim,Combined,07.3.3.1.2.01,2024,119.57,19.57,False
+2025,1,Sikkim,Rural,07.3.3.1.2.01,2024,100.0,,True
+2025,2,Sikkim,Rural,07.3.3.1.2.01,2024,100.0,,True
+2025,3,Sikkim,Rural,07.3.3.1.2.01,2024,100.0,,True
+2025,4,Sikkim,Rural,07.3.3.1.2.01,2024,100.0,,True
+2025,5,Sikkim,Rural,07.3.3.1.2.01,2024,100.0,,True
+2025,6,Sikkim,Rural,07.3.3.1.2.01,2024,100.0,,True
+2025,7,Sikkim,Rural,07.3.3.1.2.01,2024,100.0,,True
+2025,8,Sikkim,Rural,07.3.3.1.2.01,2024,100.0,,True
+2025,9,Sikkim,Rural,07.3.3.1.2.01,2024,100.0,,True
+2025,10,Sikkim,Rural,07.3.3.1.2.01,2024,100.0,,True
+2025,11,Sikkim,Rural,07.3.3.1.2.01,2024,100.0,,True
+2025,12,Sikkim,Rural,07.3.3.1.2.01,2024,100.0,,True
+2026,1,Sikkim,Rural,07.3.3.1.2.01,2024,100.0,0.0,True
+2026,2,Sikkim,Rural,07.3.3.1.2.01,2024,100.0,0.0,True
+2026,3,Sikkim,Rural,07.3.3.1.2.01,2024,100.0,0.0,True
+2026,4,Sikkim,Rural,07.3.3.1.2.01,2024,100.0,0.0,True
+2026,5,Sikkim,Rural,07.3.3.1.2.01,2024,100.0,0.0,True
+2026,6,Sikkim,Rural,07.3.3.1.2.01,2024,100.0,0.0,True
+2026,7,Sikkim,Rural,07.3.3.1.2.01,2024,100.0,0.0,True
+2026,8,Sikkim,Rural,07.3.3.1.2.01,2024,119.57,19.57,False
+2025,1,Sikkim,Urban,07.3.3.1.2.01,2024,100.0,,True
+2025,2,Sikkim,Urban,07.3.3.1.2.01,2024,100.0,,True
+2025,3,Sikkim,Urban,07.3.3.1.2.01,2024,100.0,,True
+2025,4,Sikkim,Urban,07.3.3.1.2.01,2024,100.0,,True
+2025,5,Sikkim,Urban,07.3.3.1.2.01,2024,100.0,,True
+2025,6,Sikkim,Urban,07.3.3.1.2.01,2024,100.0,,True
+2025,7,Sikkim,Urban,07.3.3.1.2.01,2024,100.0,,True
+2025,8,Sikkim,Urban,07.3.3.1.2.01,2024,100.0,,True
+2025,9,Sikkim,Urban,07.3.3.1.2.01,2024,100.0,,True
+2025,10,Sikkim,Urban,07.3.3.1.2.01,2024,100.0,,True
+2025,11,Sikkim,Urban,07.3.3.1.2.01,2024,100.0,,True
+2025,12,Sikkim,Urban,07.3.3.1.2.01,2024,100.0,,True
+2026,1,Sikkim,Urban,07.3.3.1.2.01,2024,100.0,0.0,True
+2026,2,Sikkim,Urban,07.3.3.1.2.01,2024,100.0,0.0,True
+2026,3,Sikkim,Urban,07.3.3.1.2.01,2024,100.0,0.0,True
+2026,4,Sikkim,Urban,07.3.3.1.2.01,2024,100.0,0.0,True
+2026,5,Sikkim,Urban,07.3.3.1.2.01,2024,100.0,0.0,True
+2026,6,Sikkim,Urban,07.3.3.1.2.01,2024,100.0,0.0,True
+2026,7,Sikkim,Urban,07.3.3.1.2.01,2024,100.0,0.0,True
+2026,8,Sikkim,Urban,07.3.3.1.2.01,2024,119.57,19.57,False
+2025,1,Tamil Nadu,Combined,07.3.3.1.2.01,2024,115.86,,False
+2025,2,Tamil Nadu,Combined,07.3.3.1.2.01,2024,143.37,,False
+2025,3,Tamil Nadu,Combined,07.3.3.1.2.01,2024,105.51,,False
+2025,4,Tamil Nadu,Combined,07.3.3.1.2.01,2024,107.34,,False
+2025,5,Tamil Nadu,Combined,07.3.3.1.2.01,2024,104.4,,False
+2025,6,Tamil Nadu,Combined,07.3.3.1.2.01,2024,105.56,,False
+2025,7,Tamil Nadu,Combined,07.3.3.1.2.01,2024,116.97,,False
+2025,8,Tamil Nadu,Combined,07.3.3.1.2.01,2024,133.51,,False
+2025,9,Tamil Nadu,Combined,07.3.3.1.2.01,2024,108.09,,False
+2025,10,Tamil Nadu,Combined,07.3.3.1.2.01,2024,101.69,,False
+2025,11,Tamil Nadu,Combined,07.3.3.1.2.01,2024,100.54,,False
+2025,12,Tamil Nadu,Combined,07.3.3.1.2.01,2024,101.01,,False
+2026,1,Tamil Nadu,Combined,07.3.3.1.2.01,2024,108.12,-6.68,False
+2026,2,Tamil Nadu,Combined,07.3.3.1.2.01,2024,99.16,-30.83,False
+2026,3,Tamil Nadu,Combined,07.3.3.1.2.01,2024,101.44,-3.85,False
+2026,4,Tamil Nadu,Combined,07.3.3.1.2.01,2024,132.09,23.06,False
+2026,5,Tamil Nadu,Combined,07.3.3.1.2.01,2024,137.36,31.57,False
+2026,6,Tamil Nadu,Combined,07.3.3.1.2.01,2024,132.65,25.67,False
+2026,7,Tamil Nadu,Combined,07.3.3.1.2.01,2024,115.75,-1.05,False
+2026,8,Tamil Nadu,Combined,07.3.3.1.2.01,2024,117.31,-12.13,False
+2025,1,Tamil Nadu,Rural,07.3.3.1.2.01,2024,115.86,,False
+2025,2,Tamil Nadu,Rural,07.3.3.1.2.01,2024,143.37,,False
+2025,3,Tamil Nadu,Rural,07.3.3.1.2.01,2024,105.51,,False
+2025,4,Tamil Nadu,Rural,07.3.3.1.2.01,2024,107.34,,False
+2025,5,Tamil Nadu,Rural,07.3.3.1.2.01,2024,104.4,,False
+2025,6,Tamil Nadu,Rural,07.3.3.1.2.01,2024,105.56,,False
+2025,7,Tamil Nadu,Rural,07.3.3.1.2.01,2024,116.97,,False
+2025,8,Tamil Nadu,Rural,07.3.3.1.2.01,2024,133.51,,False
+2025,9,Tamil Nadu,Rural,07.3.3.1.2.01,2024,108.09,,False
+2025,10,Tamil Nadu,Rural,07.3.3.1.2.01,2024,101.69,,False
+2025,11,Tamil Nadu,Rural,07.3.3.1.2.01,2024,100.54,,False
+2025,12,Tamil Nadu,Rural,07.3.3.1.2.01,2024,101.01,,False
+2026,1,Tamil Nadu,Rural,07.3.3.1.2.01,2024,108.12,-6.68,False
+2026,2,Tamil Nadu,Rural,07.3.3.1.2.01,2024,99.16,-30.83,False
+2026,3,Tamil Nadu,Rural,07.3.3.1.2.01,2024,101.44,-3.85,False
+2026,4,Tamil Nadu,Rural,07.3.3.1.2.01,2024,132.09,23.06,False
+2026,5,Tamil Nadu,Rural,07.3.3.1.2.01,2024,137.36,31.57,False
+2026,6,Tamil Nadu,Rural,07.3.3.1.2.01,2024,132.65,25.67,False
+2026,7,Tamil Nadu,Rural,07.3.3.1.2.01,2024,115.75,-1.05,False
+2026,8,Tamil Nadu,Rural,07.3.3.1.2.01,2024,117.31,-12.13,False
+2025,1,Tamil Nadu,Urban,07.3.3.1.2.01,2024,115.86,,False
+2025,2,Tamil Nadu,Urban,07.3.3.1.2.01,2024,143.37,,False
+2025,3,Tamil Nadu,Urban,07.3.3.1.2.01,2024,105.51,,False
+2025,4,Tamil Nadu,Urban,07.3.3.1.2.01,2024,107.34,,False
+2025,5,Tamil Nadu,Urban,07.3.3.1.2.01,2024,104.4,,False
+2025,6,Tamil Nadu,Urban,07.3.3.1.2.01,2024,105.56,,False
+2025,7,Tamil Nadu,Urban,07.3.3.1.2.01,2024,116.97,,False
+2025,8,Tamil Nadu,Urban,07.3.3.1.2.01,2024,133.51,,False
+2025,9,Tamil Nadu,Urban,07.3.3.1.2.01,2024,108.09,,False
+2025,10,Tamil Nadu,Urban,07.3.3.1.2.01,2024,101.69,,False
+2025,11,Tamil Nadu,Urban,07.3.3.1.2.01,2024,100.54,,False
+2025,12,Tamil Nadu,Urban,07.3.3.1.2.01,2024,101.01,,False
+2026,1,Tamil Nadu,Urban,07.3.3.1.2.01,2024,108.12,-6.68,False
+2026,2,Tamil Nadu,Urban,07.3.3.1.2.01,2024,99.16,-30.83,False
+2026,3,Tamil Nadu,Urban,07.3.3.1.2.01,2024,101.44,-3.85,False
+2026,4,Tamil Nadu,Urban,07.3.3.1.2.01,2024,132.09,23.06,False
+2026,5,Tamil Nadu,Urban,07.3.3.1.2.01,2024,137.36,31.57,False
+2026,6,Tamil Nadu,Urban,07.3.3.1.2.01,2024,132.65,25.67,False
+2026,7,Tamil Nadu,Urban,07.3.3.1.2.01,2024,115.75,-1.05,False
+2026,8,Tamil Nadu,Urban,07.3.3.1.2.01,2024,117.31,-12.13,False
+2025,1,Telangana,Combined,07.3.3.1.2.01,2024,111.28,,False
+2025,2,Telangana,Combined,07.3.3.1.2.01,2024,126.25,,False
+2025,3,Telangana,Combined,07.3.3.1.2.01,2024,89.65,,False
+2025,4,Telangana,Combined,07.3.3.1.2.01,2024,112.58,,False
+2025,5,Telangana,Combined,07.3.3.1.2.01,2024,110.84,,False
+2025,6,Telangana,Combined,07.3.3.1.2.01,2024,112.03,,False
+2025,7,Telangana,Combined,07.3.3.1.2.01,2024,102.93,,False
+2025,8,Telangana,Combined,07.3.3.1.2.01,2024,111.64,,False
+2025,9,Telangana,Combined,07.3.3.1.2.01,2024,99.08,,False
+2025,10,Telangana,Combined,07.3.3.1.2.01,2024,104.06,,False
+2025,11,Telangana,Combined,07.3.3.1.2.01,2024,107.63,,False
+2025,12,Telangana,Combined,07.3.3.1.2.01,2024,116.49,,False
+2026,1,Telangana,Combined,07.3.3.1.2.01,2024,111.3,0.01,False
+2026,2,Telangana,Combined,07.3.3.1.2.01,2024,111.27,-11.87,False
+2026,3,Telangana,Combined,07.3.3.1.2.01,2024,113.7,26.82,False
+2026,4,Telangana,Combined,07.3.3.1.2.01,2024,113.45,0.77,False
+2026,5,Telangana,Combined,07.3.3.1.2.01,2024,116.15,4.78,False
+2026,6,Telangana,Combined,07.3.3.1.2.01,2024,120.11,7.21,False
+2026,7,Telangana,Combined,07.3.3.1.2.01,2024,120.36,16.94,False
+2026,8,Telangana,Combined,07.3.3.1.2.01,2024,137.21,22.91,False
+2025,1,Telangana,Rural,07.3.3.1.2.01,2024,111.28,,False
+2025,2,Telangana,Rural,07.3.3.1.2.01,2024,126.25,,False
+2025,3,Telangana,Rural,07.3.3.1.2.01,2024,89.65,,False
+2025,4,Telangana,Rural,07.3.3.1.2.01,2024,112.58,,False
+2025,5,Telangana,Rural,07.3.3.1.2.01,2024,110.84,,False
+2025,6,Telangana,Rural,07.3.3.1.2.01,2024,112.03,,False
+2025,7,Telangana,Rural,07.3.3.1.2.01,2024,102.93,,False
+2025,8,Telangana,Rural,07.3.3.1.2.01,2024,111.64,,False
+2025,9,Telangana,Rural,07.3.3.1.2.01,2024,99.08,,False
+2025,10,Telangana,Rural,07.3.3.1.2.01,2024,104.06,,False
+2025,11,Telangana,Rural,07.3.3.1.2.01,2024,107.63,,False
+2025,12,Telangana,Rural,07.3.3.1.2.01,2024,116.49,,False
+2026,1,Telangana,Rural,07.3.3.1.2.01,2024,111.3,0.01,False
+2026,2,Telangana,Rural,07.3.3.1.2.01,2024,111.27,-11.87,False
+2026,3,Telangana,Rural,07.3.3.1.2.01,2024,113.7,26.82,False
+2026,4,Telangana,Rural,07.3.3.1.2.01,2024,113.45,0.77,False
+2026,5,Telangana,Rural,07.3.3.1.2.01,2024,116.15,4.78,False
+2026,6,Telangana,Rural,07.3.3.1.2.01,2024,120.11,7.21,False
+2026,7,Telangana,Rural,07.3.3.1.2.01,2024,120.36,16.94,False
+2026,8,Telangana,Rural,07.3.3.1.2.01,2024,137.21,22.91,False
+2025,1,Telangana,Urban,07.3.3.1.2.01,2024,111.28,,False
+2025,2,Telangana,Urban,07.3.3.1.2.01,2024,126.25,,False
+2025,3,Telangana,Urban,07.3.3.1.2.01,2024,89.65,,False
+2025,4,Telangana,Urban,07.3.3.1.2.01,2024,112.58,,False
+2025,5,Telangana,Urban,07.3.3.1.2.01,2024,110.84,,False
+2025,6,Telangana,Urban,07.3.3.1.2.01,2024,112.03,,False
+2025,7,Telangana,Urban,07.3.3.1.2.01,2024,102.93,,False
+2025,8,Telangana,Urban,07.3.3.1.2.01,2024,111.64,,False
+2025,9,Telangana,Urban,07.3.3.1.2.01,2024,99.08,,False
+2025,10,Telangana,Urban,07.3.3.1.2.01,2024,104.06,,False
+2025,11,Telangana,Urban,07.3.3.1.2.01,2024,107.63,,False
+2025,12,Telangana,Urban,07.3.3.1.2.01,2024,116.49,,False
+2026,1,Telangana,Urban,07.3.3.1.2.01,2024,111.3,0.01,False
+2026,2,Telangana,Urban,07.3.3.1.2.01,2024,111.27,-11.87,False
+2026,3,Telangana,Urban,07.3.3.1.2.01,2024,113.7,26.82,False
+2026,4,Telangana,Urban,07.3.3.1.2.01,2024,113.45,0.77,False
+2026,5,Telangana,Urban,07.3.3.1.2.01,2024,116.15,4.78,False
+2026,6,Telangana,Urban,07.3.3.1.2.01,2024,120.11,7.21,False
+2026,7,Telangana,Urban,07.3.3.1.2.01,2024,120.36,16.94,False
+2026,8,Telangana,Urban,07.3.3.1.2.01,2024,137.21,22.91,False
+2025,1,Tripura,Combined,07.3.3.1.2.01,2024,97.96,,False
+2025,2,Tripura,Combined,07.3.3.1.2.01,2024,113.84,,False
+2025,3,Tripura,Combined,07.3.3.1.2.01,2024,97.12,,False
+2025,4,Tripura,Combined,07.3.3.1.2.01,2024,86.84,,False
+2025,5,Tripura,Combined,07.3.3.1.2.01,2024,83.67,,False
+2025,6,Tripura,Combined,07.3.3.1.2.01,2024,84.3,,False
+2025,7,Tripura,Combined,07.3.3.1.2.01,2024,86.86,,False
+2025,8,Tripura,Combined,07.3.3.1.2.01,2024,88.65,,False
+2025,9,Tripura,Combined,07.3.3.1.2.01,2024,78.42,,False
+2025,10,Tripura,Combined,07.3.3.1.2.01,2024,89.09,,False
+2025,11,Tripura,Combined,07.3.3.1.2.01,2024,88.94,,False
+2025,12,Tripura,Combined,07.3.3.1.2.01,2024,110.07,,False
+2026,1,Tripura,Combined,07.3.3.1.2.01,2024,97.73,-0.23,False
+2026,2,Tripura,Combined,07.3.3.1.2.01,2024,109.88,-3.48,False
+2026,3,Tripura,Combined,07.3.3.1.2.01,2024,98.88,1.81,False
+2026,4,Tripura,Combined,07.3.3.1.2.01,2024,122.19,40.71,False
+2026,5,Tripura,Combined,07.3.3.1.2.01,2024,119.49,42.81,False
+2026,6,Tripura,Combined,07.3.3.1.2.01,2024,111.89,32.73,False
+2026,7,Tripura,Combined,07.3.3.1.2.01,2024,98.22,13.08,False
+2026,8,Tripura,Combined,07.3.3.1.2.01,2024,94.29,6.36,False
+2025,1,Tripura,Rural,07.3.3.1.2.01,2024,97.96,,False
+2025,2,Tripura,Rural,07.3.3.1.2.01,2024,113.84,,False
+2025,3,Tripura,Rural,07.3.3.1.2.01,2024,97.12,,False
+2025,4,Tripura,Rural,07.3.3.1.2.01,2024,86.84,,False
+2025,5,Tripura,Rural,07.3.3.1.2.01,2024,83.67,,False
+2025,6,Tripura,Rural,07.3.3.1.2.01,2024,84.3,,False
+2025,7,Tripura,Rural,07.3.3.1.2.01,2024,86.86,,False
+2025,8,Tripura,Rural,07.3.3.1.2.01,2024,88.65,,False
+2025,9,Tripura,Rural,07.3.3.1.2.01,2024,78.42,,False
+2025,10,Tripura,Rural,07.3.3.1.2.01,2024,89.09,,False
+2025,11,Tripura,Rural,07.3.3.1.2.01,2024,88.94,,False
+2025,12,Tripura,Rural,07.3.3.1.2.01,2024,110.07,,False
+2026,1,Tripura,Rural,07.3.3.1.2.01,2024,97.73,-0.23,False
+2026,2,Tripura,Rural,07.3.3.1.2.01,2024,109.88,-3.48,False
+2026,3,Tripura,Rural,07.3.3.1.2.01,2024,98.88,1.81,False
+2026,4,Tripura,Rural,07.3.3.1.2.01,2024,122.19,40.71,False
+2026,5,Tripura,Rural,07.3.3.1.2.01,2024,119.49,42.81,False
+2026,6,Tripura,Rural,07.3.3.1.2.01,2024,111.89,32.73,False
+2026,7,Tripura,Rural,07.3.3.1.2.01,2024,98.22,13.08,False
+2026,8,Tripura,Rural,07.3.3.1.2.01,2024,94.29,6.36,False
+2025,1,Tripura,Urban,07.3.3.1.2.01,2024,97.96,,False
+2025,2,Tripura,Urban,07.3.3.1.2.01,2024,113.84,,False
+2025,3,Tripura,Urban,07.3.3.1.2.01,2024,97.12,,False
+2025,4,Tripura,Urban,07.3.3.1.2.01,2024,86.84,,False
+2025,5,Tripura,Urban,07.3.3.1.2.01,2024,83.67,,False
+2025,6,Tripura,Urban,07.3.3.1.2.01,2024,84.3,,False
+2025,7,Tripura,Urban,07.3.3.1.2.01,2024,86.86,,False
+2025,8,Tripura,Urban,07.3.3.1.2.01,2024,88.65,,False
+2025,9,Tripura,Urban,07.3.3.1.2.01,2024,78.42,,False
+2025,10,Tripura,Urban,07.3.3.1.2.01,2024,89.09,,False
+2025,11,Tripura,Urban,07.3.3.1.2.01,2024,88.94,,False
+2025,12,Tripura,Urban,07.3.3.1.2.01,2024,110.07,,False
+2026,1,Tripura,Urban,07.3.3.1.2.01,2024,97.73,-0.23,False
+2026,2,Tripura,Urban,07.3.3.1.2.01,2024,109.88,-3.48,False
+2026,3,Tripura,Urban,07.3.3.1.2.01,2024,98.88,1.81,False
+2026,4,Tripura,Urban,07.3.3.1.2.01,2024,122.19,40.71,False
+2026,5,Tripura,Urban,07.3.3.1.2.01,2024,119.49,42.81,False
+2026,6,Tripura,Urban,07.3.3.1.2.01,2024,111.89,32.73,False
+2026,7,Tripura,Urban,07.3.3.1.2.01,2024,98.22,13.08,False
+2026,8,Tripura,Urban,07.3.3.1.2.01,2024,94.29,6.36,False
+2025,1,Uttar Pradesh,Combined,07.3.3.1.2.01,2024,125.76,,False
+2025,2,Uttar Pradesh,Combined,07.3.3.1.2.01,2024,236.68,,False
+2025,3,Uttar Pradesh,Combined,07.3.3.1.2.01,2024,140.42,,False
+2025,4,Uttar Pradesh,Combined,07.3.3.1.2.01,2024,99.84,,False
+2025,5,Uttar Pradesh,Combined,07.3.3.1.2.01,2024,102.04,,False
+2025,6,Uttar Pradesh,Combined,07.3.3.1.2.01,2024,120.79,,False
+2025,7,Uttar Pradesh,Combined,07.3.3.1.2.01,2024,96.05,,False
+2025,8,Uttar Pradesh,Combined,07.3.3.1.2.01,2024,93.8,,False
+2025,9,Uttar Pradesh,Combined,07.3.3.1.2.01,2024,82.43,,False
+2025,10,Uttar Pradesh,Combined,07.3.3.1.2.01,2024,76.45,,False
+2025,11,Uttar Pradesh,Combined,07.3.3.1.2.01,2024,103.72,,False
+2025,12,Uttar Pradesh,Combined,07.3.3.1.2.01,2024,108.36,,False
+2026,1,Uttar Pradesh,Combined,07.3.3.1.2.01,2024,96.51,-23.26,False
+2026,2,Uttar Pradesh,Combined,07.3.3.1.2.01,2024,109.37,-53.79,False
+2026,3,Uttar Pradesh,Combined,07.3.3.1.2.01,2024,120.81,-13.97,False
+2026,4,Uttar Pradesh,Combined,07.3.3.1.2.01,2024,84.88,-14.98,False
+2026,5,Uttar Pradesh,Combined,07.3.3.1.2.01,2024,100.69,-1.32,False
+2026,6,Uttar Pradesh,Combined,07.3.3.1.2.01,2024,97.83,-19.01,False
+2026,7,Uttar Pradesh,Combined,07.3.3.1.2.01,2024,81.72,-14.92,False
+2026,8,Uttar Pradesh,Combined,07.3.3.1.2.01,2024,86.65,-7.62,False
+2025,1,Uttar Pradesh,Rural,07.3.3.1.2.01,2024,125.76,,False
+2025,2,Uttar Pradesh,Rural,07.3.3.1.2.01,2024,236.68,,False
+2025,3,Uttar Pradesh,Rural,07.3.3.1.2.01,2024,140.42,,False
+2025,4,Uttar Pradesh,Rural,07.3.3.1.2.01,2024,99.84,,False
+2025,5,Uttar Pradesh,Rural,07.3.3.1.2.01,2024,102.04,,False
+2025,6,Uttar Pradesh,Rural,07.3.3.1.2.01,2024,120.79,,False
+2025,7,Uttar Pradesh,Rural,07.3.3.1.2.01,2024,96.05,,False
+2025,8,Uttar Pradesh,Rural,07.3.3.1.2.01,2024,93.8,,False
+2025,9,Uttar Pradesh,Rural,07.3.3.1.2.01,2024,82.43,,False
+2025,10,Uttar Pradesh,Rural,07.3.3.1.2.01,2024,76.45,,False
+2025,11,Uttar Pradesh,Rural,07.3.3.1.2.01,2024,103.72,,False
+2025,12,Uttar Pradesh,Rural,07.3.3.1.2.01,2024,108.36,,False
+2026,1,Uttar Pradesh,Rural,07.3.3.1.2.01,2024,96.51,-23.26,False
+2026,2,Uttar Pradesh,Rural,07.3.3.1.2.01,2024,109.37,-53.79,False
+2026,3,Uttar Pradesh,Rural,07.3.3.1.2.01,2024,120.81,-13.97,False
+2026,4,Uttar Pradesh,Rural,07.3.3.1.2.01,2024,84.88,-14.98,False
+2026,5,Uttar Pradesh,Rural,07.3.3.1.2.01,2024,100.69,-1.32,False
+2026,6,Uttar Pradesh,Rural,07.3.3.1.2.01,2024,97.83,-19.01,False
+2026,7,Uttar Pradesh,Rural,07.3.3.1.2.01,2024,81.72,-14.92,False
+2026,8,Uttar Pradesh,Rural,07.3.3.1.2.01,2024,86.65,-7.62,False
+2025,1,Uttar Pradesh,Urban,07.3.3.1.2.01,2024,125.76,,False
+2025,2,Uttar Pradesh,Urban,07.3.3.1.2.01,2024,236.68,,False
+2025,3,Uttar Pradesh,Urban,07.3.3.1.2.01,2024,140.42,,False
+2025,4,Uttar Pradesh,Urban,07.3.3.1.2.01,2024,99.84,,False
+2025,5,Uttar Pradesh,Urban,07.3.3.1.2.01,2024,102.04,,False
+2025,6,Uttar Pradesh,Urban,07.3.3.1.2.01,2024,120.79,,False
+2025,7,Uttar Pradesh,Urban,07.3.3.1.2.01,2024,96.05,,False
+2025,8,Uttar Pradesh,Urban,07.3.3.1.2.01,2024,93.8,,False
+2025,9,Uttar Pradesh,Urban,07.3.3.1.2.01,2024,82.43,,False
+2025,10,Uttar Pradesh,Urban,07.3.3.1.2.01,2024,76.45,,False
+2025,11,Uttar Pradesh,Urban,07.3.3.1.2.01,2024,103.72,,False
+2025,12,Uttar Pradesh,Urban,07.3.3.1.2.01,2024,108.36,,False
+2026,1,Uttar Pradesh,Urban,07.3.3.1.2.01,2024,96.51,-23.26,False
+2026,2,Uttar Pradesh,Urban,07.3.3.1.2.01,2024,109.37,-53.79,False
+2026,3,Uttar Pradesh,Urban,07.3.3.1.2.01,2024,120.81,-13.97,False
+2026,4,Uttar Pradesh,Urban,07.3.3.1.2.01,2024,84.88,-14.98,False
+2026,5,Uttar Pradesh,Urban,07.3.3.1.2.01,2024,100.69,-1.32,False
+2026,6,Uttar Pradesh,Urban,07.3.3.1.2.01,2024,97.83,-19.01,False
+2026,7,Uttar Pradesh,Urban,07.3.3.1.2.01,2024,81.72,-14.92,False
+2026,8,Uttar Pradesh,Urban,07.3.3.1.2.01,2024,86.65,-7.62,False
+2025,1,Uttarakhand,Combined,07.3.3.1.2.01,2024,112.33,,False
+2025,2,Uttarakhand,Combined,07.3.3.1.2.01,2024,175.67,,False
+2025,3,Uttarakhand,Combined,07.3.3.1.2.01,2024,152.07,,False
+2025,4,Uttarakhand,Combined,07.3.3.1.2.01,2024,166.95,,False
+2025,5,Uttarakhand,Combined,07.3.3.1.2.01,2024,100.76,,False
+2025,6,Uttarakhand,Combined,07.3.3.1.2.01,2024,117.18,,False
+2025,7,Uttarakhand,Combined,07.3.3.1.2.01,2024,95.61,,False
+2025,8,Uttarakhand,Combined,07.3.3.1.2.01,2024,95.11,,False
+2025,9,Uttarakhand,Combined,07.3.3.1.2.01,2024,97.02,,False
+2025,10,Uttarakhand,Combined,07.3.3.1.2.01,2024,129.27,,False
+2025,11,Uttarakhand,Combined,07.3.3.1.2.01,2024,131.04,,False
+2025,12,Uttarakhand,Combined,07.3.3.1.2.01,2024,103.08,,False
+2026,1,Uttarakhand,Combined,07.3.3.1.2.01,2024,89.03,-20.74,False
+2026,2,Uttarakhand,Combined,07.3.3.1.2.01,2024,105.83,-39.75,False
+2026,3,Uttarakhand,Combined,07.3.3.1.2.01,2024,120.46,-20.79,False
+2026,4,Uttarakhand,Combined,07.3.3.1.2.01,2024,106.19,-36.39,False
+2026,5,Uttarakhand,Combined,07.3.3.1.2.01,2024,151.75,50.61,False
+2026,6,Uttarakhand,Combined,07.3.3.1.2.01,2024,143.15,22.16,False
+2026,7,Uttarakhand,Combined,07.3.3.1.2.01,2024,154.48,61.57,False
+2026,8,Uttarakhand,Combined,07.3.3.1.2.01,2024,206.72,117.36,False
+2025,1,Uttarakhand,Urban,07.3.3.1.2.01,2024,112.33,,False
+2025,2,Uttarakhand,Urban,07.3.3.1.2.01,2024,175.67,,False
+2025,3,Uttarakhand,Urban,07.3.3.1.2.01,2024,152.07,,False
+2025,4,Uttarakhand,Urban,07.3.3.1.2.01,2024,166.95,,False
+2025,5,Uttarakhand,Urban,07.3.3.1.2.01,2024,100.76,,False
+2025,6,Uttarakhand,Urban,07.3.3.1.2.01,2024,117.18,,False
+2025,7,Uttarakhand,Urban,07.3.3.1.2.01,2024,95.61,,False
+2025,8,Uttarakhand,Urban,07.3.3.1.2.01,2024,95.11,,False
+2025,9,Uttarakhand,Urban,07.3.3.1.2.01,2024,97.02,,False
+2025,10,Uttarakhand,Urban,07.3.3.1.2.01,2024,129.27,,False
+2025,11,Uttarakhand,Urban,07.3.3.1.2.01,2024,131.04,,False
+2025,12,Uttarakhand,Urban,07.3.3.1.2.01,2024,103.08,,False
+2026,1,Uttarakhand,Urban,07.3.3.1.2.01,2024,89.03,-20.74,False
+2026,2,Uttarakhand,Urban,07.3.3.1.2.01,2024,105.83,-39.75,False
+2026,3,Uttarakhand,Urban,07.3.3.1.2.01,2024,120.46,-20.79,False
+2026,4,Uttarakhand,Urban,07.3.3.1.2.01,2024,106.19,-36.39,False
+2026,5,Uttarakhand,Urban,07.3.3.1.2.01,2024,151.75,50.61,False
+2026,6,Uttarakhand,Urban,07.3.3.1.2.01,2024,143.15,22.16,False
+2026,7,Uttarakhand,Urban,07.3.3.1.2.01,2024,154.48,61.57,False
+2026,8,Uttarakhand,Urban,07.3.3.1.2.01,2024,206.72,117.36,False
+2025,1,West Bengal,Combined,07.3.3.1.2.01,2024,102.7,,False
+2025,2,West Bengal,Combined,07.3.3.1.2.01,2024,119.33,,False
+2025,3,West Bengal,Combined,07.3.3.1.2.01,2024,102.5,,False
+2025,4,West Bengal,Combined,07.3.3.1.2.01,2024,102.12,,False
+2025,5,West Bengal,Combined,07.3.3.1.2.01,2024,100.02,,False
+2025,6,West Bengal,Combined,07.3.3.1.2.01,2024,98.69,,False
+2025,7,West Bengal,Combined,07.3.3.1.2.01,2024,94.49,,False
+2025,8,West Bengal,Combined,07.3.3.1.2.01,2024,93.61,,False
+2025,9,West Bengal,Combined,07.3.3.1.2.01,2024,86.7,,False
+2025,10,West Bengal,Combined,07.3.3.1.2.01,2024,97.86,,False
+2025,11,West Bengal,Combined,07.3.3.1.2.01,2024,102.72,,False
+2025,12,West Bengal,Combined,07.3.3.1.2.01,2024,106.43,,False
+2026,1,West Bengal,Combined,07.3.3.1.2.01,2024,97.67,-4.89,False
+2026,2,West Bengal,Combined,07.3.3.1.2.01,2024,98.31,-17.62,False
+2026,3,West Bengal,Combined,07.3.3.1.2.01,2024,117.09,14.24,False
+2026,4,West Bengal,Combined,07.3.3.1.2.01,2024,116.95,14.53,False
+2026,5,West Bengal,Combined,07.3.3.1.2.01,2024,135.99,35.97,False
+2026,6,West Bengal,Combined,07.3.3.1.2.01,2024,119.86,21.46,False
+2026,7,West Bengal,Combined,07.3.3.1.2.01,2024,112.53,19.09,False
+2026,8,West Bengal,Combined,07.3.3.1.2.01,2024,121.47,29.76,False
+2025,1,West Bengal,Rural,07.3.3.1.2.01,2024,102.7,,False
+2025,2,West Bengal,Rural,07.3.3.1.2.01,2024,119.33,,False
+2025,3,West Bengal,Rural,07.3.3.1.2.01,2024,102.5,,False
+2025,4,West Bengal,Rural,07.3.3.1.2.01,2024,102.12,,False
+2025,5,West Bengal,Rural,07.3.3.1.2.01,2024,100.02,,False
+2025,6,West Bengal,Rural,07.3.3.1.2.01,2024,98.69,,False
+2025,7,West Bengal,Rural,07.3.3.1.2.01,2024,94.49,,False
+2025,8,West Bengal,Rural,07.3.3.1.2.01,2024,93.61,,False
+2025,9,West Bengal,Rural,07.3.3.1.2.01,2024,86.7,,False
+2025,10,West Bengal,Rural,07.3.3.1.2.01,2024,97.86,,False
+2025,11,West Bengal,Rural,07.3.3.1.2.01,2024,102.72,,False
+2025,12,West Bengal,Rural,07.3.3.1.2.01,2024,106.43,,False
+2026,1,West Bengal,Rural,07.3.3.1.2.01,2024,97.67,-4.89,False
+2026,2,West Bengal,Rural,07.3.3.1.2.01,2024,98.31,-17.62,False
+2026,3,West Bengal,Rural,07.3.3.1.2.01,2024,117.09,14.24,False
+2026,4,West Bengal,Rural,07.3.3.1.2.01,2024,116.95,14.53,False
+2026,5,West Bengal,Rural,07.3.3.1.2.01,2024,135.99,35.97,False
+2026,6,West Bengal,Rural,07.3.3.1.2.01,2024,119.86,21.46,False
+2026,7,West Bengal,Rural,07.3.3.1.2.01,2024,112.53,19.09,False
+2026,8,West Bengal,Rural,07.3.3.1.2.01,2024,121.47,29.76,False
+2025,1,West Bengal,Urban,07.3.3.1.2.01,2024,102.7,,False
+2025,2,West Bengal,Urban,07.3.3.1.2.01,2024,119.33,,False
+2025,3,West Bengal,Urban,07.3.3.1.2.01,2024,102.5,,False
+2025,4,West Bengal,Urban,07.3.3.1.2.01,2024,102.12,,False
+2025,5,West Bengal,Urban,07.3.3.1.2.01,2024,100.02,,False
+2025,6,West Bengal,Urban,07.3.3.1.2.01,2024,98.69,,False
+2025,7,West Bengal,Urban,07.3.3.1.2.01,2024,94.49,,False
+2025,8,West Bengal,Urban,07.3.3.1.2.01,2024,93.61,,False
+2025,9,West Bengal,Urban,07.3.3.1.2.01,2024,86.7,,False
+2025,10,West Bengal,Urban,07.3.3.1.2.01,2024,97.86,,False
+2025,11,West Bengal,Urban,07.3.3.1.2.01,2024,102.72,,False
+2025,12,West Bengal,Urban,07.3.3.1.2.01,2024,106.43,,False
+2026,1,West Bengal,Urban,07.3.3.1.2.01,2024,97.67,-4.89,False
+2026,2,West Bengal,Urban,07.3.3.1.2.01,2024,98.31,-17.62,False
+2026,3,West Bengal,Urban,07.3.3.1.2.01,2024,117.09,14.24,False
+2026,4,West Bengal,Urban,07.3.3.1.2.01,2024,116.95,14.53,False
+2026,5,West Bengal,Urban,07.3.3.1.2.01,2024,135.99,35.97,False
+2026,6,West Bengal,Urban,07.3.3.1.2.01,2024,119.86,21.46,False
+2026,7,West Bengal,Urban,07.3.3.1.2.01,2024,112.53,19.09,False
+2026,8,West Bengal,Urban,07.3.3.1.2.01,2024,121.47,29.76,False
