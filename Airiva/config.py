@@ -161,6 +161,9 @@ class Settings(BaseSettings):
         return self.__repr__()
 
 
+Settings.model_rebuild()
+
+
 def _load_settings() -> Settings:
     try:
         from dotenv import load_dotenv

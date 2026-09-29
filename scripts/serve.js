@@ -50,6 +50,7 @@ function loadSeedQuotes() {
       scrape_date: '2026-07-08',
       origin: row.origin,
       destination: row.destination,
+      route_code: `${row.origin}-${row.destination}`,
       carrier: row.carrier,
       flight_number: row.flight_number,
       travel_date: row.travel_date,

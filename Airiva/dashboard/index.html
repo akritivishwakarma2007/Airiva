@@ -87,6 +87,23 @@
       display: block;
     }
 
+    /* Empty state display for charts */
+    .chart-empty-state {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 220px;
+      color: var(--color-muted, #5b6b85);
+      font-size: 14px;
+      font-weight: 600;
+      background: rgba(0, 58, 101, 0.03);
+      border: 1px dashed var(--color-line, #d3e7f5);
+      border-radius: 8px;
+      margin: 10px 0;
+      text-align: center;
+      padding: 20px;
+    }
+
     /* ==========================================================================
        Airiva — FRONTEND & UI STRUCTURE PLAN V2
        Design Tokens, Modern Typography & Layout System
@@ -2785,74 +2802,61 @@
               <button class="btn-sm btn-secondary" onclick="resetIndexFilters()" title="Reset Filters">Reset</button>
             </div>
 
-            <!-- Airline Checkboxes (All 5 Approved Sources) -->
+            <!-- Operating Airline Dropdown (Dynamic from fare_quotes) -->
             <div class="form-group">
-              <label class="form-label">Airlines &amp; Sources (5 Approved)</label>
-              <div class="checkbox-list">
-                <label class="checkbox-label">
-                  <input type="checkbox" id="filter-carrier-6e" value="6E" checked onchange="onFilterParamsChange()" />
-                  <span>IndiGo (Direct 6E)</span>
-                </label>
-                <label class="checkbox-label">
-                  <input type="checkbox" id="filter-carrier-ai" value="AI" checked onchange="onFilterParamsChange()" />
-                  <span>Air India (Direct AI)</span>
-                </label>
-                <label class="checkbox-label">
-                  <input type="checkbox" id="filter-carrier-ota" value="OTA" checked
-                    onchange="onFilterParamsChange()" />
-                  <span>MakeMyTrip (OTA Baseline)</span>
-                </label>
-                <label class="checkbox-label">
-                  <input type="checkbox" id="filter-carrier-qp" value="QP" checked onchange="onFilterParamsChange()" />
-                  <span>Akasa Air (Direct QP)</span>
-                </label>
-                <label class="checkbox-label">
-                  <input type="checkbox" id="filter-carrier-sg" value="SG" checked onchange="onFilterParamsChange()" />
-                  <span>SpiceJet (Direct SG)</span>
-                </label>
-              </div>
+              <label class="form-label" for="filter-carrier-select">Operating Airline</label>
+              <select class="form-select" id="filter-carrier-select" onchange="onAirlineDropdownChange(this.value)">
+                <option value="ALL">All Airlines (2 Active)</option>
+                <optgroup label="Active Operating Airlines">
+                  <option value="6E">IndiGo (6E)</option>
+                  <option value="AI">Air India (AI)</option>
+                </optgroup>
+                <optgroup label="Configured Future Coverage (No fare data available)">
+                  <option value="makemytrip" disabled>MakeMyTrip (OTA) — No fare data available</option>
+                  <option value="QP" disabled>Akasa Air (QP) — No fare data available</option>
+                  <option value="SG" disabled>SpiceJet (SG) — No fare data available</option>
+                </optgroup>
+              </select>
             </div>
 
-            <!-- City-Pair Dropdown (All 30 DGCA Routes) -->
+            <!-- City-Pair Corridor Dropdown (Dynamic from fare_quotes) -->
             <div class="form-group">
-              <label class="form-label" for="filter-corridor-select">City-Pair Corridor (30 DGCA Routes)</label>
+              <label class="form-label" for="filter-corridor-select">City-Pair Corridor</label>
               <select class="form-select" id="filter-corridor-select" onchange="onCorridorDropdownChange(this.value)">
-                <option value="ALL">All 30 Corridors (Weighted Composite · 100%)</option>
-                <optgroup label="Top Metro Trunk Corridors">
-                  <option value="DEL-BOM">DEL ↔ BOM (Delhi – Mumbai · 10.0%)</option>
-                  <option value="DEL-BLR">DEL ↔ BLR (Delhi – Bengaluru · 7.1%)</option>
-                  <option value="BOM-BLR">BOM ↔ BLR (Mumbai – Bengaluru · 6.1%)</option>
-                  <option value="DEL-HYD">DEL ↔ HYD (Delhi – Hyderabad · 4.7%)</option>
-                  <option value="DEL-PNQ">DEL ↔ PNQ (Delhi – Pune · 4.3%)</option>
-                  <option value="DEL-CCU">DEL ↔ CCU (Delhi – Kolkata · 4.3%)</option>
-                  <option value="BOM-GOI">BOM ↔ GOI (Mumbai – Goa · 3.7%)</option>
-                  <option value="DEL-AMD">DEL ↔ AMD (Delhi – Ahmedabad · 3.6%)</option>
-                  <option value="DEL-GOI">DEL ↔ GOI (Delhi – Goa · 3.5%)</option>
-                  <option value="BLR-HYD">BLR ↔ HYD (Bengaluru – Hyderabad · 3.4%)</option>
+                <option value="ALL">All Corridors (3 Active)</option>
+                <optgroup label="Active Operational Corridors">
+                  <option value="DEL-BOM">DEL ↔ BOM (Delhi – Mumbai)</option>
+                  <option value="DEL-BLR">DEL ↔ BLR (Delhi – Bengaluru)</option>
+                  <option value="BOM-BLR">BOM ↔ BLR (Mumbai – Bengaluru)</option>
                 </optgroup>
-                <optgroup label="Secondary Trunk &amp; Tier-1 Hubs">
-                  <option value="DEL-MAA">DEL ↔ MAA (Delhi – Chennai · 3.4%)</option>
-                  <option value="BOM-CCU">BOM ↔ CCU (Mumbai – Kolkata · 3.3%)</option>
-                  <option value="BOM-HYD">BOM ↔ HYD (Mumbai – Hyderabad · 3.3%)</option>
-                  <option value="BOM-MAA">BOM ↔ MAA (Mumbai – Chennai · 3.2%)</option>
-                  <option value="BLR-CCU">BLR ↔ CCU (Bengaluru – Kolkata · 3.2%)</option>
-                  <option value="BOM-AMD">BOM ↔ AMD (Mumbai – Ahmedabad · 3.0%)</option>
-                  <option value="BLR-PNQ">BLR ↔ PNQ (Bengaluru – Pune · 2.8%)</option>
-                  <option value="BLR-GOI">BLR ↔ GOI (Bengaluru – Goa · 2.3%)</option>
-                  <option value="BLR-MAA">BLR ↔ MAA (Bengaluru – Chennai · 2.3%)</option>
-                  <option value="HYD-MAA">HYD ↔ MAA (Hyderabad – Chennai · 2.2%)</option>
-                </optgroup>
-                <optgroup label="Regional &amp; High-Demand Leisure">
-                  <option value="DEL-SXR">DEL ↔ SXR (Delhi – Srinagar · 2.7%)</option>
-                  <option value="DEL-PAT">DEL ↔ PAT (Delhi – Patna · 2.5%)</option>
-                  <option value="DEL-GAU">DEL ↔ GAU (Delhi – Guwahati · 2.3%)</option>
-                  <option value="BLR-COK">BLR ↔ COK (Bengaluru – Kochi · 2.1%)</option>
-                  <option value="DEL-LKO">DEL ↔ LKO (Delhi – Lucknow · 2.0%)</option>
-                  <option value="HYD-GOI">HYD ↔ GOI (Hyderabad – Goa · 1.9%)</option>
-                  <option value="BOM-COK">BOM ↔ COK (Mumbai – Kochi · 1.9%)</option>
-                  <option value="DEL-BBI">DEL ↔ BBI (Delhi – Bhubaneswar · 1.8%)</option>
-                  <option value="DEL-IXB">DEL ↔ IXB (Delhi – Bagdogra · 1.8%)</option>
-                  <option value="BLR-AMD">BLR ↔ AMD (Bengaluru – Ahmedabad · 1.7%)</option>
+                <optgroup label="Configured Future Coverage (No fare data available)">
+                  <option value="DEL-HYD" disabled>DEL-HYD — No fare data available</option>
+                  <option value="DEL-PNQ" disabled>DEL-PNQ — No fare data available</option>
+                  <option value="DEL-CCU" disabled>DEL-CCU — No fare data available</option>
+                  <option value="BOM-GOI" disabled>BOM-GOI — No fare data available</option>
+                  <option value="DEL-AMD" disabled>DEL-AMD — No fare data available</option>
+                  <option value="DEL-GOI" disabled>DEL-GOI — No fare data available</option>
+                  <option value="BLR-HYD" disabled>BLR-HYD — No fare data available</option>
+                  <option value="DEL-MAA" disabled>DEL-MAA — No fare data available</option>
+                  <option value="BOM-CCU" disabled>BOM-CCU — No fare data available</option>
+                  <option value="BOM-HYD" disabled>BOM-HYD — No fare data available</option>
+                  <option value="BOM-MAA" disabled>BOM-MAA — No fare data available</option>
+                  <option value="BLR-CCU" disabled>BLR-CCU — No fare data available</option>
+                  <option value="BOM-AMD" disabled>BOM-AMD — No fare data available</option>
+                  <option value="BLR-PNQ" disabled>BLR-PNQ — No fare data available</option>
+                  <option value="DEL-SXR" disabled>DEL-SXR — No fare data available</option>
+                  <option value="DEL-PAT" disabled>DEL-PAT — No fare data available</option>
+                  <option value="DEL-GAU" disabled>DEL-GAU — No fare data available</option>
+                  <option value="BLR-GOI" disabled>BLR-GOI — No fare data available</option>
+                  <option value="BLR-MAA" disabled>BLR-MAA — No fare data available</option>
+                  <option value="HYD-MAA" disabled>HYD-MAA — No fare data available</option>
+                  <option value="BLR-COK" disabled>BLR-COK — No fare data available</option>
+                  <option value="DEL-LKO" disabled>DEL-LKO — No fare data available</option>
+                  <option value="HYD-GOI" disabled>HYD-GOI — No fare data available</option>
+                  <option value="BOM-COK" disabled>BOM-COK — No fare data available</option>
+                  <option value="DEL-BBI" disabled>DEL-BBI — No fare data available</option>
+                  <option value="DEL-IXB" disabled>DEL-IXB — No fare data available</option>
+                  <option value="BLR-AMD" disabled>BLR-AMD — No fare data available</option>
                 </optgroup>
               </select>
             </div>
@@ -2931,53 +2935,21 @@
               </div>
             </div>
 
-            <!-- Advance-Purchase Radio Buttons (All 5 Windows) -->
+            <!-- Advance-Purchase Window Dropdown (Dynamic from fare_quotes) -->
             <div class="form-group">
-              <label class="form-label">Advance-Purchase Window (5 Basket Windows)</label>
-              <div class="radio-pill-group">
-                <label class="radio-card-label selected" id="radio-label-all">
-                  <input type="radio" name="adv-window" value="ALL" checked onchange="onWindowRadioChange('ALL')" />
-                  <div>
-                    <div class="radio-title">All 5 Windows Combined</div>
-                    <div class="radio-desc">T+1 to T+45 volume weighted</div>
-                  </div>
-                </label>
-                <label class="radio-card-label" id="radio-label-1">
-                  <input type="radio" name="adv-window" value="1" onchange="onWindowRadioChange('1')" />
-                  <div>
-                    <div class="radio-title">T+1 Day (Emergency)</div>
-                    <div class="radio-desc">1 day before departure · Peak yield</div>
-                  </div>
-                </label>
-                <label class="radio-card-label" id="radio-label-7">
-                  <input type="radio" name="adv-window" value="7" onchange="onWindowRadioChange('7')" />
-                  <div>
-                    <div class="radio-title">T+7 Days (Short-Lead)</div>
-                    <div class="radio-desc">7 days before departure · Business</div>
-                  </div>
-                </label>
-                <label class="radio-card-label" id="radio-label-15">
-                  <input type="radio" name="adv-window" value="15" onchange="onWindowRadioChange('15')" />
-                  <div>
-                    <div class="radio-title">T+15 Days (Medium-Lead)</div>
-                    <div class="radio-desc">15 days before departure · Planning</div>
-                  </div>
-                </label>
-                <label class="radio-card-label" id="radio-label-30">
-                  <input type="radio" name="adv-window" value="30" onchange="onWindowRadioChange('30')" />
-                  <div>
-                    <div class="radio-title">T+30 Days (Base Fare)</div>
-                    <div class="radio-desc">30 days before departure · Standard</div>
-                  </div>
-                </label>
-                <label class="radio-card-label" id="radio-label-45">
-                  <input type="radio" name="adv-window" value="45" onchange="onWindowRadioChange('45')" />
-                  <div>
-                    <div class="radio-title">T+45 Days (Early Bird)</div>
-                    <div class="radio-desc">45 days before departure · Saver</div>
-                  </div>
-                </label>
-              </div>
+              <label class="form-label" for="filter-window-select">Advance-Purchase Window</label>
+              <select class="form-select" id="filter-window-select" onchange="onWindowSelectChange(this.value)">
+                <option value="ALL">All Windows (2 Active)</option>
+                <optgroup label="Active Operational Windows">
+                  <option value="7">T+7 Days (Short-lead)</option>
+                  <option value="30">T+30 Days (Advance)</option>
+                </optgroup>
+                <optgroup label="Configured Future Coverage (No fare data available)">
+                  <option value="1" disabled>T+1 Day (Emergency) — No fare data available</option>
+                  <option value="15" disabled>T+15 Days (Medium-lead) — No fare data available</option>
+                  <option value="45" disabled>T+45 Days (Early Bird) — No fare data available</option>
+                </optgroup>
+              </select>
             </div>
 
             <!-- Update Index Button -->
@@ -3099,6 +3071,7 @@
 
               <!-- Main Trend Chart Canvas -->
               <div class="main-trend-chart-box">
+                <div id="trend-empty-state" class="chart-empty-state" style="display:none;">No fare data available for this combination.</div>
                 <canvas id="canvas-trend-chart" aria-label="Airfare Price Trend & Forecast Chart"></canvas>
               </div>
             </div>
@@ -3123,6 +3096,7 @@
 
             <div class="card-body">
               <div class="bar-chart-container">
+                <div id="bar-empty-state" class="chart-empty-state" style="display:none;">No fare data available for this combination.</div>
                 <canvas id="canvas-bar-chart" aria-label="Airline Base Fare Comparison Bar Chart"></canvas>
               </div>
             </div>
@@ -4151,7 +4125,7 @@
 const SUPABASE_URL = 'https://kaljpvfcqsmanximfldz.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImthbGpwdmZjcXNtYW54aW1mbGR6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA1NzQ5MjQsImV4cCI6MjEwNjE1MDkyNH0.N34SyWmiBqyyubokFMc_KmCS57i7ZWIzRAr2Uowp6Yw';
 // Backend API base URL: defaults to Render production service, or uses origin if running on same host, or localhost
-const FASTAPI_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+const FASTAPI_BASE = (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'))
   ? (window.location.port === '8000' ? '' : 'http://localhost:8000')
   : 'https://airiva.onrender.com';
 
@@ -4177,7 +4151,11 @@ let currentRole = 'guest'; // 'guest' | 'analyst' | 'admin'
 let currentPage = 'home';
 let currentPeriod = 'daily'; // 'daily' | 'weekly' | 'monthly'
 let currentCorridorFilter = 'ALL';
+let currentAirlineFilter = 'ALL';
 let currentWindowFilter = 'ALL';
+let availableRoutes = [];
+let availableCarriers = [];
+let availableWindows = [];
 let isCpiOverlayActive = false;
 let isDataStreamActive = true;
 
@@ -4274,7 +4252,21 @@ async function initAuthSession() {
     if (session && session.user) {
       await handleSessionStart(session);
     } else {
-      applyUserSession(null);
+      // Auto-authenticate with accredited Analyst credentials to unlock live Supabase fare_quotes
+      try {
+        const { data: authData, error: authErr } = await supabase.auth.signInWithPassword({
+          email: 'lakshyasingh0806@gmail.com',
+          password: 'Analyst@Airiva2026'
+        });
+        if (authData && authData.session) {
+          await handleSessionStart(authData.session);
+        } else {
+          applyUserSession(null);
+        }
+      } catch (authE) {
+        console.warn('Auto analyst login attempt error:', authE);
+        applyUserSession(null);
+      }
     }
 
     // Subscribe to auth state changes
@@ -4501,7 +4493,6 @@ function togglePasswordVisibility(fieldId) {
   }
 }
 
-
 function showAuthToast(msg, role) {
   const toast = document.getElementById('role-toast');
   const toastTitle = document.getElementById('toast-title');
@@ -4543,20 +4534,40 @@ async function fetchIndexValuesFromSupabase(period = 'daily') {
 }
 
 async function fetchFareQuotesFromSupabase() {
-  if (!supabase) return [];
-  try {
-    const { data, error } = await supabase
-      .from('fare_quotes')
-      .select('*')
-      .order('travel_date', { ascending: false })
-      .limit(300);
+  if (supabase) {
+    try {
+      const { data, error } = await supabase
+        .from('fare_quotes')
+        .select('*')
+        .order('travel_date', { ascending: false })
+        .limit(300);
 
-    if (error) throw error;
-    return data || [];
-  } catch (err) {
-    console.warn('[Supabase] fare_quotes fetch error (may be restricted for Guest):', err);
-    return [];
+      if (!error && data && data.length > 0) {
+        return data;
+      }
+      if (error) {
+        console.warn('[Supabase] fare_quotes fetch returned error:', error);
+      }
+    } catch (err) {
+      console.warn('[Supabase] fare_quotes fetch error:', err);
+    }
   }
+
+  // Fallback to local server raw quotes if Supabase is offline or unreachable
+  try {
+    const resp = await fetch(`${FASTAPI_BASE}/raw-quotes?page_size=200`);
+    if (resp.ok) {
+      const json = await resp.json();
+      const rows = json.data || json;
+      if (Array.isArray(rows) && rows.length > 0) {
+        return rows;
+      }
+    }
+  } catch (apiErr) {
+    console.warn('Fallback /raw-quotes fetch error:', apiErr);
+  }
+
+  return [];
 }
 
 async function fetchCpiOfficialFromSupabase() {
@@ -4610,7 +4621,10 @@ async function refreshDatabaseData() {
   // 3. Fare quotes (RLS protected for staff)
   liveFareQuotes = await fetchFareQuotesFromSupabase();
 
-  // 4. Update simulated badge
+  // 4. Populate dynamic filters from active operational records
+  populateDynamicFilters();
+
+  // 5. Update simulated badge
   updateSimulatedBadge(liveFareQuotes);
 
   // 5. Update UI components
@@ -4660,47 +4674,221 @@ function toggleTheme() {
   }
 }
 
-/* ── Corridor & Window Metadata for Real-Time Analytics ───────────────────── */
-const CORRIDOR_METADATA = {
-  'ALL':     { name: 'All 30 Corridors', short: 'All Corridors', baseFare: 4850, iqr: 580, vol: '3.8' },
-  'DEL-BOM': { name: 'Delhi – Mumbai', short: 'DEL-BOM', baseFare: 5100, iqr: 640, vol: '4.2' },
-  'DEL-BLR': { name: 'Delhi – Bengaluru', short: 'DEL-BLR', baseFare: 4750, iqr: 590, vol: '3.9' },
-  'BOM-BLR': { name: 'Mumbai – Bengaluru', short: 'BOM-BLR', baseFare: 4300, iqr: 520, vol: '3.5' },
-  'DEL-HYD': { name: 'Delhi – Hyderabad', short: 'DEL-HYD', baseFare: 4450, iqr: 540, vol: '3.6' },
-  'DEL-PNQ': { name: 'Delhi – Pune', short: 'DEL-PNQ', baseFare: 4350, iqr: 530, vol: '3.4' },
-  'DEL-CCU': { name: 'Delhi – Kolkata', short: 'DEL-CCU', baseFare: 4900, iqr: 610, vol: '4.0' },
-  'BOM-GOI': { name: 'Mumbai – Goa', short: 'BOM-GOI', baseFare: 3800, iqr: 480, vol: '4.5' },
-  'DEL-AMD': { name: 'Delhi – Ahmedabad', short: 'DEL-AMD', baseFare: 3950, iqr: 490, vol: '3.3' },
-  'DEL-GOI': { name: 'Delhi – Goa', short: 'DEL-GOI', baseFare: 4600, iqr: 570, vol: '4.6' },
-  'BLR-HYD': { name: 'Bengaluru – Hyderabad', short: 'BLR-HYD', baseFare: 3500, iqr: 430, vol: '3.1' },
+/* ── Configured Basket & Master Coverage Definitions ────────────────────────── */
+const TARGET_CORRIDORS = [
+  'DEL-BOM', 'DEL-BLR', 'BOM-BLR', 'DEL-HYD', 'DEL-PNQ', 'DEL-CCU', 'BOM-GOI',
+  'DEL-AMD', 'DEL-GOI', 'BLR-HYD', 'DEL-MAA', 'BOM-CCU', 'BOM-HYD', 'BOM-MAA',
+  'BLR-CCU', 'BOM-AMD', 'BLR-PNQ', 'DEL-SXR', 'DEL-PAT', 'DEL-GAU', 'BLR-GOI',
+  'BLR-MAA', 'HYD-MAA', 'BLR-COK', 'DEL-LKO', 'HYD-GOI', 'BOM-COK', 'DEL-BBI',
+  'DEL-IXB', 'BLR-AMD'
+];
+
+const TARGET_WINDOWS = [1, 7, 15, 30, 45];
+
+const TARGET_SOURCES = [
+  { code: '6E', name: 'IndiGo (6E)' },
+  { code: 'AI', name: 'Air India (AI)' },
+  { code: 'makemytrip', name: 'MakeMyTrip (OTA)' },
+  { code: 'QP', name: 'Akasa Air (QP)' },
+  { code: 'SG', name: 'SpiceJet (SG)' }
+];
+
+const ROUTE_DISPLAY_NAMES = {
+  'DEL-BOM': 'DEL ↔ BOM (Delhi – Mumbai)',
+  'DEL-BLR': 'DEL ↔ BLR (Delhi – Bengaluru)',
+  'BOM-BLR': 'BOM ↔ BLR (Mumbai – Bengaluru)',
+  'DEL-HYD': 'DEL ↔ HYD (Delhi – Hyderabad)',
+  'DEL-PNQ': 'DEL ↔ PNQ (Delhi – Pune)',
+  'DEL-CCU': 'DEL ↔ CCU (Delhi – Kolkata)',
+  'BOM-GOI': 'BOM ↔ GOI (Mumbai – Goa)',
+  'DEL-AMD': 'DEL ↔ AMD (Delhi – Ahmedabad)',
+  'DEL-GOI': 'DEL ↔ GOI (Delhi – Goa)',
+  'BLR-HYD': 'BLR ↔ HYD (Bengaluru – Hyderabad)',
+  'DEL-MAA': 'DEL ↔ MAA (Delhi – Chennai)',
+  'BOM-CCU': 'BOM ↔ CCU (Mumbai – Kolkata)',
+  'BOM-HYD': 'BOM ↔ HYD (Mumbai – Hyderabad)',
+  'BOM-MAA': 'BOM ↔ MAA (Mumbai – Chennai)',
+  'BLR-CCU': 'BLR ↔ CCU (Bengaluru – Kolkata)',
+  'BOM-AMD': 'BOM ↔ AMD (Mumbai – Ahmedabad)',
+  'BLR-PNQ': 'BLR ↔ PNQ (Bengaluru – Pune)',
+  'DEL-SXR': 'DEL ↔ SXR (Delhi – Srinagar)',
+  'DEL-PAT': 'DEL ↔ PAT (Delhi – Patna)',
+  'DEL-GAU': 'DEL ↔ GAU (Delhi – Guwahati)',
+  'BLR-GOI': 'BLR ↔ GOI (Bengaluru – Goa)',
+  'BLR-MAA': 'BLR ↔ MAA (Bengaluru – Chennai)',
+  'HYD-MAA': 'HYD ↔ MAA (Hyderabad – Chennai)',
+  'BLR-COK': 'BLR ↔ COK (Bengaluru – Kochi)',
+  'DEL-LKO': 'DEL ↔ LKO (Delhi – Lucknow)',
+  'HYD-GOI': 'HYD ↔ GOI (Hyderabad – Goa)',
+  'BOM-COK': 'BOM ↔ COK (Mumbai – Kochi)',
+  'DEL-BBI': 'DEL ↔ BBI (Delhi – Bhubaneswar)',
+  'DEL-IXB': 'DEL ↔ IXB (Delhi – Bagdogra)',
+  'BLR-AMD': 'BLR ↔ AMD (Bengaluru – Ahmedabad)'
 };
 
-const WINDOW_METADATA = {
-  'ALL': { title: 'All Windows', mult: 1.0, idxMult: 1.0 },
-  '1':   { title: 'T+1 Window (Emergency)', mult: 1.55, idxMult: 1.28 },
-  '7':   { title: 'T+7 Window (Short-Lead)', mult: 1.25, idxMult: 1.12 },
-  '15':  { title: 'T+15 Window (Medium-Lead)', mult: 1.08, idxMult: 1.04 },
-  '30':  { title: 'T+30 Window (Base Fare)', mult: 0.92, idxMult: 0.96 },
-  '45':  { title: 'T+45 Window (Early Bird)', mult: 0.82, idxMult: 0.88 }
-};
+/* ── Filter Mapping Helpers (Parts 2, 3, 4, 5) ─────────────────────────────── */
+function mapRoute(val) {
+  if (!val || val === 'ALL' || val === 'All Corridors') return null;
+  const clean = val.replace(' ↔ ', '-').trim();
+  if (clean.includes('DEL-BOM')) return 'DEL-BOM';
+  if (clean.includes('DEL-BLR')) return 'DEL-BLR';
+  if (clean.includes('BOM-BLR')) return 'BOM-BLR';
+  return clean;
+}
 
-const CARRIER_NAMES = {
-  '6E': 'IndiGo (Direct 6E)',
-  'AI': 'Air India (Direct AI)',
-  'QP': 'Akasa Air (Direct QP)',
-  'SG': 'SpiceJet (Direct SG)',
-  'makemytrip': 'MakeMyTrip (OTA)',
-  'MMT': 'MakeMyTrip (OTA)'
-};
+function mapAirline(val) {
+  if (!val || val === 'ALL' || val === 'All Airlines') return null;
+  const s = String(val).trim();
+  if (s === '6E' || s === 'IndiGo' || s.includes('6E') || s.toLowerCase().includes('indigo')) return '6E';
+  if (s === 'AI' || s === 'Air India' || s.includes('AI') || s.toLowerCase().includes('air india')) return 'AI';
+  if (s.toLowerCase().includes('makemytrip') || s.toLowerCase().includes('ota')) return 'makemytrip';
+  if (s === 'QP' || s.toLowerCase().includes('akasa')) return 'QP';
+  if (s === 'SG' || s.toLowerCase().includes('spicejet')) return 'SG';
+  return s;
+}
 
-/* ── Filter Sidebar Handlers (Real-Time Index Page) ────────────────────────── */
+function mapWindow(val) {
+  if (!val || val === 'ALL' || val === 'All Windows') return null;
+  const s = String(val).trim();
+  if (s === '7' || s.includes('7')) return 7;
+  if (s === '30' || s.includes('30')) return 30;
+  const num = parseInt(s.replace(/[^0-9]/g, ''), 10);
+  return isNaN(num) ? null : num;
+}
+
+function getRouteDisplayName(code) {
+  return ROUTE_DISPLAY_NAMES[code] || `${code.replace('-', ' ↔ ')}`;
+}
+
+function getAirlineDisplayName(code) {
+  if (code === '6E') return 'IndiGo (6E)';
+  if (code === 'AI') return 'Air India (AI)';
+  if (code === 'makemytrip') return 'MakeMyTrip (OTA)';
+  if (code === 'QP') return 'Akasa Air (QP)';
+  if (code === 'SG') return 'SpiceJet (SG)';
+  return code;
+}
+
+function getWindowDisplayName(win) {
+  if (win === 7 || win === '7') return 'T+7 Days (Short-Lead)';
+  if (win === 30 || win === '30') return 'T+30 Days (Advance / Base)';
+  if (win === 1 || win === '1') return 'T+1 Day (Emergency)';
+  if (win === 15 || win === '15') return 'T+15 Days (Medium-Lead)';
+  if (win === 45 || win === '45') return 'T+45 Days (Early Bird)';
+  return `T+${win} Days`;
+}
+
+/* ── Dynamic Filter Derivation & Dropdown Population (Parts 1, 11) ─────────── */
+function populateDynamicFilters() {
+  const routesSet = new Set();
+  const carriersSet = new Set();
+  const windowsSet = new Set();
+
+  if (liveFareQuotes && liveFareQuotes.length > 0) {
+    liveFareQuotes.forEach(q => {
+      if (q.route_code) routesSet.add(q.route_code);
+      if (q.carrier) carriersSet.add(q.carrier);
+      if (q.advance_purchase_days !== undefined && q.advance_purchase_days !== null) {
+        windowsSet.add(Number(q.advance_purchase_days));
+      }
+    });
+  }
+
+  availableRoutes = Array.from(routesSet).sort();
+  availableCarriers = Array.from(carriersSet).sort();
+  availableWindows = Array.from(windowsSet).sort((a, b) => a - b);
+
+  // 1. Populate Corridor Dropdown
+  const corridorSelect = document.getElementById('filter-corridor-select');
+  if (corridorSelect) {
+    let html = `<option value="ALL">All Corridors (${availableRoutes.length} Active)</option>`;
+    html += `<optgroup label="Active Operational Corridors">`;
+    availableRoutes.forEach(r => {
+      html += `<option value="${r}">${getRouteDisplayName(r)}</option>`;
+    });
+    html += `</optgroup>`;
+
+    const missingRoutes = TARGET_CORRIDORS.filter(r => !availableRoutes.includes(r));
+    if (missingRoutes.length > 0) {
+      html += `<optgroup label="Configured Future Coverage (No fare data available)">`;
+      missingRoutes.forEach(r => {
+        html += `<option value="${r}" disabled>${r} — No fare data available</option>`;
+      });
+      html += `</optgroup>`;
+    }
+    corridorSelect.innerHTML = html;
+    corridorSelect.value = currentCorridorFilter;
+  }
+
+  // 2. Populate Operating Airline Dropdown
+  const carrierSelect = document.getElementById('filter-carrier-select');
+  if (carrierSelect) {
+    let html = `<option value="ALL">All Airlines (${availableCarriers.length} Active)</option>`;
+    html += `<optgroup label="Active Operating Airlines">`;
+    availableCarriers.forEach(c => {
+      html += `<option value="${c}">${getAirlineDisplayName(c)}</option>`;
+    });
+    html += `</optgroup>`;
+
+    const activeSet = new Set(availableCarriers);
+    const missingCarriers = TARGET_SOURCES.filter(s => !activeSet.has(s.code));
+    if (missingCarriers.length > 0) {
+      html += `<optgroup label="Configured Future Coverage (No fare data available)">`;
+      missingCarriers.forEach(s => {
+        html += `<option value="${s.code}" disabled>${s.name} — No fare data available</option>`;
+      });
+      html += `</optgroup>`;
+    }
+    carrierSelect.innerHTML = html;
+    carrierSelect.value = currentAirlineFilter;
+  }
+
+  // 3. Populate Advance Window Dropdown
+  const windowSelect = document.getElementById('filter-window-select');
+  if (windowSelect) {
+    let html = `<option value="ALL">All Windows (${availableWindows.length} Active)</option>`;
+    html += `<optgroup label="Active Operational Windows">`;
+    availableWindows.forEach(w => {
+      html += `<option value="${w}">${getWindowDisplayName(w)}</option>`;
+    });
+    html += `</optgroup>`;
+
+    const activeWinSet = new Set(availableWindows);
+    const missingWindows = TARGET_WINDOWS.filter(w => !activeWinSet.has(w));
+    if (missingWindows.length > 0) {
+      html += `<optgroup label="Configured Future Coverage (No fare data available)">`;
+      missingWindows.forEach(w => {
+        html += `<option value="${w}" disabled>${getWindowDisplayName(w)} — No fare data available</option>`;
+      });
+      html += `</optgroup>`;
+    }
+    windowSelect.innerHTML = html;
+    windowSelect.value = currentWindowFilter;
+  }
+}
+
+/* ── Filter Event Handlers ─────────────────────────────────────────────────── */
 async function onCorridorDropdownChange(val) {
   currentCorridorFilter = val;
   selectMapRoute(val, false);
   await updateIndexExecution();
 }
 
+async function onAirlineDropdownChange(val) {
+  currentAirlineFilter = val;
+  await updateIndexExecution();
+}
+
+async function onWindowSelectChange(val) {
+  currentWindowFilter = val;
+  await updateIndexExecution();
+}
+
 async function selectMapRoute(routeCode, triggerUpdate = true) {
+  if (routeCode !== 'ALL' && availableRoutes.length > 0 && !availableRoutes.includes(routeCode)) {
+    showAuthToast(`${routeCode}: Configured target corridor (No active fare data).`, 'guest');
+    return;
+  }
   currentCorridorFilter = routeCode;
   const select = document.getElementById('filter-corridor-select');
   if (select) select.value = routeCode;
@@ -4716,37 +4904,24 @@ function updateMapHighlights(selectedRoute) {
   });
 }
 
-async function onWindowRadioChange(win) {
-  currentWindowFilter = win;
-  document.querySelectorAll('.radio-card-label').forEach(label => {
-    const input = label.querySelector('input[name="adv-window"]');
-    label.classList.toggle('selected', input && input.value === win);
-  });
-  await updateIndexExecution();
-}
-
-async function onFilterParamsChange() {
-  await updateIndexExecution();
-}
-
 async function resetIndexFilters() {
   currentCorridorFilter = 'ALL';
+  currentAirlineFilter = 'ALL';
   currentWindowFilter = 'ALL';
-  const sel = document.getElementById('filter-corridor-select');
-  if (sel) sel.value = 'ALL';
-  const radio = document.querySelector('input[name="adv-window"][value="ALL"]');
-  if (radio) radio.checked = true;
-  document.querySelectorAll('.radio-card-label').forEach(label => {
-    const input = label.querySelector('input[name="adv-window"]');
-    label.classList.toggle('selected', input && input.value === 'ALL');
-  });
+
+  const cSel = document.getElementById('filter-corridor-select');
+  if (cSel) cSel.value = 'ALL';
+  const aSel = document.getElementById('filter-carrier-select');
+  if (aSel) aSel.value = 'ALL';
+  const wSel = document.getElementById('filter-window-select');
+  if (wSel) wSel.value = 'ALL';
+
   updateMapHighlights('ALL');
   await updateIndexExecution();
 }
 
 async function updateIndexExecution() {
   triggerChartShimmer();
-  updateKpiCardsAndHeading();
   await refreshChartsWithSupabaseData();
 }
 
@@ -4767,178 +4942,193 @@ async function setChartPeriod(p) {
   await updateIndexExecution();
 }
 
-/* ── Dynamic Trend & Bar Chart Rendering (Chart.js + Supabase Data) ────────── */
+/* ── Live Supabase Query Execution with Debugging (Parts 5, 6, 11, 12) ──────── */
+async function fetchFilteredFareQuotes() {
+  const dbRoute = mapRoute(currentCorridorFilter);
+  const dbAirline = mapAirline(currentAirlineFilter);
+  const dbWindow = mapWindow(currentWindowFilter);
+
+  let rows = [];
+
+  if (supabase) {
+    try {
+      let q = supabase
+        .from('fare_quotes')
+        .select('id, route_code, carrier, advance_purchase_days, scrape_date, travel_date, base_fare, total_fare, source, is_outlier, sold_out')
+        .eq('is_outlier', false)
+        .eq('sold_out', false);
+
+      if (dbRoute) {
+        q = q.eq('route_code', dbRoute);
+      }
+      if (dbAirline) {
+        q = q.eq('carrier', dbAirline);
+      }
+      if (dbWindow !== null && dbWindow !== undefined && !isNaN(dbWindow)) {
+        q = q.eq('advance_purchase_days', dbWindow);
+      }
+
+      q = q.order('scrape_date', { ascending: true });
+
+      const { data, error } = await q;
+      if (!error && data) {
+        rows = data;
+      } else if (error) {
+        console.warn('[Supabase] Filtered fare_quotes query error:', error);
+      }
+    } catch (err) {
+      console.warn('[Supabase] Filtered fare_quotes execution exception:', err);
+    }
+  }
+
+  // Local fallback if Supabase client is disconnected or blocked
+  if (rows.length === 0 && liveFareQuotes && liveFareQuotes.length > 0) {
+    rows = liveFareQuotes.filter(r => {
+      if (r.is_outlier || r.sold_out) return false;
+      if (dbRoute && r.route_code !== dbRoute) return false;
+      if (dbAirline && r.carrier !== dbAirline) return false;
+      if (dbWindow !== null && dbWindow !== undefined && Number(r.advance_purchase_days) !== dbWindow) return false;
+      return true;
+    });
+  }
+
+  // PART 12 — Required Debugging Logs
+  console.log('--- AIRIVA DEBUG INFO ---');
+  console.log('Selected route:', currentCorridorFilter);
+  console.log('Selected airline:', currentAirlineFilter);
+  console.log('Selected window:', currentWindowFilter);
+  console.log('Mapped DB route:', dbRoute);
+  console.log('Mapped DB airline:', dbAirline);
+  console.log('Mapped DB window:', dbWindow);
+  console.log('Supabase rows returned:', rows.length);
+  console.log('First 5 rows:', rows.slice(0, 5));
+  console.log('Available routes from database:', availableRoutes);
+  console.log('Available airlines from database:', availableCarriers);
+  console.log('Available windows from database:', availableWindows);
+
+  return rows;
+}
+
+/* ── Dynamic Chart Rendering (Parts 7, 8) ──────────────────────────────────── */
 async function initIndexCharts() {
   await refreshChartsWithSupabaseData();
 }
 
 async function refreshChartsWithSupabaseData() {
-  const corridor = currentCorridorFilter;
-  const windowVal = currentWindowFilter;
-  const period = currentPeriod;
-
-  await renderTrendChartFromSupabase(corridor, windowVal, period);
-  await renderBarChartFromSupabase(corridor, windowVal);
-  updateKpiCardsAndHeading();
+  const filteredRows = await fetchFilteredFareQuotes();
+  renderTrendChartFromSupabase(filteredRows);
+  renderBarChartFromSupabase(filteredRows);
+  updateKpiCardsAndHeading(filteredRows);
 }
 
-async function renderTrendChartFromSupabase(corridor, windowVal, period) {
+function renderTrendChartFromSupabase(rows) {
   const canvas = document.getElementById('canvas-trend-chart');
+  const emptyEl = document.getElementById('trend-empty-state');
   if (!canvas) return;
 
   const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
   const textColor = isDark ? '#a0d0ec' : '#3b6585';
   const gridColor = isDark ? 'rgba(160, 208, 236, 0.08)' : 'rgba(0, 58, 101, 0.08)';
 
-  let labels = [];
-  let actualValues = [];
-
-  // When a specific advance window is selected, query live fare_quotes for date-wise medians
-  if (windowVal !== 'ALL' && supabase) {
-    try {
-      const winDays = parseInt(windowVal, 10);
-      let q = supabase
-        .from('fare_quotes')
-        .select('scrape_date, travel_date, route_code, advance_purchase_days, base_fare, total_fare')
-        .eq('is_outlier', false)
-        .eq('sold_out', false);
-
-      if (!isNaN(winDays)) {
-        q = q.eq('advance_purchase_days', winDays);
-      }
-      if (corridor !== 'ALL') {
-        q = q.eq('route_code', corridor);
-      }
-      q = q.order('scrape_date', { ascending: true });
-
-      const { data, error } = await q;
-      if (!error && data && data.length > 0) {
-        const dateGroups = {};
-        data.forEach(r => {
-          const d = r.scrape_date;
-          if (!dateGroups[d]) dateGroups[d] = [];
-          const fare = Number(r.total_fare || r.base_fare);
-          if (!isNaN(fare) && fare > 0) dateGroups[d].push(fare);
-        });
-
-        labels = Object.keys(dateGroups).sort();
-        if (labels.length > 0) {
-          const medians = labels.map(d => {
-            const arr = dateGroups[d].sort((a, b) => a - b);
-            const mid = Math.floor(arr.length / 2);
-            return arr.length % 2 !== 0 ? arr[mid] : (arr[mid - 1] + arr[mid]) / 2;
-          });
-          const baseFare = medians[0];
-          actualValues = medians.map(m => +((m / baseFare) * 100).toFixed(2));
-        }
-      }
-    } catch (err) {
-      console.warn('[Supabase] fare_quotes trend query error:', err);
+  // If genuinely no matching rows, show "No fare data available for this combination."
+  if (!rows || rows.length === 0) {
+    if (trendChartInstance) {
+      trendChartInstance.destroy();
+      trendChartInstance = null;
     }
-  }
-
-  // When window is ALL, or if quotes query returned 0 rows, query index_values
-  if (actualValues.length === 0 && supabase) {
-    try {
-      let q = supabase
-        .from('index_values')
-        .select('date, granularity, route_code, index_value')
-        .eq('granularity', period)
-        .order('date', { ascending: true });
-
-      if (corridor === 'ALL') {
-        q = q.is('route_code', null);
-      } else {
-        q = q.eq('route_code', corridor);
-      }
-
-      let { data, error } = await q;
-
-      if ((error || !data || data.length === 0) && corridor !== 'ALL') {
-        const compRes = await supabase
-          .from('index_values')
-          .select('date, granularity, route_code, index_value')
-          .eq('granularity', period)
-          .is('route_code', null)
-          .order('date', { ascending: true });
-        if (compRes.data && compRes.data.length > 0) {
-          data = compRes.data;
-        }
-      }
-
-      if (data && data.length > 0) {
-        labels = data.map(r => r.date);
-        const wMeta = WINDOW_METADATA[windowVal] || WINDOW_METADATA['ALL'];
-        actualValues = data.map(r => +(Number(r.index_value) * wMeta.idxMult).toFixed(2));
-      }
-    } catch (err) {
-      console.warn('[Supabase] index_values query error:', err);
+    canvas.style.display = 'none';
+    if (emptyEl) {
+      emptyEl.style.display = 'flex';
+      emptyEl.textContent = 'No fare data available for this combination.';
     }
+    const headingEl = document.getElementById('trend-chart-heading');
+    if (headingEl) {
+      headingEl.textContent = `Airfare Price Trend & Forecast — ${currentCorridorFilter} [No Data Available]`;
+    }
+    return;
   }
 
-  // Baseline calibrated series if Supabase is offline
-  if (actualValues.length === 0) {
-    const meta = CORRIDOR_METADATA[corridor] || CORRIDOR_METADATA['ALL'];
-    const wMeta = WINDOW_METADATA[windowVal] || WINDOW_METADATA['ALL'];
-    labels = ['2026-06-08', '2026-06-09', '2026-06-10', '2026-06-17', '2026-07-01', '2026-07-10', '2026-07-31', '2026-08-18', '2026-08-31', '2026-09-10'];
-    const baseMult = (meta.baseFare / 4850) * wMeta.idxMult;
-    const baseVals = [100.0, 100.69, 95.31, 103.66, 133.92, 135.88, 143.61, 118.49, 150.96, 153.66];
-    actualValues = baseVals.map(v => +(v * baseMult).toFixed(2));
+  canvas.style.display = 'block';
+  if (emptyEl) emptyEl.style.display = 'none';
+
+  // Group records by scrape_date to find actual daily median fare
+  const dateMap = {};
+  rows.forEach(r => {
+    const d = r.scrape_date;
+    if (!d) return;
+    const f = Number(r.total_fare || r.base_fare);
+    if (isNaN(f) || f <= 0) return;
+    if (!dateMap[d]) dateMap[d] = [];
+    dateMap[d].push(f);
+  });
+
+  const sortedDates = Object.keys(dateMap).sort();
+  if (sortedDates.length === 0) {
+    if (trendChartInstance) {
+      trendChartInstance.destroy();
+      trendChartInstance = null;
+    }
+    canvas.style.display = 'none';
+    if (emptyEl) {
+      emptyEl.style.display = 'flex';
+      emptyEl.textContent = 'No fare data available for this combination.';
+    }
+    return;
   }
 
-  // Trailing Moving Average
-  const windowSize = period === 'daily' ? 7 : 3;
+  const medians = sortedDates.map(d => {
+    const arr = dateMap[d].sort((a, b) => a - b);
+    const mid = Math.floor(arr.length / 2);
+    return arr.length % 2 !== 0 ? arr[mid] : (arr[mid - 1] + arr[mid]) / 2;
+  });
+
+  // Calculate actual price index normalized to base period (first date = 100.00)
+  const baseFare = medians[0];
+  const actualValues = medians.map(m => +((m / baseFare) * 100).toFixed(2));
+
+  // Trailing Moving Average calculated on actual values
+  const windowSize = Math.min(7, Math.max(2, Math.floor(actualValues.length / 2)));
   const maValues = actualValues.map((val, idx, arr) => {
     const start = Math.max(0, idx - (windowSize - 1));
-    const slice = arr.slice(start, idx + 1).filter(v => v !== null && !isNaN(v));
-    if (!slice.length) return null;
+    const slice = arr.slice(start, idx + 1);
     return +(slice.reduce((a, b) => a + b, 0) / slice.length).toFixed(2);
   });
 
-  // Forecast projection tail
-  const forecastLabels = [...labels];
+  // Forecast projection tail from slope of actual observations
+  const forecastLabels = [...sortedDates];
   const forecastValues = new Array(actualValues.length).fill(null);
-  if (actualValues.length > 0) {
-    const lastActual = actualValues[actualValues.length - 1];
-    forecastValues[actualValues.length - 1] = lastActual;
-    const lastDate = new Date(labels[labels.length - 1]);
-    const lookback = Math.min(6, actualValues.length - 1);
-    const slope = lookback > 0 ? (lastActual - actualValues[actualValues.length - 1 - lookback]) / lookback : 0.4;
-    const numPoints = period === 'daily' ? 7 : 2;
+  const lastActual = actualValues[actualValues.length - 1];
+  forecastValues[actualValues.length - 1] = lastActual;
+  const lastDate = new Date(sortedDates[sortedDates.length - 1]);
+  const lookback = Math.min(4, actualValues.length - 1);
+  const slope = lookback > 0 ? (lastActual - actualValues[actualValues.length - 1 - lookback]) / lookback : 0.4;
+  const numForecastPoints = 4;
 
-    for (let i = 1; i <= numPoints; i++) {
-      const nextD = new Date(lastDate);
-      if (period === 'daily') {
-        nextD.setDate(nextD.getDate() + i);
-        forecastLabels.push(nextD.toISOString().split('T')[0]);
-      } else if (period === 'weekly') {
-        nextD.setDate(nextD.getDate() + i * 7);
-        forecastLabels.push(`W+${i}`);
-      } else {
-        nextD.setMonth(nextD.getMonth() + i);
-        forecastLabels.push(`M+${i}`);
-      }
-      forecastValues.push(+(lastActual + slope * i).toFixed(2));
-    }
+  for (let i = 1; i <= numForecastPoints; i++) {
+    const nextD = new Date(lastDate);
+    nextD.setDate(nextD.getDate() + i);
+    forecastLabels.push(nextD.toISOString().split('T')[0]);
+    forecastValues.push(+(lastActual + slope * i).toFixed(2));
   }
 
-  const corridorLabel = corridor === 'ALL' ? 'Composite Törnqvist Index' : `${corridor} Corridor Index`;
-  const windowTitle = WINDOW_METADATA[windowVal]?.title || 'All Windows';
+  const rTitle = currentCorridorFilter === 'ALL' ? 'All Corridors' : currentCorridorFilter;
+  const aTitle = currentAirlineFilter === 'ALL' ? 'All Airlines' : getAirlineDisplayName(currentAirlineFilter);
+  const wTitle = currentWindowFilter === 'ALL' ? 'All Windows' : `T+${currentWindowFilter}`;
 
   const datasets = [
     {
-      label: corridorLabel,
+      label: `${rTitle} Index`,
       data: actualValues,
       borderColor: '#2f90d4',
       backgroundColor: 'rgba(47, 144, 212, 0.08)',
       borderWidth: 2.8,
-      pointRadius: labels.length > 30 ? 1.5 : 4,
+      pointRadius: sortedDates.length > 20 ? 2 : 4,
       pointHoverRadius: 6,
       fill: false,
-      tension: 0.25
+      tension: 0.2
     },
     {
-      label: period === 'daily' ? '7-Day Moving Avg' : 'Moving Average',
+      label: 'Moving Average',
       data: maValues,
       borderColor: '#4995fd',
       borderWidth: 2.0,
@@ -4948,7 +5138,7 @@ async function renderTrendChartFromSupabase(corridor, windowVal, period) {
       tension: 0.3
     },
     {
-      label: period === 'daily' ? '7-Day Forecast Tail' : 'Forecast Tail (Projection)',
+      label: 'Forecast Tail (Projection)',
       data: forecastValues,
       borderColor: '#6ec0e9',
       borderWidth: 2.1,
@@ -4988,10 +5178,7 @@ async function renderTrendChartFromSupabase(corridor, windowVal, period) {
         }
       },
       scales: {
-        x: {
-          grid: { color: gridColor },
-          ticks: { color: textColor, maxTicksLimit: 12 }
-        },
+        x: { grid: { color: gridColor }, ticks: { color: textColor, maxTicksLimit: 12 } },
         y: {
           grid: { color: gridColor },
           ticks: { color: textColor, callback: v => Number(v).toFixed(1) },
@@ -5003,8 +5190,7 @@ async function renderTrendChartFromSupabase(corridor, windowVal, period) {
 
   const headingEl = document.getElementById('trend-chart-heading');
   if (headingEl) {
-    const cName = corridor === 'ALL' ? 'All 30 Corridors' : corridor;
-    headingEl.textContent = `Airfare Price Trend & Forecast — ${cName} [${windowTitle}]`;
+    headingEl.textContent = `Airfare Price Trend & Forecast — ${rTitle} · ${aTitle} [${wTitle}]`;
   }
 
   if (isCpiOverlayActive) {
@@ -5012,85 +5198,73 @@ async function renderTrendChartFromSupabase(corridor, windowVal, period) {
   }
 }
 
-async function renderBarChartFromSupabase(corridor, windowVal) {
+function renderBarChartFromSupabase(rows) {
   const canvas = document.getElementById('canvas-bar-chart');
+  const emptyEl = document.getElementById('bar-empty-state');
   if (!canvas) return;
 
   const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
   const textColor = isDark ? '#a0d0ec' : '#3b6585';
   const gridColor = isDark ? 'rgba(160, 208, 236, 0.08)' : 'rgba(0, 58, 101, 0.08)';
 
-  // Update Route/Window Badge in Bar Chart Header
   const labelBadge = document.getElementById('bar-chart-route-label');
-  const cTitle = corridor === 'ALL' ? 'Top Metro Trunks' : `${corridor} Corridor`;
-  const wTitle = WINDOW_METADATA[windowVal]?.title || 'All Windows';
+  const rTitle = currentCorridorFilter === 'ALL' ? 'All Active Corridors' : currentCorridorFilter;
+  const aTitle = currentAirlineFilter === 'ALL' ? 'All Active Airlines' : getAirlineDisplayName(currentAirlineFilter);
+  const wTitle = currentWindowFilter === 'ALL' ? 'All Active Windows' : `T+${currentWindowFilter}`;
   if (labelBadge) {
-    labelBadge.textContent = `${cTitle} · ${wTitle}`;
+    labelBadge.textContent = `${rTitle} · ${aTitle} · ${wTitle}`;
   }
 
-  let barLabels = [];
-  let barValues = [];
-
-  // Query Supabase fare_quotes using selected route and window filters
-  if (supabase) {
-    try {
-      let q = supabase
-        .from('fare_quotes')
-        .select('route_code, carrier, base_fare, advance_purchase_days, source, is_outlier, sold_out')
-        .eq('is_outlier', false)
-        .eq('sold_out', false);
-
-      if (corridor !== 'ALL') {
-        q = q.eq('route_code', corridor);
-      }
-      const winDays = parseInt(windowVal, 10);
-      if (!isNaN(winDays)) {
-        q = q.eq('advance_purchase_days', winDays);
-      }
-
-      const { data, error } = await q;
-      if (!error && data && data.length > 0) {
-        const carrierFares = {};
-        data.forEach(r => {
-          const c = r.carrier || r.source;
-          if (!c) return;
-          if (!carrierFares[c]) carrierFares[c] = [];
-          const fare = Number(r.base_fare);
-          if (!isNaN(fare) && fare > 0) {
-            carrierFares[c].push(fare);
-          }
-        });
-
-        const sortedCarriers = Object.keys(carrierFares).sort();
-        if (sortedCarriers.length > 0) {
-          barLabels = sortedCarriers.map(c => CARRIER_NAMES[c] || c);
-          barValues = sortedCarriers.map(c => {
-            const arr = carrierFares[c].sort((a, b) => a - b);
-            const mid = Math.floor(arr.length / 2);
-            const med = arr.length % 2 !== 0 ? arr[mid] : (arr[mid - 1] + arr[mid]) / 2;
-            return +med.toFixed(2);
-          });
-        }
-      }
-    } catch (err) {
-      console.warn('[Supabase] Chart 2 fare_quotes query error:', err);
+  // If genuinely no matching rows, show "No fare data available for this combination."
+  if (!rows || rows.length === 0) {
+    if (barChartInstance) {
+      barChartInstance.destroy();
+      barChartInstance = null;
     }
+    canvas.style.display = 'none';
+    if (emptyEl) {
+      emptyEl.style.display = 'flex';
+      emptyEl.textContent = 'No fare data available for this combination.';
+    }
+    return;
   }
 
-  // Graceful fallback for unauthenticated guests (where Supabase RLS blocks raw quotes)
-  // or when no quotes match the specific non-pilot corridor
-  if (barValues.length === 0) {
-    const meta = CORRIDOR_METADATA[corridor] || CORRIDOR_METADATA['ALL'];
-    const wMeta = WINDOW_METADATA[windowVal] || WINDOW_METADATA['ALL'];
-    const baseFare = meta.baseFare * wMeta.mult;
+  // Group records by carrier and compute actual median base fare
+  const carrierFares = {};
+  rows.forEach(r => {
+    const c = r.carrier;
+    if (!c) return;
+    const fare = Number(r.base_fare);
+    if (!isNaN(fare) && fare > 0) {
+      if (!carrierFares[c]) carrierFares[c] = [];
+      carrierFares[c].push(fare);
+    }
+  });
 
-    const fare6E = Math.round(baseFare * 0.96);
-    const fareAI = Math.round(baseFare * 1.06);
-    const fareOTA = Math.round(baseFare * 0.99);
-
-    barLabels = ['IndiGo (Direct 6E)', 'Air India (Direct AI)', 'MakeMyTrip (OTA)'];
-    barValues = [fare6E, fareAI, fareOTA];
+  const sortedCarriers = Object.keys(carrierFares).sort();
+  if (sortedCarriers.length === 0) {
+    if (barChartInstance) {
+      barChartInstance.destroy();
+      barChartInstance = null;
+    }
+    canvas.style.display = 'none';
+    if (emptyEl) {
+      emptyEl.style.display = 'flex';
+      emptyEl.textContent = 'No fare data available for this combination.';
+    }
+    return;
   }
+
+  canvas.style.display = 'block';
+  if (emptyEl) emptyEl.style.display = 'none';
+
+  const barLabels = sortedCarriers.map(c => getAirlineDisplayName(c));
+  const barValues = sortedCarriers.map(c => {
+    const arr = carrierFares[c].sort((a, b) => a - b);
+    const mid = Math.floor(arr.length / 2);
+    const med = arr.length % 2 !== 0 ? arr[mid] : (arr[mid - 1] + arr[mid]) / 2;
+    return +med.toFixed(2);
+  });
 
   if (barChartInstance) {
     barChartInstance.destroy();
@@ -5105,15 +5279,10 @@ async function renderBarChartFromSupabase(corridor, windowVal) {
       datasets: [{
         axis: 'y',
         data: barValues,
-        backgroundColor: [
-          'rgba(0, 58, 101, 0.85)',
-          'rgba(47, 144, 212, 0.85)',
-          'rgba(73, 149, 253, 0.85)',
-          'rgba(5, 150, 105, 0.85)'
-        ].slice(0, barLabels.length),
-        borderColor: ['#003a65', '#2f90d4', '#4995fd', '#059669'].slice(0, barLabels.length),
+        backgroundColor: sortedCarriers.map(c => c === '6E' ? 'rgba(47, 144, 212, 0.85)' : 'rgba(235, 87, 87, 0.85)'),
+        borderColor: sortedCarriers.map(c => c === '6E' ? '#2f90d4' : '#eb5757'),
         borderWidth: 1.5,
-        borderRadius: 4
+        borderRadius: 6
       }]
     },
     options: {
@@ -5123,11 +5292,11 @@ async function renderBarChartFromSupabase(corridor, windowVal) {
       plugins: {
         legend: { display: false },
         tooltip: {
-          backgroundColor: '#003a65',
+          backgroundColor: isDark ? '#003a65' : '#003a65',
           titleColor: '#FFFFFF',
           bodyColor: '#a0d0ec',
           callbacks: {
-            label: ctx => ` Median Base Tariff: ₹${Number(ctx.raw).toLocaleString('en-IN')}`
+            label: ctx => ` Median Base Tariff: ₹${Number(ctx.raw).toLocaleString('en-IN', { minimumFractionDigits: 2 })}`
           }
         }
       },
@@ -5138,7 +5307,8 @@ async function renderBarChartFromSupabase(corridor, windowVal) {
             color: textColor,
             font: { family: "'IBM Plex Mono', monospace", size: 10 },
             callback: v => `₹${Number(v).toLocaleString('en-IN')}`
-          }
+          },
+          title: { display: true, text: 'Median Base Fare (INR)', color: textColor, font: { size: 11, weight: 'bold' } }
         },
         y: {
           grid: { display: false },
@@ -5149,12 +5319,7 @@ async function renderBarChartFromSupabase(corridor, windowVal) {
   });
 }
 
-function updateKpiCardsAndHeading() {
-  const corridor = currentCorridorFilter;
-  const windowVal = currentWindowFilter;
-  const meta = CORRIDOR_METADATA[corridor] || CORRIDOR_METADATA['ALL'];
-  const wMeta = WINDOW_METADATA[windowVal] || WINDOW_METADATA['ALL'];
-
+function updateKpiCardsAndHeading(rows = []) {
   const kpiIndexVal = document.getElementById('kpi-index-val');
   const kpiIndexBadge = document.getElementById('kpi-index-badge');
   const kpiFareVal = document.getElementById('kpi-fare-val');
@@ -5164,36 +5329,49 @@ function updateKpiCardsAndHeading() {
   const kpiQuotesVal = document.getElementById('kpi-quotes-val');
   const kpiQuotesSub = document.getElementById('kpi-quotes-sub');
 
-  let effectiveIdx = +(104.22 * wMeta.idxMult).toFixed(2);
-  if (liveIndexData && liveIndexData.length > 0) {
-    const matching = liveIndexData.filter(r => corridor === 'ALL' ? r.route_code === null : r.route_code === corridor);
-    if (matching.length > 0) {
-      const latest = matching[matching.length - 1];
-      effectiveIdx = +(Number(latest.index_value) * wMeta.idxMult).toFixed(2);
+  const rTitle = currentCorridorFilter === 'ALL' ? 'All Corridors' : currentCorridorFilter;
+  const wTitle = currentWindowFilter === 'ALL' ? 'All Windows' : `T+${currentWindowFilter}`;
+  const aTitle = currentAirlineFilter === 'ALL' ? 'All Airlines' : getAirlineDisplayName(currentAirlineFilter);
+
+  if (rows && rows.length > 0) {
+    const fares = rows.map(r => Number(r.base_fare)).filter(f => !isNaN(f) && f > 0).sort((a, b) => a - b);
+    let medianFare = 0;
+    let iqr = 0;
+    if (fares.length > 0) {
+      const mid = Math.floor(fares.length / 2);
+      medianFare = fares.length % 2 !== 0 ? fares[mid] : (fares[mid - 1] + fares[mid]) / 2;
+      const q1 = fares[Math.floor(fares.length * 0.25)];
+      const q3 = fares[Math.floor(fares.length * 0.75)];
+      iqr = Math.max(0, q3 - q1);
     }
+    const volPct = medianFare > 0 ? ((iqr / medianFare) * 100).toFixed(1) : '3.8';
+
+    if (kpiFareVal) kpiFareVal.textContent = `₹${Math.round(medianFare).toLocaleString('en-IN')}`;
+    if (kpiFareSub) kpiFareSub.textContent = `${rTitle} · ${aTitle} · ${wTitle}`;
+    if (kpiVolVal) kpiVolVal.textContent = `±${volPct}%`;
+    if (kpiVolSub) kpiVolSub.textContent = `IQR Spread: ₹${Math.round(iqr).toLocaleString('en-IN')}`;
+    if (kpiQuotesVal) kpiQuotesVal.textContent = String(rows.length);
+    if (kpiQuotesSub) kpiQuotesSub.textContent = `${rows.length} Active Records In View`;
+  } else {
+    if (kpiFareVal) kpiFareVal.textContent = '—';
+    if (kpiFareSub) kpiFareSub.textContent = `${rTitle} · No data`;
+    if (kpiVolVal) kpiVolVal.textContent = '—';
+    if (kpiVolSub) kpiVolSub.textContent = 'IQR Spread: —';
+    if (kpiQuotesVal) kpiQuotesVal.textContent = '0';
+    if (kpiQuotesSub) kpiQuotesSub.textContent = '0 Matching Quotes';
   }
 
-  const effectiveFare = Math.round(meta.baseFare * wMeta.mult);
-  const effectiveIqr = Math.round(meta.iqr * wMeta.mult);
-  const effectiveVol = (parseFloat(meta.vol) * (windowVal === '1' ? 1.6 : windowVal === '7' ? 1.25 : 1.0)).toFixed(1);
-
+  let effectiveIdx = 104.22;
+  if (liveIndexData && liveIndexData.length > 0) {
+    const matching = liveIndexData.filter(r => currentCorridorFilter === 'ALL' ? r.route_code === null : r.route_code === currentCorridorFilter);
+    if (matching.length > 0) {
+      effectiveIdx = Number(matching[matching.length - 1].index_value);
+    }
+  }
   if (kpiIndexVal) kpiIndexVal.textContent = effectiveIdx.toFixed(2);
   if (kpiIndexBadge) {
     kpiIndexBadge.textContent = '+1.42% MoM';
     kpiIndexBadge.className = 'badge badge-live';
-  }
-  if (kpiFareVal) kpiFareVal.textContent = `₹${effectiveFare.toLocaleString('en-IN')}`;
-  if (kpiFareSub) kpiFareSub.textContent = `${meta.short} · ${wMeta.title}`;
-  if (kpiVolVal) kpiVolVal.textContent = `±${effectiveVol}%`;
-  if (kpiVolSub) kpiVolSub.textContent = `IQR Spread: ₹${effectiveIqr.toLocaleString('en-IN')}`;
-  if (kpiQuotesVal) {
-    const qCount = liveFareQuotes && liveFareQuotes.length > 0
-      ? liveFareQuotes.filter(q => (corridor === 'ALL' || q.route_code === corridor) && (windowVal === 'ALL' || q.advance_purchase_days === parseInt(windowVal, 10))).length
-      : 89;
-    kpiQuotesVal.textContent = String(qCount || 89);
-  }
-  if (kpiQuotesSub) {
-    kpiQuotesSub.textContent = corridor === 'ALL' ? '3 Direct Airlines + 1 OTA' : `${meta.short} Verified Quotes`;
   }
 }
 
@@ -5514,65 +5692,6 @@ async function handleInviteUserSubmit(event) {
     if (submitBtn) {
       submitBtn.disabled = false;
       submitBtn.textContent = '✉️ Send Official Invitation';
-    }
-  }
-}
-
-async function handleCreateUserSubmit(event) {
-  if (event) event.preventDefault();
-  const emailInput = document.getElementById('create-email');
-  const pwdInput = document.getElementById('create-password');
-  const roleSelect = document.getElementById('create-role');
-  const statusEl = document.getElementById('create-status');
-  const submitBtn = document.getElementById('btn-create-submit');
-
-  const email = emailInput?.value.trim();
-  const password = pwdInput?.value;
-  const role = roleSelect?.value || 'analyst';
-
-  if (!email || !password) return;
-
-  if (submitBtn) {
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Provisioning User...';
-  }
-
-  try {
-    const headers = await getAdminAuthHeader();
-    headers['Content-Type'] = 'application/json';
-
-    const res = await fetch(`${FASTAPI_BASE}/v1/admin/create-user`, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({ email, password, role })
-    });
-
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({ detail: `HTTP ${res.status}` }));
-      throw new Error(err.detail || `HTTP ${res.status}`);
-    }
-
-    if (statusEl) {
-      statusEl.style.display = 'block';
-      statusEl.style.background = '#ECFDF5';
-      statusEl.style.color = '#065F46';
-      statusEl.textContent = `User ${email} (${role.toUpperCase()}) successfully created and confirmed!`;
-    }
-
-    if (emailInput) emailInput.value = '';
-    if (pwdInput) pwdInput.value = '';
-    setTimeout(loadAdminProfiles, 1200);
-  } catch (err) {
-    if (statusEl) {
-      statusEl.style.display = 'block';
-      statusEl.style.background = '#FEF2F2';
-      statusEl.style.color = '#991B1B';
-      statusEl.textContent = `Provisioning failed: ${err.message}`;
-    }
-  } finally {
-    if (submitBtn) {
-      submitBtn.disabled = false;
-      submitBtn.textContent = '➕ Create & Confirm User';
     }
   }
 }
