@@ -31,10 +31,12 @@ function escapeHtml(str) {
 }
 
 /* ── Constants ───────────────────────────────────────────────────────────── */
-// Backend API base URL: defaults to Render production service, or uses origin if running on same host, or localhost
-const API_BASE = (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'))
-  ? (window.location.port === '8000' ? '' : 'http://localhost:8000')
-  : 'https://airiva.onrender.com';
+// Unified Airiva Backend API Base (Versioned under /v1)
+const API_BASE = (typeof window !== 'undefined' && window.API_BASE)
+  ? window.API_BASE
+  : ((typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:'))
+      ? (window.location.port === '8000' ? 'http://127.0.0.1:8000/v1' : 'http://localhost:8000/v1')
+      : 'https://airiva.onrender.com/v1');
 const COLORS     = {
   composite : '#1D4ED8', // Corporate Blue
   'DEL-BOM' : '#059669', // Emerald
@@ -195,7 +197,8 @@ function generateSyntheticQuotes(n = 50) {
 /* ── API helpers ─────────────────────────────────────────────────────────── */
 async function apiFetch(path, fallback) {
   try {
-    const res = await fetch(API_BASE + path, { signal: AbortSignal.timeout(5000) });
+    const cleanPath = path.startsWith('/v1/') ? path.substring(3) : (path.startsWith('/') ? path : '/' + path);
+    const res = await fetch(`${API_BASE}${cleanPath}`, { signal: AbortSignal.timeout(5000) });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return await res.json();
   } catch (e) {
@@ -529,21 +532,23 @@ function filterTable() {
 async function init() {
   // 1. Load index data (Prefer live Supabase index_values)
   const sbIndex = await fetchSupabaseIndex('daily');
-  const daily = sbIndex || await apiFetch('/index/daily?days=60', generateSyntheticData(60));
-  allDailyData = daily;
-  renderIndexChart(daily);
-  renderHeatmap(daily);
-  updateKPIs(daily);
+  const daily = sbIndex || await apiFetch('/index/daily?days=60', []);
+  allDailyData = daily || [];
+  if (allDailyData.length > 0) {
+    renderIndexChart(allDailyData);
+    renderHeatmap(allDailyData);
+    updateKPIs(allDailyData);
+  }
 
   // 2. Load quotes (Prefer live Supabase fare_quotes)
   const sbQuotes = await fetchSupabaseQuotes();
   let quotes = sbQuotes;
   if (!quotes) {
     const quotesResp = await apiFetch('/raw-quotes?page_size=100', null);
-    quotes = quotesResp?.data ?? generateSyntheticQuotes(80);
+    quotes = quotesResp?.data || [];
   }
-  _allQuotes = quotes;
-  renderTable(quotes);
+  _allQuotes = quotes || [];
+  renderTable(_allQuotes);
 
   // 3. Elasticity chart from quotes
   renderElasticityChart(quotes);

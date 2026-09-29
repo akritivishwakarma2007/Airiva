@@ -9,10 +9,12 @@
 /* ── Supabase Configuration (Strict Anon Client Only) ───────────────────────── */
 const SUPABASE_URL = 'https://kaljpvfcqsmanximfldz.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImthbGpwdmZjcXNtYW54aW1mbGR6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA1NzQ5MjQsImV4cCI6MjEwNjE1MDkyNH0.N34SyWmiBqyyubokFMc_KmCS57i7ZWIzRAr2Uowp6Yw';
-// Backend API base URL: defaults to Render production service, or uses origin if running on same host, or localhost
-const FASTAPI_BASE = (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'))
-  ? (window.location.port === '8000' ? '' : 'http://localhost:8000')
-  : 'https://airiva.onrender.com';
+// Unified Airiva Backend API Base (Versioned under /v1)
+const API_BASE = (typeof window !== 'undefined' && window.API_BASE)
+  ? window.API_BASE
+  : ((typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:'))
+      ? (window.location.port === '8000' ? 'http://127.0.0.1:8000/v1' : 'http://localhost:8000/v1')
+      : 'https://airiva.onrender.com/v1');
 
 let supabase = null;
 if (window.supabase && typeof window.supabase.createClient === 'function') {
@@ -438,9 +440,9 @@ async function fetchFareQuotesFromSupabase() {
     }
   }
 
-  // Fallback to local server raw quotes if Supabase is offline or unreachable
+  // Fallback to backend raw quotes if Supabase is offline or unreachable
   try {
-    const resp = await fetch(`${FASTAPI_BASE}/raw-quotes?page_size=200`);
+    const resp = await fetch(`${API_BASE}/raw-quotes?page_size=200`);
     if (resp.ok) {
       const json = await resp.json();
       const rows = json.data || json;
@@ -1451,7 +1453,7 @@ async function triggerLiveScrape() {
     const headers = await getAdminAuthHeader();
     headers['Content-Type'] = 'application/json';
 
-    const res = await fetch(`${FASTAPI_BASE}/v1/admin/trigger-scrape`, {
+    const res = await fetch(`${API_BASE}/admin/trigger-scrape`, {
       method: 'POST',
       headers,
       body: JSON.stringify({ sources })
@@ -1489,7 +1491,7 @@ async function loadAdminScrapeLogs() {
 
   try {
     const headers = await getAdminAuthHeader();
-    const res = await fetch(`${FASTAPI_BASE}/v1/admin/scrape-log?page=1&page_size=20`, {
+    const res = await fetch(`${API_BASE}/admin/scrape-log?page=1&page_size=20`, {
       headers
     });
 
@@ -1546,7 +1548,7 @@ async function handleInviteUserSubmit(event) {
     const headers = await getAdminAuthHeader();
     headers['Content-Type'] = 'application/json';
 
-    const res = await fetch(`${FASTAPI_BASE}/v1/admin/invite-user`, {
+    const res = await fetch(`${API_BASE}/admin/invite-user`, {
       method: 'POST',
       headers,
       body: JSON.stringify({ email, role })
@@ -1626,13 +1628,30 @@ function loadAdminStats() {
 async function testApiEndpoint(endpoint, resultElementId) {
   const box = document.getElementById(resultElementId);
   if (!box) return;
-  box.textContent = `// Sending request: GET ${endpoint} ...`;
+
+  // Clean path to ensure /v1 isn't duplicated
+  let cleanPath = endpoint;
+  if (cleanPath.startsWith('/v1/')) {
+    cleanPath = cleanPath.substring(3);
+  } else if (!cleanPath.startsWith('/')) {
+    cleanPath = '/' + cleanPath;
+  }
+
+  // Construct target URL using unified API_BASE
+  const targetUrl = (endpoint.startsWith('http://') || endpoint.startsWith('https://'))
+    ? endpoint
+    : `${API_BASE}${cleanPath}`;
+
+  box.textContent = `// Sending request: GET ${targetUrl} ...`;
 
   try {
-    const res = await fetch(endpoint, { signal: AbortSignal.timeout(3000) });
+    const res = await fetch(targetUrl, { signal: AbortSignal.timeout(4000) });
     if (res.ok) {
       const json = await res.json();
       box.textContent = JSON.stringify(json, null, 2);
+      return;
+    } else {
+      box.textContent = `// HTTP ${res.status} ${res.statusText}\n// Endpoint: ${targetUrl}`;
       return;
     }
   } catch (err) {
@@ -1666,7 +1685,7 @@ async function testApiEndpoint(endpoint, resultElementId) {
     }
     box.textContent = JSON.stringify(mock, null, 2);
   } catch (e) {
-    box.textContent = `// Error connecting to ${endpoint}: ${e.message}`;
+    box.textContent = `// Error connecting to ${targetUrl}: ${e.message}`;
   }
 }
 

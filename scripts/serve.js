@@ -131,14 +131,16 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // API Endpoints
-  if (pathname === '/health') {
+  // API Endpoints (supports both /v1/... and legacy paths)
+  const normPath = pathname.startsWith('/v1/') ? pathname.replace(/^\/v1/, '') : pathname;
+
+  if (pathname === '/health' || normPath === '/health') {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ status: 'ok', db_connected: true, version: '0.1.0' }));
     return;
   }
 
-  if (pathname === '/index/daily') {
+  if (normPath === '/index/daily') {
     const days = parseInt(parsed.query.days || '30', 10);
     const data = dailyIndexData.slice(-days);
     res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -146,7 +148,7 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  if (pathname === '/index/weekly') {
+  if (normPath === '/index/weekly') {
     // Group into weeks
     const weeks = [];
     for (let i = 0; i < dailyIndexData.length; i += 7) {
@@ -170,7 +172,7 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  if (pathname === '/index/monthly') {
+  if (normPath === '/index/monthly') {
     // 6 months
     const months = [
       { year: 2026, month: 2, index_value: 98.42, del_bom: 99.10, del_blr: 97.80, bom_blr: 98.20 },
@@ -185,7 +187,7 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  if (pathname === '/raw-quotes') {
+  if (normPath === '/raw-quotes') {
     const pageSize = parseInt(parsed.query.page_size || '100', 10);
     const data = (seedQuotes.length > 0 ? seedQuotes : []).slice(0, pageSize);
     res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -194,7 +196,7 @@ const server = http.createServer((req, res) => {
   }
 
   // MoSPI CPI Airfare Official Benchmark
-  if (pathname === '/benchmark/cpi' || pathname === '/data/benchmark/cpi_benchmark.json') {
+  if (normPath === '/benchmark/cpi' || normPath === '/data/benchmark/cpi_benchmark.json') {
     const benchPath = path.resolve(__dirname, '..', 'data', 'benchmark', 'cpi_benchmark.json');
     if (fs.existsSync(benchPath)) {
       res.writeHead(200, { 'Content-Type': 'application/json; charset=UTF-8' });
